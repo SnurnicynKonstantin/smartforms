@@ -32,7 +32,7 @@ Run this command from project directory
 
 ### Build project
 ```
-    $ webpak
+    $ webpack
 ```
 
 ### Run Express nodejs server
