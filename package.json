@@ -1,0 +1,42 @@
+{
+  "name": "smart-forms",
+  "version": "1.0.0",
+  "description": "## Usage",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwdtech/smart-forms.git"
+  },
+  "keywords": [
+    "json",
+    "form",
+    "generator",
+    "master",
+    "detail"
+  ],
+  "author": "IgorZiegler",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/hwdtech/smart-forms/issues"
+  },
+  "homepage": "https://github.com/hwdtech/smart-forms#readme",
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "jade-loader": "^0.8.0",
+    "jshint": "^2.9.2",
+    "jshint-loader": "^0.8.3",
+    "jshint-loader-reporter": "^1.0.4",
+    "jshint-stylish": "^2.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
