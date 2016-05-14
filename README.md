@@ -1,41 +1,39 @@
 # smart-forms
 
-## Usage
+## Setup
 
-Run this command from project directory
+### Run this commands from project directory
 
-### Install node
-```
-    $ sudo apt-get update
-    $ sudo apt-get install nodejs
-```
+Update package index files
 
-### Install npm
-```
-    $ sudo apt-get install npm
-```
+`$ sudo apt-get update`
 
-### Install bower
-```
-    $ sudo npm install -g bower
-```
+Install node.js
 
-### Install node modules
-```
-    $ npm install
-```
+`$ sudo apt-get install nodejs`
 
-### Install bower components
-```
-    $ bower install
-```
+Install npm
 
-### Build project
-```
-    $ webpack
-```
+`$ sudo apt-get install npm`
 
-### Run Express nodejs server
-```
-    $ node app.js
-```
+Install bower
+
+`$ sudo npm install -g bower`
+
+Install node modules
+
+`$ npm install`
+
+Install bower components
+
+`$ bower install`
+
+## Run project
+
+Build project
+
+`$ webpack`
+
+Run Express nodejs server
+
+`$ node app.js`
