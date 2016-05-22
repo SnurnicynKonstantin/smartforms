@@ -4,36 +4,16 @@
 
 ### Run this commands from project directory
 
-Update package index files
+1. Get the latest `nvm` [here](https://github.com/creationix/nvm) and run `nvm install 6`.
 
-`$ sudo apt-get update`
+2. Run  `$ npm install -g webpack` and `$ npm install -g babel-cli`.
 
-Install node.js
+3. Run `$ npm install` to install node modules.
 
-`$ sudo apt-get install nodejs`
-
-Install npm
-
-`$ sudo apt-get install npm`
-
-Install bower
-
-`$ sudo npm install -g bower`
-
-Install node modules
-
-`$ npm install`
-
-Install bower components
-
-`$ bower install`
+4. Go to `./node_modules/morph_expressions` and run `npm run build` to build it.
 
 ## Run project
 
-Build project
+1. Run `$ webpack` to build project.
 
-`$ webpack`
-
-Run Express nodejs server
-
-`$ node app.js`
+2. Run Express node server: `$ node app.js`

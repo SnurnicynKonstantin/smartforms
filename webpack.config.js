@@ -1,18 +1,19 @@
 'use strict';
 
 const webpack = require('webpack');
+const path = require('path');
 const NODE_ENV = process.env.NODE_ENV || 'development';
 let ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     context: __dirname + '/frontend',
+
     entry: {
-        app: './entry'
+        smartforms: './index'
     },
 
     resolve: {
-        modulesDirectories: ['node_modules', 'bower_components'],
-        moduleTemplates: ['*-loader', '*'],
+        modulesDirectories: ['node_modules'],
         extensions: ['', '.js']
     },
 
@@ -20,7 +21,8 @@ module.exports = {
         path: __dirname + '/public',
         publicPath: '/public/static',
         filename: 'js/[name].js',
-        library: '[name]'
+        library: '[name]',
+        libraryTarget: 'var'
     },
 
     watch: NODE_ENV === 'development',
@@ -32,6 +34,7 @@ module.exports = {
     devtool: (NODE_ENV === 'development') ? 'cheap-inline-module-source-map' : null,
 
     plugins: [
+        new ExtractTextPlugin("css/styles.css"),
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
         })
@@ -53,12 +56,15 @@ module.exports = {
 
         loaders: [{
             test: /\.js$/,
-            include: [__dirname + '/frontend'],
+            include: [path.join(__dirname, 'frontend')],
             exclude: /node_modules/,
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            query: {
+                presets: 'es2015'
+            }
         }, {
             test: /\.jade/,
-            include: [__dirname + './frontend/blocks'],
+            include: [path.join(__dirname, './frontend/blocks')],
             loader: 'jade-loader'
         }, {
             test: /\.css$/,
@@ -66,6 +72,16 @@ module.exports = {
         }, {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract('style-loader', 'css-loader!sass-loader')
+        }, {
+            test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            loader: "url?limit=10000"
+        }, {
+            test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
+            loader: 'file'
+        }, {
+            // expose jQuery to window for convenience and for Bootstrap
+            test: require.resolve('jquery'),
+            loader: 'expose?$!expose?jQuery'
         }],
         noParse: /\.min\.js/
     },
@@ -74,7 +90,7 @@ module.exports = {
         reporter: require('jshint-loader-reporter')('stylish')
     },
 
-// TODO Add host and port to configuration file
+    // TODO Add host and port to configuration file
     devServer: {
         host: 'localhost',
         port: '8085'
