@@ -3,7 +3,9 @@ import Input from './blocks/input/input';
 import Button from './blocks/button/button';
 
 import $ from 'jquery';
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
+import uniqueId from 'lodash/uniqueId';
+import defaults from 'lodash/defaults';
 
 import Factory from './factory';
 
@@ -11,9 +13,9 @@ import Parser from 'morph-expressions';
 
 export default class Form {
     constructor(el, config) {
-        this._id = _.uniqueId();
+        this._id = uniqueId();
         this._el = el;
-        this._config = _.cloneDeep(config);
+        this._config = cloneDeep(config);
 
         this._initItems();
     }
@@ -21,10 +23,10 @@ export default class Form {
     _initItems() {
         let form = this;
 
-        this._items = _.map(this._config.items, block_config => {
+        this._items = this._config.items.map(block_config => {
             let block_ctor = Factory.get(block_config['block']);
 
-            return new block_ctor(form, _.defaults({
+            return new block_ctor(form, defaults({
                 id: form.id
             }, block_config));
         });
@@ -44,7 +46,7 @@ export default class Form {
 
         let form = this;
 
-        _.forEach(this._items, block => {
+        this._items.forEach(block => {
             block.render();
             form._append(block);
         });

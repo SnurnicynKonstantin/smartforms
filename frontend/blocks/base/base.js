@@ -1,12 +1,12 @@
 import './base.scss';
 
-import _ from 'lodash';
+import cloneDeep from 'lodash/cloneDeep';
 
 class Block {
     constructor(parent, config) {
         this._el = null;
         this._parent = parent;
-        this._config = _.cloneDeep(config);
+        this._config = cloneDeep(config);
     }
 
     render() {
