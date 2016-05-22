@@ -1,0 +1,11 @@
+extends ../base/base.jade
+
+block inner
+    input.form-control(
+        type=type,
+        class=cls,
+        name=name,
+        value=value,
+        id="#{clsPrefix}-#{id}-elt-#{name}",
+        disabled=disabled
+    )

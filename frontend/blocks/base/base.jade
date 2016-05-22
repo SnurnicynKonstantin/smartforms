@@ -1,0 +1,25 @@
+div.form-group(class="#{clsPrefix}-error-#{name} #{cls}" +
+    (required ? " #{clsPrefix}-required" : "") +
+    (readOnly ? " #{clsPrefix}-readonly" : "") +
+    (disabled ? " #{clsPrefix}-disabled" : ""))
+
+    if label
+        label.control-label(for="#{clsPrefix}-#{id}-elt-#{name}") #{label}
+
+    div.controls
+        if prepend || append
+            div.input-group
+                if prepend
+                    span.input-group-addon #{prepend}
+
+                block inner
+
+                if append
+                    span.input-group-addon #{append}
+        else
+            block inner
+
+        if description
+            span.help-block #{description}
+
+        span.help-block(class="#{clsPrefix}-errortext", style="display:none;")
