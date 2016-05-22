@@ -5,7 +5,7 @@ import Base from '../base/base';
 import Factory from '../../factory';
 
 import $ from 'jquery';
-import _ from 'lodash';
+import defaults from 'lodash/defaults';
 
 export default class Input extends Base {
     constructor(parent, config) {
@@ -17,7 +17,7 @@ export default class Input extends Base {
     }
 
     render() {
-        let tplData = _.defaults(this.config, this.templateDefaults);
+        let tplData = defaults(this.config, this.templateDefaults);
 
         this.el = $(this.templateFn(tplData));
     }
