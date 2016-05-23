@@ -6,6 +6,7 @@ import $ from 'jquery';
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 import defaults from 'lodash/defaults';
+import isArray from 'lodash/isArray';
 
 import Factory from './factory';
 
@@ -23,13 +24,16 @@ export default class Form {
     _initItems() {
         let form = this;
 
-        this._items = this._config.items.map(block_config => {
-            let block_ctor = Factory.get(block_config['block']);
+        (this._config && this._config.items && isArray(this._config.items)) ?
+            this._items = this._config.items.map(blockConfig => {
+                let blockCtor = Factory.get(blockConfig.block);
 
-            return new block_ctor(form, defaults({
-                id: form.id
-            }, block_config));
-        });
+                return new blockCtor(form, defaults({
+                    id: form.id
+                }, blockConfig));
+            })
+            :
+            this._items = [];
     }
 
     get id() {
@@ -45,6 +49,12 @@ export default class Form {
         this._el.append('<div/>');
 
         let form = this;
+
+        if (this._config && this._config.formClasses) {
+            this._config.formClasses.forEach(formClass => {
+                this._el.addClass(formClass);
+            });
+        }
 
         this._items.forEach(block => {
             block.render();
