@@ -2,11 +2,8 @@
 $(function () {
     var el = $('.smartform');
 
-    var form = new smartforms.Form(el, {
-        formClasses: [
-            "form",
-            "form-horizontal"
-        ],
+    smartforms.createForm(el, {
+        cls: 'form',
         items: [{
             block: 'input',
             type: 'text',
@@ -30,8 +27,4 @@ $(function () {
             }]
         }]
     });
-
-    form.render();
-
-    form.test();
 });
