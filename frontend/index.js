@@ -4,7 +4,7 @@ import Button from './blocks/button/button';
 import Form from './blocks/form/form';
 
 function createForm(el, config) {
-  let form = new Form(config);
+  const form = new Form(config);
 
   form.render();
 
