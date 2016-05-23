@@ -3,6 +3,10 @@ $(function () {
     var el = $('.smartform');
 
     var form = new smartforms.Form(el, {
+        formClasses: [
+            "form",
+            "form-horizontal"
+        ],
         items: [{
             block: 'input',
             type: 'text',
