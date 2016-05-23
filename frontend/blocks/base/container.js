@@ -12,9 +12,9 @@ export default class Container extends Base {
 
   initItems() {
     this._items = this.config.items.map(blockConfig => {
-      let BlockCtor = Factory.get(blockConfig['block']);
+      const BlockCtor = Factory.get(blockConfig['block']);
 
-      let block = new BlockCtor(defaults({
+      const block = new BlockCtor(defaults({
         id: this.id
       }, blockConfig));
 

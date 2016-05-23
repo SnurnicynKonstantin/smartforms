@@ -15,7 +15,7 @@ export default class Block {
   }
 
   render() {
-    let tplData = defaults(this.getTemplateData(), this.templateDefaults);
+    const tplData = defaults(this.getTemplateData(), this.templateDefaults);
 
     this._el = $(this.templateFn(tplData));
   }
