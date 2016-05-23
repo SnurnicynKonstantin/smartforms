@@ -4,46 +4,46 @@ import Factory from '../factory';
 import defaults from 'lodash/defaults';
 
 export default class Container extends Base {
-    constructor(config) {
-        super(config);
+  constructor(config) {
+    super(config);
 
-        this.initItems();
-    }
+    this.initItems();
+  }
 
-    initItems() {
-        this._items = this.config.items.map(blockConfig => {
-            let blockCtor = Factory.get(blockConfig['block']);
+  initItems() {
+    this._items = this.config.items.map(blockConfig => {
+      let BlockCtor = Factory.get(blockConfig['block']);
 
-            let block = new blockCtor(defaults({
-                id: this.id
-            }, blockConfig));
+      let block = new BlockCtor(defaults({
+        id: this.id
+      }, blockConfig));
 
-            block.parent = this;
+      block.parent = this;
 
-            return block;
-        });
-    }
+      return block;
+    });
+  }
 
-    render() {
-        super.render();
+  render() {
+    super.render();
 
-        this._items.forEach(block => {
-            block.render();
-            this.appendChild(block);
-        });
-    }
+    this._items.forEach(block => {
+      block.render();
+      this.appendChild(block);
+    });
+  }
 
-    appendChild(block) {
-        throw new Error('Not implemented');
-    }
+  appendChild(block) {
+    throw new Error('Not implemented');
+  }
 
-    afterRender() {
-        this._items.forEach(block => {
-            block.afterRender();
-        });
-    }
+  afterRender() {
+    this._items.forEach(block => {
+      block.afterRender();
+    });
+  }
 
-    get items() {
-        return this._items;
-    }
+  get items() {
+    return this._items;
+  }
 }
