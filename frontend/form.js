@@ -6,7 +6,6 @@ import $ from 'jquery';
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 import defaults from 'lodash/defaults';
-import isArray from 'lodash/isArray';
 
 import Factory from './factory';
 
@@ -24,7 +23,7 @@ export default class Form {
     _initItems() {
         let form = this;
 
-        (this._config && this._config.items && isArray(this._config.items)) ?
+        (this._config && this._config.items && Array.isArray(this._config.items)) ?
             this._items = this._config.items.map(blockConfig => {
                 let blockCtor = Factory.get(blockConfig.block);
 
