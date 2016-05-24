@@ -8,7 +8,9 @@ $(function () {
             block: 'input',
             type: 'text',
             name: 'name',
-            label: 'Имя'
+            label: 'Имя',
+            placeholder: 'Введите имя',
+            suppressLabel: true
         }, {
             block: 'input',
             type: 'date',

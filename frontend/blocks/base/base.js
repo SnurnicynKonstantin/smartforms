@@ -62,7 +62,9 @@ export default class Block {
       disabled: false,
       append: null,
       prepend: null,
-      description: null
+      description: null,
+      placeholder: null,
+      suppressLabel: false
     };
   }
 }

@@ -3,7 +3,7 @@ div.form-group(class="#{clsPrefix}-error-#{name} #{cls}" +
     (readOnly ? " #{clsPrefix}-readonly" : "") +
     (disabled ? " #{clsPrefix}-disabled" : ""))
 
-    if label
+    if label && !suppressLabel
         label.control-label(for="#{clsPrefix}-#{id}-elt-#{name}") #{label}
 
     div.controls
