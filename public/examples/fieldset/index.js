@@ -6,12 +6,41 @@ $(function () {
     cls: 'form',
     items: [{
       block: 'fieldset',
-      label: 'fieldset',
+      label: 'Fieldset with layout',
+      layout: [1, 2, 3],
       items: [{
         block: 'input',
         label: 'test',
         disabled: true,
         placeholder: 'test'
+      }, {
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
+      }, {
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
+      }, {
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
+      }, {
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
+      }, {
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
+      }]
+    }, {
+      block: 'fieldset',
+      label: 'Fieldset without layout',
+      items: [{
+        block: 'input',
+        disabled: false,
+        placeholder: 'test1'
       }, {
         block: 'input',
         disabled: false,

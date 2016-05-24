@@ -2,6 +2,6 @@ div(
     class=inputSetClass
 )
     label.control-label #{label}
-    div(
-        class=inputSetRowClass
-    )
+
+    each val in layout
+        include ./fieldset_row

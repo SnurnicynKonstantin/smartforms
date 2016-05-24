@@ -13,6 +13,7 @@ export default class Fieldset extends Container {
     config.inputSetClass = 'input-set';
     config.inputSetRowClass = 'input-set-row';
     config.inputSetColClass = 'input-set-col';
+    config.layout = Array.isArray(config.layout) ? config.layout : [config.items.length];
 
     super(config);
   }
@@ -30,7 +31,10 @@ export default class Fieldset extends Container {
   }
 
   appendChild(block) {
-    this.el.children('div').append($(colTemplate()).append(block.el));
+    const index = this.config.layout.findIndex(x => 0 !== x);
+    this.config.layout[index]--;
+
+    this.el.children('div').eq(index).append($(colTemplate(this.config)).append(block.el));
   }
 }
 

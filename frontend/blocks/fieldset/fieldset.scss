@@ -61,6 +61,10 @@
   border-collapse: collapse;
   display: table;
   width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: -15px;
+  }
 }
 
 .input-set-row + .input-set-row .form-control,
