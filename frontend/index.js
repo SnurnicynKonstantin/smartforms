@@ -1,6 +1,7 @@
 import Actions from './blocks/actions/actions';
 import Input from './blocks/input/input';
 import Button from './blocks/button/button';
+import Select from './blocks/select/select';
 import Fieldset from './blocks/fieldset/fieldset';
 import Form from './blocks/form/form';
 

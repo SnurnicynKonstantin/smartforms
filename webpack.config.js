@@ -88,6 +88,9 @@ module.exports = {
       // expose jQuery to window for convenience and for Bootstrap
       test: require.resolve('jquery'),
       loader: 'expose?$!expose?jQuery'
+    }, {
+      test: /node_modules\/jquery\.formstyler\/.+\.(jsx|js)$/,
+      loader: 'imports?jQuery=jquery,$=jquery,this=>window'
     }],
     noParse: /\.min\.js/
   },
