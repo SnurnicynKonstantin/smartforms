@@ -10,9 +10,6 @@ import $ from 'jquery';
 
 export default class Fieldset extends Container {
   constructor(config) {
-    config.inputSetClass = 'input-set';
-    config.inputSetRowClass = 'input-set-row';
-    config.inputSetColClass = 'input-set-col';
     config.layout = Array.isArray(config.layout) ? config.layout : [config.items.length];
 
     super(config);
