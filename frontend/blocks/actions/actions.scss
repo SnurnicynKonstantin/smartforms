@@ -1,4 +1,6 @@
-.form-actions {
+@import "../../styles/variables";
+
+.#{$cls-prefix}-form-actions {
   padding: 20px;
   margin-top: 20px;
   margin-bottom: 20px;

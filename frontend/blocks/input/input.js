@@ -1,4 +1,3 @@
-import './input.scss';
 import template from './input.jade';
 
 import Base from '../base/base';

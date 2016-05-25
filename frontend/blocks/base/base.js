@@ -1,5 +1,3 @@
-import './base.scss';
-
 import $ from 'jquery';
 
 import cloneDeep from 'lodash/cloneDeep';
@@ -68,7 +66,7 @@ export default class Block {
 
   get templateDefaults() {
     return {
-      clsPrefix: 'smartforms',
+      _prefix: 'smartforms',
       id: this.id,
       cls: '',
       value: '',
