@@ -23,6 +23,21 @@ export default class Block {
   afterRender() {
   }
 
+  validate() {
+    return true;
+  }
+
+  get isValid() {
+    return true;
+  }
+
+  get value() {
+    return {};
+  }
+
+  set value(val) {
+  }
+
   get el() {
     return this._el;
   }
@@ -53,7 +68,7 @@ export default class Block {
 
   get templateDefaults() {
     return {
-      clsPrefix: 'jsonform',
+      clsPrefix: 'smartforms',
       id: this.id,
       cls: '',
       value: '',

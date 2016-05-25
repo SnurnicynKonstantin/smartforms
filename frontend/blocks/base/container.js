@@ -2,6 +2,7 @@ import Base from './base';
 import Factory from '../factory';
 
 import defaults from 'lodash/defaults';
+import assign from 'lodash/assign';
 
 export default class Container extends Base {
   constructor(config) {
@@ -27,10 +28,35 @@ export default class Container extends Base {
   render() {
     super.render();
 
-    this._items.forEach(block => {
+    this.items.forEach(block => {
       block.render();
       this.appendChild(block);
     });
+  }
+
+  validate() {
+    return this.items.every(block => {
+      return block.validate();
+    });
+  }
+
+  get isValid() {
+    return this.items.every(block => {
+      return block.isValid;
+    });
+  }
+
+  get value() {
+    const result = {};
+
+    this.items.forEach(block => {
+      assign(result, block.value);
+    });
+
+    return result;
+  }
+
+  set value(val) {
   }
 
   appendChild(block) {
@@ -38,7 +64,7 @@ export default class Container extends Base {
   }
 
   afterRender() {
-    this._items.forEach(block => {
+    this.items.forEach(block => {
       block.afterRender();
     });
   }
