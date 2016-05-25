@@ -1,0 +1,56 @@
+$modal_image_bg_clr: #fff;
+$modal_header_height: 60px;
+
+.smartforms-modal-header {
+  position: relative;
+  height: $modal_header_height;
+  padding-left: $modal_header_height + 20px;
+}
+
+.smartforms-modal-image,
+.smartforms-modal-title {
+  display: table;
+  table-layout: fixed;
+}
+
+.smartforms-modal-image {
+  background: $modal_image_bg_clr;
+  border: 3px solid $modal_image_bg_clr;
+  border-radius: 5px;
+  height: $modal_header_height;
+  width: $modal_header_height;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  img {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+.smartforms-modal-title {
+  height: $modal_header_height;
+  width: 100%;
+
+  h4 {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.modal-header {
+  button.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+  }
+}

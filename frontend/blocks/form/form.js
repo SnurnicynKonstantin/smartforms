@@ -8,6 +8,6 @@ export default class Form extends Container {
   }
 
   appendChild(block) {
-    this._el.children().append(block.el);
+    this.el.children().append(block.el);
   }
 }

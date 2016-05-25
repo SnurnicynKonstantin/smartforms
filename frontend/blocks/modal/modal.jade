@@ -1,0 +1,28 @@
+div.modal.fade(
+    tabindex=-1,
+    role="dialog"
+)
+    div.modal-dialog(
+        role="document"
+    )
+        div.modal-content
+            div.modal-header
+
+                button.close(
+                    type="button",
+                    data-dismiss="modal",
+                    aria-label="Close"
+                )
+                    i.glyphicon.glyphicon-remove
+
+                div(class="#{clsPrefix}-modal-header")
+                    div(class="#{clsPrefix}-modal-image")
+                        span
+                            img(src=imgUrl)
+
+                    div(class="#{clsPrefix}-modal-title")
+                        h4.modal-title #{title}
+
+            div.modal-body
+
+            div.modal-footer
