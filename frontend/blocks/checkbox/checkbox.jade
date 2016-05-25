@@ -1,0 +1,10 @@
+extends ../base/base.jade
+
+block inner
+    div(class="#{checkboxCls}-checkbox #{cls}")
+        .checkbox
+            div(class="#{checkboxCls}-checkbox-wrapper")
+                label
+                    input(name="#{name}" type="checkbox", checked=(checked && "checked") class=checkboxCls)
+            div(class="#{checkboxCls}-text-wrapper")
+                span!=htmlLabel

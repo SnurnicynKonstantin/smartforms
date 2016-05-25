@@ -12,14 +12,9 @@ module.exports = {
     smartforms: './index'
   },
 
-  resolve: {
-    modulesDirectories: ['node_modules'],
-    extensions: ['', '.js']
-  },
-
   output: {
     path: path.join(__dirname, 'public'),
-    publicPath: '/public/static',
+    publicPath: '/static',
     filename: 'js/[name].js',
     library: '[name]',
     libraryTarget: 'var'
@@ -34,10 +29,7 @@ module.exports = {
   devtool: (NODE_ENV === 'development') ? 'cheap-inline-module-source-map' : null,
 
   plugins: [
-    new ExtractTextPlugin('css/styles.css'),
-    new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(NODE_ENV)
-    })
+    new ExtractTextPlugin('css/styles.css')
   ].concat(NODE_ENV === 'production' ? [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
@@ -51,23 +43,21 @@ module.exports = {
     preLoaders: [
       {
         test: /\.jsx?$/,
-        loaders: [
-          'eslint'
-        ],
-        include: [
-          path.join(__dirname, 'frontend')
-        ]
+        loader: 'eslint',
+        include: path.join(__dirname, 'frontend')
       }
     ],
 
     loaders: [{
       test: /\.js$/,
-      include: [path.join(__dirname, 'frontend')],
-      exclude: /node_modules/,
-      loader: 'babel-loader',
+      include: path.join(__dirname, 'frontend'),
+      loader: 'babel',
       query: {
         presets: 'es2015'
       }
+    }, {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loader: 'file-loader?name=/images/[name].[ext]'
     }, {
       test: /\.jade/,
       include: [path.join(__dirname, './frontend/blocks')],

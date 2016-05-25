@@ -1,0 +1,90 @@
+.iagree-text-wrapper {
+  text-align: left;
+}
+
+.iagree-checkbox {
+  margin-top: -20px;
+}
+
+.checkbox {
+  position: relative;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.form .checkbox {
+  line-height: 1.534;
+  margin-top: 0;
+  margin-bottom: 14px;
+  min-height: 19px;
+}
+
+.form-horizontal .checkbox {
+  margin-bottom: 12px;
+  min-height: 0;
+  padding-top: 13px;
+}
+
+.iagree-checkbox-wrapper {
+  padding-left: 5px;
+  padding-bottom: 15px;
+  display: inline-block;
+  float: left;
+}
+
+.checkbox label {
+  min-height: 25px;
+  padding-left: 30px;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+  position: relative;
+}
+
+.form .checkbox label {
+  min-height: 19px;
+}
+
+.jq-checkbox {
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  cursor: pointer;
+  height: 19px;
+  left: 0;
+  top: -2px;
+  vertical-align: middle;
+  width: 19px;
+  -webkit-transition: all 0.1s ease-out;
+  -o-transition: all 0.1s ease-out;
+  transition: all 0.1s ease-out;
+  &.focused {
+    border-color: #0a9acb;
+  }
+  &.disabled {
+    opacity: 0.55;
+    filter: alpha(opacity = 55);
+  }
+  &.checked {
+    background-color: #0a9acb;
+    border-color: #0a9acb;
+  }
+  .jq-checkbox__div {
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    background: url(./icons/checkbox.png) no-repeat;
+    height: 14px;
+    margin: 1px 0 0 1px;
+    width: 0;
+  }
+  border-radius: 2px;
+  &.checked .jq-checkbox__div {
+    width: 14px;
+  }
+}
+
+.checkbox .jq-checkbox {
+  position: absolute !important;
+  top: 0;
+}

@@ -10,10 +10,11 @@ export default class Select extends Base {
   get templateFn() {
     return template;
   }
+
   render() {
     super.render();
 
-    this.el.find('input, select').styler();
+    this.el.find('select').styler();
   }
 }
 
