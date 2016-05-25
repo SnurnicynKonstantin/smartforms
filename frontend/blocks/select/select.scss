@@ -1,3 +1,32 @@
+$listItem: #4b5c70;
+$selectedItem: #96a7b7;
+$itemHover: #4b5c70;
+$backgroundHover: #eaedf1;
+$itemPlaceholder: #96a7b7;
+$jqSelectboxSelectBackground: #fff;
+$jqSelectboxSelectBorder: #d7d7d7;
+$jqSelectboxSelectHover: #bebebe;
+$jqSelectboxFocusedBorder: #bebebe;
+$textmask: #a9a9a9;
+$jqSelectboxTrigger: #252525;
+$jqSelectboxDropdown: #fff;
+$jqSelectboxDisabled: (
+  background: #f5f5f5,
+  border-color: #ccc,
+  color: #888,
+);
+$jqHasError: (
+  background-color: #fce8e9 !important,
+  border-color: #d7d7d7,
+  color: #e01f2b,
+);
+
+@mixin print-styles($map) {
+  @each $property, $value in $map {
+    #{$property}: $value;
+  }
+}
+
 .jq-selectbox {
   border: 0;
   cursor: pointer;
@@ -7,7 +36,7 @@
     padding: 6px 0;
   }
   li {
-    color: #4b5c70;
+    color: $listItem;
     font-size: 15px;
     max-width: 100%;
     min-height: 18px;
@@ -16,13 +45,13 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     &.selected {
-      color: #96a7b7;
+      color: $selectedItem;
       &:hover {
-        color: #4b5c70;
+        color: $itemHover;
       }
     }
     &:hover {
-      background-color: #eaedf1;
+      background-color: $backgroundHover;
     }
     &.disabled {
       color: rgba(150, 167, 183, 0.5);
@@ -33,13 +62,13 @@
     }
   }
   .placeholder {
-    color: #96a7b7;
+    color: $itemPlaceholder;
   }
 }
 
 .jq-selectbox__select {
-  background: #fff;
-  border: 1px solid #d7d7d7;
+  background: $jqSelectboxSelectBackground;
+  border: 1px solid $jqSelectboxSelectBorder;
   border-radius: 3px;
   font-size: 15px;
   height: 42px;
@@ -49,25 +78,21 @@
   -o-transition: all 0.15s ease-out;
   transition: all 0.15s ease-out;
   &:hover, &:active {
-    border-color: #bebebe;
+    border-color: $jqSelectboxSelectHover;
   }
 }
 
 .jq-selectbox {
   &.focused .jq-selectbox__select {
-    border-color: #bebebe;
+    border-color: $jqSelectboxFocusedBorder;
   }
   &.disabled .jq-selectbox__select {
-    background: #f5f5f5;
-    border-color: #ccc;
-    color: #888;
+    @include print-styles($jqSelectboxDisabled);
   }
 }
 
 .has-error .jq-selectbox__select {
-  background-color: #fce8e9 !important;
-  border-color: #d7d7d7;
-  color: #e01f2b;
+  @include print-styles($jqHasError);
 }
 
 .jq-selectbox__select-text {
@@ -84,7 +109,7 @@
 }
 
 .jq-selectbox__select-text .textmask {
-  color: #a9a9a9;
+  color: $textmask;
 }
 
 .jq-selectbox__trigger {
@@ -96,7 +121,7 @@
 }
 
 .jq-selectbox__trigger-arrow {
-  border-top: 5px solid #252525;
+  border-top: 5px solid $jqSelectboxTrigger;
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
   height: 0;
@@ -125,7 +150,7 @@
 }
 
 .jq-selectbox__dropdown {
-  background: #fff;
+  background: $jqSelectboxDropdown;
   border-radius: 5px;
   margin: 0;
   padding: 0;
