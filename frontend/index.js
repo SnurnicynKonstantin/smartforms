@@ -4,6 +4,7 @@ import './blocks/button/button';
 import './blocks/select/select';
 import './blocks/checkbox/checkbox';
 import './blocks/fieldset/fieldset';
+import './blocks/static/static';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
@@ -16,6 +17,8 @@ function createForm(el, config) {
   el.replaceWith(form.el);
 
   form.afterRender();
+
+  return form;
 }
 
 function createModal(el, config) {
@@ -26,6 +29,8 @@ function createModal(el, config) {
   el.replaceWith(modal.el);
 
   modal.afterRender();
+
+  return modal;
 }
 
 module.exports = {

@@ -11,10 +11,24 @@ export default class Checkbox extends Base {
     return template;
   }
 
+  get value() {
+    const value = {};
+
+    value[this.config.name] = this._checkboxWrapper.prop('checked');
+
+    return value;
+  }
+
+  set value(val) {
+    this._checkboxWrapper.prop('checked', val);
+    this._checkboxWrapper.trigger('refresh');
+  }
+
   render() {
     super.render();
 
-    this.el.find('input, checkbox').styler();
+    this._checkboxWrapper = this.el.find(`#${this.id}-checkbox`);
+    this._checkboxWrapper.styler();
   }
 }
 

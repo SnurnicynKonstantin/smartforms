@@ -8,7 +8,7 @@ export default class Block {
   constructor(config) {
     this._el = null;
     this._parent = null;
-    this._id = config.id || uniqueId();
+    this._id = uniqueId();
     this._config = cloneDeep(config);
   }
 

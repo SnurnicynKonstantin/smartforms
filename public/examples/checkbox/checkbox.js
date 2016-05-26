@@ -2,7 +2,7 @@
 $(function () {
   var el = $('.smartform-with-checkbox');
 
-  smartforms.createForm(el, {
+  var form = smartforms.createForm(el, {
     cls: 'form form-horizontal',
     items: [{
       block: 'checkbox',

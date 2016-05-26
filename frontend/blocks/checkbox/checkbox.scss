@@ -18,26 +18,15 @@ $border-clr: #d7d7d7;
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-
+    line-height: 1.534;
+    padding-top: 13px;
     label {
-      min-height: 25px;
+      min-height: 19px;
       padding-left: 30px;
       margin-bottom: 0;
       font-weight: normal;
       cursor: pointer;
       position: relative;
-    }
-  }
-
-  .checkbox {
-    line-height: 1.534;
-    margin-top: 0;
-    margin-bottom: 14px;
-    min-height: 19px;
-    padding-top: 13px;
-
-    label {
-      min-height: 19px;
     }
   }
 

@@ -2,12 +2,13 @@
 $(function () {
   var el = $('.smartform-with-select');
 
-  smartforms.createForm(el, {
+  var form = smartforms.createForm(el, {
     cls: 'form',
     items: [{
       block: 'select',
       name: 'month',
       label: 'месяц',
+      value: '11',
       values: [{
         name: 'Январь',
         value: '01'
@@ -22,8 +23,7 @@ $(function () {
         value: '04'
       }, {
         name: 'Май',
-        value: '05',
-        selected: true
+        value: '05'
       }, {
         name: 'Июнь',
         value: '06'
