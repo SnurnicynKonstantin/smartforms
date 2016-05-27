@@ -11,6 +11,7 @@
       mask: '9999 9999999',
       maskPlaceholder: '_',
       value: '1234 56789123',
+      textAlign: 'center',
       rightMark: '<span class="glyphicon glyphicon-ruble" aria-hidden="true" style="font-size: 11px"></span>'
     }]
   });
