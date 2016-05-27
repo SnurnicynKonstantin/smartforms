@@ -1,7 +1,6 @@
 import Base from './base';
 import Factory from '../factory';
 
-import defaults from 'lodash/defaults';
 import assign from 'lodash/assign';
 
 export default class Container extends Base {
