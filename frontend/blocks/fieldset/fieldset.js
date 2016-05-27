@@ -1,37 +1,62 @@
 import template from './fieldset.jade';
-import colTemplate from './fieldset_col.jade';
 
 import './fieldset.scss';
 
 import Container from '../base/container';
 import Factory from '../factory';
 
-import $ from 'jquery';
-
 export default class Fieldset extends Container {
   constructor(config) {
-    config.layout = Array.isArray(config.layout) ? config.layout : [config.items.length];
+    const items = config.items.map(item => Object.assign({}, item, { suppressLabel: true }));
+    const finalConfig = Object.assign({}, config, { items });
 
-    super(config);
+    finalConfig.layout = Array.isArray(config.layout) ? config.layout : [{count: config.items.length}];
+    finalConfig.layout = finalConfig.layout.map(rowConfig => Number.isInteger(rowConfig) ? {count: rowConfig} : rowConfig);
+
+    let start = 0;
+    finalConfig.items = finalConfig.layout.map(rowConfig => {
+      const result = {
+        items: items.slice(start, start + rowConfig.count),
+        block: 'fieldsetRow',
+        width: rowConfig.width
+      };
+      start += rowConfig.count;
+
+      return result;
+    });
+
+    super(finalConfig);
   }
 
   get templateFn() {
     return template;
   }
 
-  initItems() {
-    this.config.items.forEach(blockConfig => {
-      blockConfig.suppressLabel = true;
-    });
+  addRow(config, index = 'last') {
+    const RowConstructor = Factory.get('fieldsetRow');
+    const row = new RowConstructor(config);
 
-    super.initItems();
+    const finalIndex = (!Number.isInteger(index) || index >= this.items.length) ? 'last' : index;
+
+    row.parent = this;
+    row.render();
+
+    this.items.push(row);
+
+    const appendChildWithIndex = {
+      last: () => this.el.children('div').append(row.el),
+      number: number => this.el.find('.input-set-row').eq(finalIndex).before(row.el)
+    };
+
+    (appendChildWithIndex[finalIndex] || appendChildWithIndex.number)(finalIndex);
+  }
+
+  removeRow(index) {
+    this.el.find('.input-set-row').eq(index).remove();
   }
 
   appendChild(block) {
-    const index = this.config.layout.findIndex(x => 0 !== x);
-    this.config.layout[index]--;
-
-    this.el.children('div').eq(index).append($(colTemplate(this.config)).append(block.el));
+    this.el.children('div').append(block.el);
   }
 }
 

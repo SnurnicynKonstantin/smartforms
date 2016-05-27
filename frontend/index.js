@@ -6,6 +6,7 @@ import './blocks/checkbox/checkbox';
 import './blocks/fieldset/fieldset';
 import './blocks/static/static';
 import './blocks/text/text';
+import './blocks/fieldset/fieldset_row';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';

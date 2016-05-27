@@ -1,8 +1,6 @@
 import Base from './base';
 import Factory from '../factory';
 
-import assign from 'lodash/assign';
-
 export default class Container extends Base {
   constructor(config) {
     super(config);
@@ -47,10 +45,10 @@ export default class Container extends Base {
     const result = {};
 
     this.items.forEach(block => {
-      assign(result, block.value);
+      Object.assign(result, block.value);
     });
 
-    return result;
+    return this.config.name ? {[this.config.name]: result} : result;
   }
 
   set value(val) {

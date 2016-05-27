@@ -7,48 +7,59 @@ $(function () {
     items: [{
       block: 'fieldset',
       label: 'Fieldset with layout',
-      layout: [1, 2, 3],
+      layout: [1, {count: 2, width: [3, 9]}, 3],
+      name: 'fieldset0',
       items: [{
         block: 'input',
         label: 'test',
         disabled: true,
-        placeholder: 'test'
+        placeholder: 'test0',
+        name: 'test0'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test1',
+        name: 'test1'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test2',
+        name: 'test2'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test3',
+        name: 'test3'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test4',
+        name: 'test4'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test5',
+        name: 'test5'
       }]
     }, {
       block: 'fieldset',
       label: 'Fieldset without layout',
+      name: 'fieldset1',
       items: [{
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test6',
+        name: 'test6'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test7',
+        name: 'test7'
       }, {
         block: 'input',
         disabled: false,
-        placeholder: 'test1'
+        placeholder: 'test8',
+        name: 'test8'
       }]
     }, {
       block: 'actions',
