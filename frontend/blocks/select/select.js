@@ -25,7 +25,7 @@ export default class Select extends Base {
   render() {
     super.render();
 
-    this._selectWrapper = this.el.find(`#${this.id}-select`);
+    this._selectWrapper = this.el.find(`#${this.id}`);
     this._select = this._selectWrapper[0];
     this._selectWrapper.styler();
 

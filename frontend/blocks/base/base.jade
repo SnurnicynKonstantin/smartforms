@@ -4,7 +4,7 @@ div.form-group(class="#{_prefix}-form-group error-#{name} #{cls}" +
     (disabled ? " disabled" : ""))
 
     if label && !suppressLabel
-        label.control-label(for="#{id}-elt-#{name}") #{label}
+        label.control-label(for=id) #{label}
 
     div.controls
         block inner

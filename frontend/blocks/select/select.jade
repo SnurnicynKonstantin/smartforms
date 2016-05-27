@@ -2,8 +2,8 @@ extends ../base/base.jade
 
 block inner
     select.form-control(
-        name=name,
-        id="#{id}-select"
+        id=id,
+        name=name
     )
         each item in values
             option(value=item.value) #{item.name}

@@ -25,7 +25,7 @@ export default class Checkbox extends Base {
   render() {
     super.render();
 
-    this._checkboxWrapper = this.el.find(`#${this.id}-checkbox`);
+    this._checkboxWrapper = this.el.find(`#${this.id}`);
     this._checkboxWrapper.styler();
   }
 }
