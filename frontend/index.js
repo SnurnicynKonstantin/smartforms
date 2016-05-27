@@ -1,12 +1,13 @@
 import './blocks/actions/actions';
-import './blocks/input/input';
 import './blocks/button/button';
-import './blocks/select/select';
 import './blocks/checkbox/checkbox';
+import './blocks/date/date';
 import './blocks/fieldset/fieldset';
+import './blocks/fieldset/fieldset_row';
+import './blocks/input/input';
+import './blocks/select/select';
 import './blocks/static/static';
 import './blocks/text/text';
-import './blocks/fieldset/fieldset_row';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
