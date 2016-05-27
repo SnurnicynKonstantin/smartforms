@@ -1,0 +1,112 @@
+{
+  "cls": "form form-horizontal",
+  "items": [
+    {
+      "block": "input",
+      "type": "text",
+      "name": "name",
+      "label": "Имя",
+      "labelWidth": 3,
+      "placeholder": "Введите имя",
+      "suppressLabel": true
+    },
+    {
+      "block": "select",
+      "name": "month",
+      "label": "месяц",
+      "labelWidth": 3,
+      "value": "11",
+      "values": [
+        {
+          "name": "Январь",
+          "value": "01"
+        },
+        {
+          "name": "Февраль",
+          "value": "02"
+        },
+        {
+          "name": "Март",
+          "value": "03"
+        },
+        {
+          "name": "Апрель",
+          "value": "04"
+        },
+        {
+          "name": "Май",
+          "value": "05"
+        },
+        {
+          "name": "Июнь",
+          "value": "06"
+        },
+        {
+          "name": "Июль",
+          "value": "07"
+        },
+        {
+          "name": "Август",
+          "value": "08"
+        },
+        {
+          "name": "Сентябрь",
+          "value": "09"
+        },
+        {
+          "name": "Октябрь",
+          "value": "10"
+        },
+        {
+          "name": "Ноябрь",
+          "value": "11"
+        },
+        {
+          "name": "Декабрь",
+          "value": "12"
+        }
+      ]
+    },
+    {
+      "block": "fieldset",
+      "label": "Fieldset without layout",
+      "labelWidth": 3,
+      "name": "fieldset1",
+      "items": [
+        {
+          "block": "input",
+          "disabled": false,
+          "placeholder": "test6",
+          "name": "test6"
+        },
+        {
+          "block": "input",
+          "disabled": false,
+          "placeholder": "test7",
+          "name": "test7"
+        },
+        {
+          "block": "input",
+          "disabled": false,
+          "placeholder": "test8",
+          "name": "test8"
+        }
+      ]
+    },
+    {
+      "block": "actions",
+      "items": [
+        {
+          "block": "button",
+          "label": "OK",
+          "disabled": true,
+          "cls": "btn-primary"
+        },
+        {
+          "block": "button",
+          "label": "Cancel"
+        }
+      ]
+    }
+  ]
+}

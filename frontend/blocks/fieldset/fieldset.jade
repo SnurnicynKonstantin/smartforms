@@ -1,5 +1,7 @@
-div(
-    class="#{_prefix}-fieldset"
-)
-    label.control-label #{label}
-    .fieldset-rows-contianer
+- var showLabel = label && !suppressLabel
+div(class="#{_prefix}-fieldset")
+
+    if showLabel
+        label.control-label(class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
+
+    .fieldset-rows-contianer(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
