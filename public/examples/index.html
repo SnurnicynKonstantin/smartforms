@@ -1,20 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    <title>Welcome to smartforms</title>
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+
+  <!-- Our library css -->
+  <link rel="stylesheet" type="text/css" href="/static/css/styles.css"/>
+
+  <title>Welcome to smartforms</title>
+
+  <!-- Our library js-->
+  <script type="text/javascript" src="/static/js/smartforms.js"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!-- Example -->
+  <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
-List of examples:
-<ul>
-    <li><a href="basic">Basic</a></li>
-    <li><a href="fieldset">Fieldset</a></li>
-    <li><a href="select">Select</a></li>
-    <li><a href="checkbox">Checkbox</a></li>
-    <li><a href="modal">Modal</a></li>
-    <li><a href="text">Text field</a></li>
-    <li><a href="static">Static text field</a></li>
-</ul>
+<div class="container">
+  <p>Welcome to smartforms</p>
+
+  List of examples:
+  <select class="select-example">
+    <option value="basic" selected="selected">Basic</option>
+    <option value="fieldset">Fieldset</option>
+    <option value="select">Select</option>
+    <option value="checkbox">Checkbox</option>
+    <option value="text">Text field</option>
+    <option value="static">Static text field</option>
+  </select>
+
+  <div class="form-container">
+    <div class="well" style="margin: 20px;">
+      <form class="smartform"></form>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary modal-btn">
+    Launch demo modal
+  </button>
+
+  <div class="modal"></div>
+</div>
 </body>
 </html>
