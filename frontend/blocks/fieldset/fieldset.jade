@@ -1,5 +1,5 @@
 - var showLabel = label && !suppressLabel
-div.form-group(class="#{_prefix}-form-group error-#{name} #{cls}")
+.form-group(class="#{_prefix}-form-group error-#{name} #{cls}")
     if showLabel
         label.control-label(class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
     div(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
