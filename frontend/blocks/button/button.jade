@@ -1,5 +1,12 @@
-button.btn.btn-default(
-    class="#{_prefix}-button #{cls}",
-    type=type || "button",
+button.btn(
+    class=[
+        "#{_prefix}-button",
+        type=type || "button",
+        cls
+    ],
     disabled=disabled
-) #{label}
+)
+    if glyphicon
+        | <span class="glyphicon glyphicon-#{glyphicon}"></span> #{label}
+    else
+        = label
