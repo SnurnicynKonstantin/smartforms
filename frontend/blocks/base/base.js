@@ -61,7 +61,9 @@ export default class Block {
   }
 
   getTemplateData() {
-    return this.config;
+    return Object.assign({}, this.config, {
+      showLabel: !this.config.suppressLabel && this.config.label
+    });
   }
 
   get templateDefaults() {
