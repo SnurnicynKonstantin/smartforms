@@ -1,7 +1,7 @@
 - var showLabel = label && !suppressLabel
-div(class="#{_prefix}-fieldset")
-
+div.form-group(class="#{_prefix}-form-group error-#{name} #{cls}")
     if showLabel
         label.control-label(class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
-
-    .fieldset-rows-contianer(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
+    div(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
+        div(class="#{_prefix}-fieldset")
+            .fieldset-rows-container

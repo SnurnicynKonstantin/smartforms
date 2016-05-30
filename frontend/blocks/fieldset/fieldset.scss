@@ -11,6 +11,11 @@
     padding: 0;
     position: relative;
 
+    .form-group {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
     .control-label {
       background-color: #fff;
       border: 1px solid #d7d7d7;
