@@ -27,6 +27,17 @@
         {
           "block": "button",
           "label": "Cancel"
+        },
+        {
+          "block": "button",
+          "label": "Delete",
+          "glyphicon": "trash",
+          "cls": "btn-danger"
+        },
+        {
+          "block": "button",
+          "glyphicon": "envelope",
+          "cls": "btn-link"
         }
       ]
     }
