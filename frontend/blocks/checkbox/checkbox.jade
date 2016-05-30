@@ -2,15 +2,15 @@ extends ../base/base.jade
 
 block inner
     div(class="#{_prefix}-checkbox #{cls}")
-        div.checkbox
-            div.checkbox-wrapper
+        .checkbox
+            .checkbox-wrapper
                 label
                     input(
-                        id="#{id}-checkbox",
+                        id=id,
                         name=name,
                         type="checkbox",
                         checked=(checked && "checked"),
                         class=checkboxCls
                     )
-            div.text-wrapper
+            .text-wrapper
                 span!=htmlLabel

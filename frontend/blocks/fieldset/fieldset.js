@@ -56,7 +56,7 @@ export default class Fieldset extends Container {
   }
 
   appendChild(block) {
-    this.el.children('div').append(block.el);
+    this.el.find('.fieldset-rows-container').append(block.el);
   }
 }
 

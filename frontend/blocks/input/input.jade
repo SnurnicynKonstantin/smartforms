@@ -2,11 +2,11 @@ extends ../base/base.jade
 
 block inner
     input.form-control(
+        id=id,
         type=type,
         class=cls,
         name=name,
         value=value,
-        id="#{id}-elt-#{name}",
         disabled=disabled,
         placeholder=placeholder
     )

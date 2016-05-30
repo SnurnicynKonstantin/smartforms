@@ -1,12 +1,12 @@
-div.form-group(class="#{_prefix}-form-group error-#{name} #{cls}" +
+.form-group(class="#{_prefix}-form-group error-#{name} #{cls}" +
     (required ? " required" : "") +
     (readOnly ? " readonly" : "") +
     (disabled ? " disabled" : ""))
 
-    if label && !suppressLabel
-        label.control-label(for="#{id}-elt-#{name}") #{label}
+    if showLabel
+        label.control-label(for=id, class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
 
-    div.controls
+    .controls(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
         block inner
 
         if description

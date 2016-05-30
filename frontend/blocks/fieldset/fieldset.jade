@@ -1,5 +1,6 @@
-div(
-    class="#{_prefix}-fieldset"
-)
-    label.control-label #{label}
-    .fieldset-rows-contianer
+.form-group(class="#{_prefix}-form-group error-#{name} #{cls}")
+    if showLabel
+        label.control-label(class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
+    div(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
+        div(class="#{_prefix}-fieldset")
+            .fieldset-rows-container
