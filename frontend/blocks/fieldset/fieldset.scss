@@ -26,38 +26,38 @@
     .form-refresh-link {
       right: 14px;
     }
-  }
 
-  .input-set-col + .input-set-col .form-control,
-  .input-set-col + .input-set-col .jq-selectbox .jq-selectbox__select {
-    border-left: 0;
+    + .input-set-col {
+      .form-control,
+      .jq-selectbox .jq-selectbox__select {
+        border-left: 0;
+      }
+    }
+
+    .control-label.font-size-small {
+      display: none;
+      border-collapse: separate;
+      font-size: 12px;
+      line-height: 16px;
+      padding: 0;
+      width: 100%;
+
+      span {
+        display: table-cell;
+        padding: 3px 12px 0;
+        vertical-align: middle;
+      }
+    }
   }
 
   @media (min-width: 768px) {
     .input-set-col .control-label {
       display: block;
+
+      &.font-size-small {
+        display: table;
+      }
     }
-  }
-
-  .input-set-col .control-label.font-size-small {
-    display: none;
-    border-collapse: separate;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 0;
-    width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    .input-set-col .control-label.font-size-small {
-      display: table;
-    }
-  }
-
-  .input-set-col .control-label.font-size-small span {
-    display: table-cell;
-    padding: 3px 12px 0;
-    vertical-align: middle;
   }
 
   .input-set-row {
@@ -68,46 +68,60 @@
     &:not(:last-child) {
       margin-bottom: -15px;
     }
-  }
 
-  .input-set-row + .input-set-row .form-control,
-  .input-set-row + .input-set-row .control-label,
-  .input-set-row + .input-set-row .jq-selectbox .jq-selectbox__select {
-    border-top: 0;
-  }
+    + .input-set-row {
+      .form-control,
+      .control-label,
+      .jq-selectbox .jq-selectbox__select {
+        border-top: 0;
+      }
+    }
 
-  .input-set-row:first-child .input-set-col:first-child .form-control,
-  .input-set-row:first-child .input-set-col:first-child .control-label,
-  .input-set-row:first-child .input-set-col:first-child .jq-selectbox .jq-selectbox__select {
-    border-top-left-radius: 3px;
-  }
+    &:first-child .input-set-col {
+      &:first-child {
+        .form-control,
+        .control-label,
+        .jq-selectbox .jq-selectbox__select {
+          border-top-left-radius: 3px;
+        }
+      }
 
-  .input-set-row:first-child .input-set-col:last-child .form-control,
-  .input-set-row:first-child .input-set-col:last-child .control-label,
-  .input-set-row:first-child .input-set-col:last-child .jq-selectbox .jq-selectbox__select {
-    border-top-right-radius: 3px;
-  }
+      &:last-child {
+        .form-control,
+        .control-label,
+        .jq-selectbox .jq-selectbox__select {
+          border-top-right-radius: 3px;
+        }
+      }
+    }
 
-  .input-set-row:last-child .input-set-col:first-child .form-control,
-  .input-set-row:last-child .input-set-col:first-child .control-label,
-  .input-set-row:last-child .input-set-col:first-child .jq-selectbox .jq-selectbox__select {
-    border-bottom-left-radius: 3px;
-  }
+    &:last-child .input-set-col {
+      &:first-child {
+        .form-control,
+        .control-label,
+        .jq-selectbox .jq-selectbox__select {
+          border-bottom-left-radius: 3px;
+        }
+      }
 
-  .input-set-row:last-child .input-set-col:last-child .form-control,
-  .input-set-row:last-child .input-set-col:last-child .control-label,
-  .input-set-row:last-child .input-set-col:last-child .jq-selectbox .jq-selectbox__select {
-    border-bottom-right-radius: 3px;
+      &:last-child {
+        .form-control,
+        .control-label,
+        .jq-selectbox .jq-selectbox__select {
+          border-bottom-right-radius: 3px;
+        }
+      }
+    }
   }
 
   .input-set-compressed {
     padding-right: 40px;
     position: relative;
-  }
 
-  .input-set-compressed .sign-ruble {
-    position: absolute;
-    right: -21px;
-    top: 8px;
+    .sign-ruble {
+      position: absolute;
+      right: -21px;
+      top: 8px;
+    }
   }
 }
