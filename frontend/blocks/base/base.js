@@ -66,6 +66,10 @@ export default class Block {
     });
   }
 
+  popover(...args) {
+    this.el.popover(...args);
+  }
+
   get templateDefaults() {
     return {
       _prefix: 'smartforms',
