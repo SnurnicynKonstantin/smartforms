@@ -55,10 +55,11 @@ export default class Fieldset extends Container {
 
   removeRow(index) {
     this.el.find('.input-set-row').eq(index).remove();
+    this.items.splice(index, 1);
   }
 
   removeRowById(id) {
-    this.items.find(item => id === item.id).el.remove();
+    this.removeRow(this.items.findIndex(item => id === item.id));
   }
 
   appendChild(block) {
