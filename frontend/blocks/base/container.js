@@ -29,6 +29,10 @@ export default class Container extends Base {
     });
   }
 
+  getItemById(id) {
+    return this.items.find(item => { return item.id === id; });
+  }
+
   validate() {
     return this.items.every(block => {
       return block.validate();

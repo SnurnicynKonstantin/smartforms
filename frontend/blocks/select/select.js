@@ -22,6 +22,10 @@ export default class Select extends Base {
     this._selectWrapper.trigger('refresh');
   }
 
+  get name() {
+    return this._select.options[this._select.selectedIndex].innerHTML;
+  }
+
   render() {
     super.render();
 

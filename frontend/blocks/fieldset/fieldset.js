@@ -44,15 +44,21 @@ export default class Fieldset extends Container {
     this.items.push(row);
 
     const appendChildWithIndex = {
-      last: () => this.el.children('div').append(row.el),
+      last: () => this.el.find('.fieldset-rows-container').append(row.el),
       number: number => this.el.find('.input-set-row').eq(finalIndex).before(row.el)
     };
 
     (appendChildWithIndex[finalIndex] || appendChildWithIndex.number)(finalIndex);
+
+    return row;
   }
 
   removeRow(index) {
     this.el.find('.input-set-row').eq(index).remove();
+  }
+
+  removeRowById(id) {
+    this.items.find(item => id === item.id).el.remove();
   }
 
   appendChild(block) {

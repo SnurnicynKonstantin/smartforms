@@ -1,0 +1,100 @@
+{
+  "cls": "form",
+  "items": [
+    {
+      "block": "array",
+
+      "fieldsetLabel": "Вид платежа и сумма",
+      "maxLength": 6,
+      "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
+      "removeButton": {
+        "block": "button",
+        "glyphicon": "trash",
+        "cls": "btn-link"
+      },
+      "actions": {
+        "label": {
+          "block": "label",
+          "labelText": "Добавить услугу"
+        },
+        "select": {
+          "block": "select",
+          "name": "service",
+          "values": [
+            {
+              "name": "-- выберите услугу --",
+              "value": ""
+            },
+            {
+              "name": "ВДГО",
+              "value": "1"
+            },
+            {
+              "name": "Вода ОДН",
+              "value": "2"
+            },
+            {
+              "name": "Водоотведение",
+              "value": "3"
+            },
+            {
+              "name": "Водоотведение ГВС",
+              "value": "4"
+            },
+            {
+              "name": "Водоотведение ХВС",
+              "value": "5"
+            },
+            {
+              "name": "Водопотребление",
+              "value": "6"
+            },
+            {
+              "name": "Вывоз ТКО",
+              "value": "7"
+            },
+            {
+              "name": "Вывоз мусора",
+              "value": "8"
+            },
+            {
+              "name": "ГВС",
+              "value": "9"
+            },
+            {
+              "name": "ГВС ОДН",
+              "value": "10"
+            }
+          ]
+        },
+        "addButton": {
+          "block": "button",
+          "label": "Добавить"
+        }
+      },
+      "items": [
+        {
+          "label": "Содержание жилья,",
+          "value": "0.00",
+          "name": "name1"
+        },
+        {
+          "label": "Пеня,",
+          "value": "0.00",
+          "textAlign": "left",
+          "name": "name2"
+        },
+        {
+          "label": "Антена,",
+          "value": "0.00",
+          "name": "name3"
+        },
+        {
+          "label": "Иное,",
+          "value": "0.00",
+          "name": "name4"
+        }
+      ]
+    }
+  ]
+}

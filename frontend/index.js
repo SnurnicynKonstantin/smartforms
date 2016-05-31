@@ -8,6 +8,8 @@ import './blocks/input/input';
 import './blocks/select/select';
 import './blocks/static/static';
 import './blocks/text/text';
+import './blocks/label/label';
+import './blocks/array/array_field';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
