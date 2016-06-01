@@ -3,10 +3,14 @@
   "items": [
     {
       "block": "array",
-      "label": "Вид платежа и сумма",
-      "labelWidth": 3,
+      "name": "typeAndSum",
+      "itemLabel": "Вид платежа и сумма",
       "maxLength": 6,
+      "helpMessage": "Список сумм к оплате может иметь максимум 6 видов платежа.",
+      "errorMessage": "Не верно указана услуга",
       "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
+      "defaultValueForNewItem": "0.00",
+      "newItemInputTextAllign": "right",
       "removeButton": {
         "block": "button",
         "glyphicon": "trash",
@@ -75,23 +79,22 @@
       },
       "items": [
         {
-          "label": "Содержание жилья,",
+          "label": "Содержание жилья",
           "value": "0.00",
           "name": "name1"
         },
         {
-          "label": "Пеня,",
+          "label": "Пеня",
           "value": "0.00",
-          "textAlign": "left",
           "name": "name2"
         },
         {
-          "label": "Антена,",
+          "label": "Антена",
           "value": "0.00",
           "name": "name3"
         },
         {
-          "label": "Иное,",
+          "label": "Иное",
           "value": "0.00",
           "name": "name4"
         }

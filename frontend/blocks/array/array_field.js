@@ -1,4 +1,5 @@
 import uniqueId from 'lodash/uniqueId';
+import cloneDeep from 'lodash/cloneDeep';
 
 import Container from '../container/container';
 import Factory from '../factory';
@@ -20,17 +21,17 @@ export default class ArrayField extends Container {
         rightMark: config.labelRightMark
       }, {
         block: 'text',
-        value: item.value,
+        value: item.value || '',
         name: item.name,
-        textAlign: item.textAlign || 'right'
+        textAlign: config.newItemInputTextAllign
       }
     ]], []);
 
     const finalConfig = Object.assign({}, config, { items: [{
       block: 'fieldset',
       id: fieldsetId,
-      label: config.fieldsetLabel,
-      name: config.fieldsetName,
+      label: config.itemLabel,
+      labelWidth: config.itemLabel ? 3 : 0,
       layout: config.items.map(() => {
         return {count: 3, width: [1, 8, 3]};
       }),
@@ -64,7 +65,13 @@ export default class ArrayField extends Container {
   }
 
   afterRender() {
-    this.addBtn.el.on('click', this.onAddNewRow.bind(this));
+    this.addBtn.el.on('click', () => {
+      this.addNewRow({
+        labelText: this.select.nameOfValue,
+        value: this.config.defaultValueForNewItem || '',
+        name: this.select.value[this.select.name]
+      });
+    });
     this.fieldset.items.forEach(row => {
       row.items[0].el.on('click', () => {
         this.removeRowById(row.id);
@@ -76,42 +83,67 @@ export default class ArrayField extends Container {
     return template;
   }
 
+  get value() {
+    return {
+      [this.config.name]: this.fieldset.items.reduce((acc, row) => Object.assign(acc, row.items[2].value), {})
+    };
+  }
+
+  set value(val) {
+    cloneDeep(this.fieldset.items).forEach(row => this.removeRowById(row.id));
+    val.forEach(row => this.addNewRow(row));
+  }
+
   appendChild(block) {
     this.el.find('.form-array').append(block.el);
   }
 
-  onAddNewRow() {
+  addNewRow(row) {
     if (this.maxLength <= this.currentLength) {
-      this.addBtn.showHelpMessage();
+      this.addBtn.popover({
+        placement: 'top',
+        content: this.config.helpMessage
+      });
 
       return;
     }
 
-    if (this.select && this.select.value && '' !== this.select.value[this.config.actions.select.name]) {
-      const row = this.fieldset.addRow({
+    if (row && '' !== row.name) {
+      const newRow = this.fieldset.addRow({
         width: [1, 8, 3],
         items: [this.config.removeButton, {
           block: 'label',
-          labelText: this.select.name,
+          labelText: row.labelText,
           rightMark: this.config.labelRightMark
         }, {
           block: 'text',
-          value: '0.00',
-          name: this.select.value,
-          textAlign: 'right'
+          value: row.value,
+          name: row.name,
+          textAlign: this.config.newItemInputTextAllign
         }]
       });
 
       this.currentLength++;
-      row.items[0].el.on('click', () => {
-        this.removeRowById(row.id);
+      newRow.items[0].el.on('click', () => {
+        this.removeRowById(newRow.id);
       });
+      this.select.removeOptionByValue(row.name);
     } else {
-      this.select.showErrorMessage();
+      this.select.popover({
+        placement: 'top',
+        content: this.config.errorMessage
+      });
     }
   }
 
   removeRowById(id) {
+    const row = this.fieldset.getItemById(id);
+
+    this.select.addOption({
+      value: row.items[2].name,
+      text: row.items[1].dataText
+    });
+    this.select.sortOptionsByText();
     this.fieldset.removeRowById(id);
     this.currentLength--;
   }
