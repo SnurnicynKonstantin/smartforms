@@ -23,7 +23,8 @@
           "values": [
             {
               "name": "-- выберите услугу --",
-              "value": ""
+              "value": "",
+              "disabled": true
             },
             {
               "name": "ВДГО",
