@@ -3,8 +3,8 @@
   "items": [
     {
       "block": "array",
-
-      "fieldsetLabel": "Вид платежа и сумма",
+      "label": "Вид платежа и сумма",
+      "labelWidth": 3,
       "maxLength": 6,
       "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
       "removeButton": {

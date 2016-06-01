@@ -1,7 +1,7 @@
 import './actions.scss';
 import template from './actions.jade';
 
-import Container from '../base/container';
+import Container from '../container/container';
 import Factory from '../factory';
 
 export default class Actions extends Container {

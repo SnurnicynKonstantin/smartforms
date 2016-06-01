@@ -2,7 +2,7 @@ import template from './fieldset.jade';
 
 import './fieldset.scss';
 
-import Container from '../base/container';
+import Container from '../container/container';
 import Factory from '../factory';
 
 export default class Fieldset extends Container {

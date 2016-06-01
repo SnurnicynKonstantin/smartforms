@@ -1,4 +1,4 @@
-import Container from '../base/container';
+import Container from '../container/container';
 
 import template from './form.jade';
 

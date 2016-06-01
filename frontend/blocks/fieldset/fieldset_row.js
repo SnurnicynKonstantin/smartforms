@@ -1,4 +1,4 @@
-import Container from '../base/container';
+import Container from '../container/container';
 
 import rowTemplate from './fieldset_row.jade';
 import colTemplate from './fieldset_col.jade';

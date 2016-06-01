@@ -1,6 +1,6 @@
 import uniqueId from 'lodash/uniqueId';
 
-import Container from '../base/container';
+import Container from '../container/container';
 import Factory from '../factory';
 
 import './array_field.scss';
@@ -77,7 +77,7 @@ export default class ArrayField extends Container {
   }
 
   appendChild(block) {
-    this.el.append(block.el);
+    this.el.find('.form-array').append(block.el);
   }
 
   onAddNewRow() {

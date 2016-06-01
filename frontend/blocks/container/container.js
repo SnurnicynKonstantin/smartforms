@@ -1,4 +1,4 @@
-import Base from './base';
+import Base from '../base/base';
 import Factory from '../factory';
 
 export default class Container extends Base {
