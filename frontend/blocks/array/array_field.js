@@ -13,7 +13,9 @@ export default class ArrayField extends Container {
     const addBtnId = uniqueId();
     const selectId = uniqueId();
     const editorId = uniqueId();
-    const fieldsetItems = config.items.reduce((acc, item) => [...acc, ...[
+
+    const items = Array.isArray(config.items) ? config.items : [];
+    const fieldsetItems = items.reduce((acc, item) => [...acc, ...[
       config.removeButton,
       {
         block: 'label',
@@ -32,7 +34,7 @@ export default class ArrayField extends Container {
       id: fieldsetId,
       label: config.itemLabel,
       labelWidth: config.itemLabel ? 3 : 0,
-      layout: config.items.map(() => {
+      layout: items.map(() => {
         return {count: 3, width: [1, 8, 3]};
       }),
       items: fieldsetItems
@@ -57,7 +59,7 @@ export default class ArrayField extends Container {
     super(finalConfig);
 
     this.maxLength = config.maxLength;
-    this.currentLength = config.items.length;
+    this.currentLength = items.length;
     this.editor = this.getItemById(editorId);
     this.addBtn = this.editor.getItemById(addBtnId);
     this.fieldset = this.getItemById(fieldsetId);
