@@ -7,10 +7,10 @@
       "itemLabel": "Вид платежа и сумма",
       "maxLength": 6,
       "helpMessage": "Список сумм к оплате может иметь максимум 6 видов платежа.",
-      "errorMessage": "Не верно указана услуга",
+      "errorMessage": "Неверно указана услуга",
       "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
       "defaultValueForNewItem": "0.00",
-      "newItemInputTextAllign": "right",
+      "newItemInputTextAlign": "right",
       "removeButton": {
         "block": "button",
         "glyphicon": "trash",

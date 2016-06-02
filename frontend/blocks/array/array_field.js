@@ -23,7 +23,7 @@ export default class ArrayField extends Container {
         block: 'text',
         value: item.value || '',
         name: item.name,
-        textAlign: config.newItemInputTextAllign
+        textAlign: config.newItemInputTextAlign
       }
     ]], []);
 
@@ -119,7 +119,7 @@ export default class ArrayField extends Container {
           block: 'text',
           value: row.value,
           name: row.name,
-          textAlign: this.config.newItemInputTextAllign
+          textAlign: this.config.newItemInputTextAlign
         }]
       });
 
