@@ -6,12 +6,301 @@
     {
       "block": "input",
       "type": "text",
-      "label": "Лицевой счет"
+      "label": "Номер лицевого счета",
+      "labelWidth": 3,
+      "name": "accountId"
     },
     {
-      "block": "input",
-      "type": "text",
-      "label": "Сумма"
+      "block": "fieldset",
+      "label": "Плательщик",
+      "labelWidth": 3,
+      "name": "customer",
+      "items": [
+        {
+          "block": "input",
+          "type": "text",
+          "placeholder": "фамилия",
+          "name": "lastname"
+        },
+        {
+          "block": "input",
+          "type": "text",
+          "placeholder": "имя",
+          "name": "firstname"
+        },
+        {
+          "block": "input",
+          "type": "text",
+          "placeholder": "отчество",
+          "name": "patronym"
+        }
+      ]
+    },
+    {
+      "block": "fieldset",
+      "label": "Адрес",
+      "labelWidth": 3,
+      "name": "address",
+      "layout": [
+        1,
+        3
+      ],
+      "items": [
+        {
+          "block": "input",
+          "placeholder": "введите адрес в свободной форме",
+          "name": "address"
+        },
+        {
+          "block": "input",
+          "placeholder": "дом",
+          "name": "building"
+        },
+        {
+          "block": "input",
+          "placeholder": "корпус",
+          "name": "additional"
+        },
+        {
+          "block": "input",
+          "placeholder": "квартира",
+          "name": "apartment"
+        }
+      ]
+    },
+    {
+      "block": "fieldset",
+      "label": "Период оплаты",
+      "labelWidth": 3,
+      "layout": [
+        {
+          "count": 2,
+          "width": [
+            4,
+            4
+          ]
+        }
+      ],
+      "items": [
+        {
+          "block": "select",
+          "name": "month",
+          "value": "06",
+          "values": [
+            {
+              "name": "Январь (недоступно)",
+              "value": "01"
+            },
+            {
+              "name": "Февраль",
+              "value": "02"
+            },
+            {
+              "name": "Март",
+              "value": "03"
+            },
+            {
+              "name": "Апрель",
+              "value": "04"
+            },
+            {
+              "name": "Май",
+              "value": "05"
+            },
+            {
+              "name": "Июнь",
+              "value": "06"
+            },
+            {
+              "name": "Июль",
+              "value": "07"
+            },
+            {
+              "name": "Август",
+              "value": "08"
+            },
+            {
+              "name": "Сентябрь",
+              "value": "09"
+            },
+            {
+              "name": "Октябрь",
+              "value": "10"
+            },
+            {
+              "name": "Ноябрь",
+              "value": "11"
+            },
+            {
+              "name": "Декабрь",
+              "value": "12"
+            }
+          ]
+        },
+        {
+          "block": "select",
+          "name": "year",
+          "value": "2016",
+          "values": [
+            {
+              "name": "2017",
+              "value": "2017"
+            },
+            {
+              "name": "2016",
+              "value": "2016"
+            },
+            {
+              "name": "2015",
+              "value": "2015"
+            },
+            {
+              "name": "2014",
+              "value": "2014"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "block": "array",
+      "name": "typeAndSum",
+      "itemLabel": "Вид платежа и сумма",
+      "maxLength": 6,
+      "helpMessage": "Список сумм к оплате может иметь максимум 6 видов платежа.",
+      "errorMessage": "Не верно указана услуга",
+      "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
+      "defaultValueForNewItem": "0.00",
+      "newItemInputTextAlign": "right",
+      "removeButton": {
+        "block": "button",
+        "glyphicon": "trash",
+        "cls": "btn-link"
+      },
+      "actions": {
+        "label": {
+          "block": "label",
+          "labelText": "Добавить услугу"
+        },
+        "select": {
+          "block": "select",
+          "name": "service",
+          "values": [
+            {
+              "name": "-- выберите услугу --",
+              "value": ""
+            },
+            {
+              "name": "ВДГО",
+              "value": "1"
+            },
+            {
+              "name": "Вода ОДН",
+              "value": "2"
+            },
+            {
+              "name": "Водоотведение",
+              "value": "3"
+            },
+            {
+              "name": "Водоотведение ГВС",
+              "value": "4"
+            },
+            {
+              "name": "Водоотведение ХВС",
+              "value": "5"
+            },
+            {
+              "name": "Водопотребление",
+              "value": "6"
+            },
+            {
+              "name": "Вывоз ТКО",
+              "value": "7"
+            },
+            {
+              "name": "Вывоз мусора",
+              "value": "8"
+            },
+            {
+              "name": "ГВС",
+              "value": "9"
+            },
+            {
+              "name": "ГВС ОДН",
+              "value": "10"
+            }
+          ]
+        },
+        "addButton": {
+          "block": "button",
+          "label": "Добавить"
+        }
+      },
+      "items": [
+        {
+          "label": "Содержание жилья",
+          "value": "0.00",
+          "name": "name1"
+        },
+        {
+          "label": "Пеня",
+          "value": "0.00",
+          "name": "name2"
+        },
+        {
+          "label": "Антена",
+          "value": "0.00",
+          "name": "name3"
+        },
+        {
+          "label": "Иное",
+          "value": "0.00",
+          "name": "name4"
+        }
+      ]
+    },
+    {
+      "block": "array",
+      "name": "accountingUnit",
+      "newItemInputTextAlign": "center",
+      "removeButton": {
+        "block": "button",
+        "glyphicon": "trash",
+        "cls": "btn-link"
+      },
+      "actions": {
+        "label": {
+          "block": "label",
+          "labelText": "Добавить ПУ"
+        },
+        "select": {
+          "block": "select",
+          "name": "service",
+          "values": [
+            {
+              "name": "-- выберите ПУ --",
+              "value": ""
+            },
+            {
+              "name": "ХВС ПУ1",
+              "value": "hvs-pu1"
+            },
+            {
+              "name": "ХВС ПУ2",
+              "value": "hvs-pu2"
+            },
+            {
+              "name": "ГВС ПУ1",
+              "value": "gvs-pu1"
+            }
+          ]
+        },
+        "addButton": {
+          "block": "button",
+          "label": "Добавить"
+        }
+      }
     }
   ],
   "footer": [
