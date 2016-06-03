@@ -40,14 +40,6 @@ module.exports = {
   ] : []),
 
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'eslint',
-        include: path.join(__dirname, 'frontend')
-      }
-    ],
-
     loaders: [{
       test: /\.js$/,
       include: path.join(__dirname, 'frontend'),
