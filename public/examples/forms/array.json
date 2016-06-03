@@ -27,8 +27,7 @@
           "values": [
             {
               "name": "-- выберите услугу --",
-              "value": "",
-              "disabled": true
+              "value": ""
             },
             {
               "name": "ВДГО",

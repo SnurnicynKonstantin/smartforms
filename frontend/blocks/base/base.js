@@ -3,6 +3,7 @@ import $ from 'jquery';
 import cloneDeep from 'lodash/cloneDeep';
 import defaults from 'lodash/defaults';
 import uniqueId from 'lodash/uniqueId';
+import parser from '../../services/parser';
 
 export default class Block {
   constructor(config) {
@@ -19,10 +20,60 @@ export default class Block {
   }
 
   afterRender() {
+    if (!Array.isArray(this.config.validationRules)) {
+      return;
+    }
+
+    this.compiledRules = this.config.validationRules.map(rule => Object.assign({
+      compiledRule: parser.parse(rule.rule)
+    }, rule));
+  }
+
+  get context() {
+    let parent = this.parent;
+
+    while (parent && null !== parent.parent) {
+      parent = parent.parent;
+    }
+
+    return Object.assign({ fieldName: this.name }, parent && parent.value || this.value);
   }
 
   validate() {
+    if (!this.checkCompiledRules()) {
+      return false;
+    }
+    this.popover('destroy');
+    this._popoverExist = false;
+
     return true;
+  }
+
+  checkCompiledRules() {
+    if (!this.compiledRules) {
+      return true;
+    }
+
+    const invalidRule = this.compiledRules.find(rule => !rule.compiledRule.eval(this.context));
+
+    if (!invalidRule) {
+      return true;
+    }
+    this.errorMessage = invalidRule.errorMessage;
+    this.showErrorMessage(invalidRule.errorMessage);
+
+    return false;
+  }
+
+  showErrorMessage() {
+    if (!this._popoverExist) {
+      this.popover({
+        placement: this.config.popoverPlacement || 'top',
+        content: this.getErrorMessageFn()
+      });
+      this._popoverExist = true;
+    }
+    this.popover('show');
   }
 
   get isValid() {
@@ -60,14 +111,34 @@ export default class Block {
     return this._id;
   }
 
+  get name() {
+    return this.config.name;
+  }
+
+  getErrorMessageFn() {
+    return () => this.errorMessage;
+  }
+
+  get errorMessage() {
+    return this._errorMessage;
+  }
+
+  set errorMessage(message) {
+    this._errorMessage = message;
+  }
+
   getTemplateData() {
     return Object.assign({}, this.config, {
       showLabel: !this.config.suppressLabel && this.config.label
     });
   }
 
-  popover(...args) {
-    this.el.popover(...args);
+  get popoverEl() {
+    return this.el;
+  }
+
+  popover(opt) {
+    this.popoverEl.popover(opt);
   }
 
   get templateDefaults() {

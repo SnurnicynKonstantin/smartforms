@@ -4,8 +4,18 @@ import Base from '../base/base';
 import Factory from '../factory';
 
 export default class Input extends Base {
+
+  afterRender() {
+    this._popoverEl = this.el.find('input');
+    super.afterRender();
+  }
+
   get templateFn() {
     return template;
+  }
+
+  get popoverEl() {
+    return this._popoverEl;
   }
 
   get value() {
