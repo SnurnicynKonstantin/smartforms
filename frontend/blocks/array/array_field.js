@@ -79,6 +79,7 @@ export default class ArrayField extends Container {
         this.removeRowById(row.id);
       });
     });
+    super.afterRender();
   }
 
   get templateFn() {

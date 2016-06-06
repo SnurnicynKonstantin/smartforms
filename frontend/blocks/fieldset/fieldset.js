@@ -53,6 +53,10 @@ export default class Fieldset extends Container {
     return row;
   }
 
+  validate() {
+    return this.items.reduce((acc, block) => block.validate() && acc, true);
+  }
+
   removeRow(index) {
     this.el.find('.input-set-row').eq(index).remove();
     this.items.splice(index, 1);

@@ -20,6 +20,10 @@ export default class FieldsetRow extends Container {
     const width = this.width && `col-xs-${this.width.shift()}`;
     this.el.append($(colTemplate({width})).append(block.el));
   }
+
+  validate() {
+    return this.items.reduce((acc, block) => block.validate() && acc, true);
+  }
 }
 
 Factory.register('fieldsetRow', FieldsetRow);

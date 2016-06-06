@@ -7,6 +7,10 @@ export default class Form extends Container {
     return template;
   }
 
+  validate() {
+    return this.items.some(block => !block.validate());
+  }
+
   appendChild(block) {
     this.el.children().append(block.el);
   }
