@@ -51,8 +51,7 @@ export default class Modal extends Base {
   }
 
   afterRender() {
-    this._footerForm.el.find('button[type=submit]').on('click', this._onSubmit.bind(this));
-
+    this._footerForm.el.find('button[type=submit]').click(e => this._onSubmit(e));
     this._bodyForm.afterRender();
     this._footerForm.afterRender();
   }
