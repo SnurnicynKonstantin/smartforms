@@ -14,25 +14,36 @@
       "block": "fieldset",
       "label": "Плательщик",
       "labelWidth": 3,
-      "name": "customer",
       "items": [
         {
           "block": "input",
           "type": "text",
           "placeholder": "фамилия",
-          "name": "lastname"
+          "name": "lastname",
+          "validationRules": [{
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+          }]
         },
         {
           "block": "input",
           "type": "text",
           "placeholder": "имя",
-          "name": "firstname"
+          "name": "firstname",
+          "validationRules": [{
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+          }]
         },
         {
           "block": "input",
           "type": "text",
           "placeholder": "отчество",
-          "name": "patronym"
+          "name": "patronym",
+          "validationRules": [{
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+          }]
         }
       ]
     },
@@ -40,7 +51,6 @@
       "block": "fieldset",
       "label": "Адрес",
       "labelWidth": 3,
-      "name": "address",
       "layout": [
         1,
         3
@@ -49,12 +59,20 @@
         {
           "block": "input",
           "placeholder": "введите адрес в свободной форме",
-          "name": "address"
+          "name": "address",
+          "validationRules": [{
+            "rule": "адрес",
+            "errorMessage": "Неверно указана улица. Название улицы может состоять из русских букв, цифр, точек, запятых и знаков /, ,\", ;, -, (, ).'"
+          }]
         },
         {
           "block": "input",
           "placeholder": "дом",
-          "name": "building"
+          "name": "building",
+          "validationRules": [{
+            "rule": "дом",
+            "errorMessage": "Неверно указан номер дома. Введите номер дома."
+          }]
         },
         {
           "block": "input",
