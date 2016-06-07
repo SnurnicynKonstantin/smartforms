@@ -150,6 +150,10 @@ export default class ArrayField extends Container {
     this.fieldset.removeRowById(id);
     this.currentLength--;
   }
+
+  get sum() {
+    return this.fieldset.items.reduce((acc, row) => acc + parseFloat(row.items[2].value[row.items[2].name]), 0);
+  }
 }
 
 Factory.register('array', ArrayField);
