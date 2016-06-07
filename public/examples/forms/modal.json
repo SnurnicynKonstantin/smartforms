@@ -87,6 +87,9 @@
       ]
     },
     {
+      "block": "divider"
+    },
+    {
       "block": "fieldset",
       "label": "Период оплаты",
       "labelWidth": 3,
@@ -279,6 +282,9 @@
       ]
     },
     {
+      "block": "divider"
+    },
+    {
       "block": "array",
       "name": "accountingUnit",
       "newItemInputTextAlign": "center",
@@ -319,6 +325,9 @@
           "label": "Добавить"
         }
       }
+    },
+    {
+      "block": "divider"
     }
   ],
   "footer": [

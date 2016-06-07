@@ -10,6 +10,7 @@ import './blocks/static/static';
 import './blocks/text/text';
 import './blocks/label/label';
 import './blocks/array/array_field';
+import './blocks/divider/divider';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
