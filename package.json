@@ -30,8 +30,6 @@
     "babel-loader": "^6.2.4",
     "babel-polyfill": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
-    "bootstrap": "^3.3.6",
-    "bootstrap-datepicker": "^1.6.1",
     "css-loader": "^0.23.1",
     "eslint": "^2.10.2",
     "eslint-loader": "^1.3.0",
@@ -42,18 +40,23 @@
     "imports-loader": "^0.6.5",
     "jade": "^1.11.0",
     "jade-loader": "^0.8.0",
-    "jquery": "^2.2.3",
-    "jquery.formstyler": "^1.7.5-repackage",
-    "jquery.maskedinput": "^1.4.1",
-    "lodash": "^4.12.0",
-    "morph-expressions": "0.0.4",
     "node-sass": "^3.7.0",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1",
-    "express": "^4.13.4"
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "bootstrap-datepicker": "^1.6.1",
+    "express": "^4.13.4",
+    "jquery": "^2.2.3",
+    "jquery.formstyler": "^1.7.5-repackage",
+    "jquery.maskedinput": "^1.4.1",
+    "lodash": "^4.12.0",
+    "morph-expressions": "0.0.4",
+    "typeahead.js": "^0.11.1"
   }
 }

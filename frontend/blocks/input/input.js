@@ -23,6 +23,10 @@ export default class Input extends Base {
       [this.config.name]: this.el.find('input').val()
     };
   }
+
+  set value(val) {
+    this.el.find('input').val(val);
+  }
 }
 
 Factory.register('input', Input);

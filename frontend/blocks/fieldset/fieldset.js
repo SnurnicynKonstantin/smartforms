@@ -5,6 +5,11 @@ import './fieldset.scss';
 import Container from '../container/container';
 import Factory from '../factory';
 
+import map from 'lodash/fp/map';
+import flatten from 'lodash/fp/flatten';
+import find from 'lodash/fp/find';
+import flow from 'lodash/fp/flow';
+
 export default class Fieldset extends Container {
   constructor(config) {
     const items = config.items.map(item => Object.assign({}, item, { suppressLabel: true }));
@@ -68,6 +73,10 @@ export default class Fieldset extends Container {
 
   appendChild(block) {
     this.el.find('.fieldset-rows-container').append(block.el);
+  }
+
+  getItemByName(name) {
+    return flow(map('items'), flatten, find(item => item.name === name))(this.items);
   }
 }
 
