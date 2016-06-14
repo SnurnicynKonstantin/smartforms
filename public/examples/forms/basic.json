@@ -1,45 +1,43 @@
 {
   "cls": "form",
-  "items": [
-    {
+  "items": {
+    "name": {
       "block": "input",
       "type": "text",
-      "name": "name",
       "label": "Имя",
       "placeholder": "Введите имя",
       "suppressLabel": true
     },
-    {
+    "date": {
       "block": "date",
-      "name": "date",
       "value": "14.09.2016",
       "label": "Дата снятия показаний"
     },
-    {
+    "actions": {
       "block": "actions",
-      "items": [
-        {
+      "items": {
+        "okButton": {
           "block": "button",
           "label": "OK",
           "disabled": true,
           "cls": "btn-primary"
         },
-        {
+        "cancelButton": {
           "block": "button",
           "label": "Cancel"
         },
-        {
+        "deleteButton": {
           "block": "button",
           "label": "Delete",
           "glyphicon": "trash",
           "cls": "btn-danger"
         },
-        {
+        "envelopeButton": {
           "block": "button",
           "glyphicon": "envelope",
           "cls": "btn-link"
         }
-      ]
+      }
     }
-  ]
+  }
 }

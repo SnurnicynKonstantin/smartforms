@@ -1,13 +1,15 @@
 {
   "cls": "form",
-  "items": [
-    {
+  "items": {
+    "Адрес": {
       "block": "address",
       "minLength": 3,
       "highlight": true,
       "label": "Адрес",
-      "layout": [1, 3],
-      "name": "Адрес",
+      "layout": [
+        1,
+        3
+      ],
       "url": "https://dadata.ru/api/v2/suggest/address/",
       "settings": {
         "type": "POST",
@@ -18,9 +20,11 @@
         },
         "data": {
           "count": 20,
-          "locations": ["Омская"]
+          "locations": [
+            "Омская"
+          ]
         }
       }
     }
-  ]
+  }
 }

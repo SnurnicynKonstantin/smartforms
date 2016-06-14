@@ -81,7 +81,7 @@ export default class Block {
   }
 
   get value() {
-    return {};
+    return null;
   }
 
   set value(val) {

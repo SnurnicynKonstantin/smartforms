@@ -1,6 +1,8 @@
 import Base from '../base/base';
 import Factory from '../factory';
 
+import mapValues from 'lodash/mapValues';
+
 export default class Container extends Base {
   constructor(config) {
     super(config);
@@ -9,9 +11,8 @@ export default class Container extends Base {
   }
 
   initItems() {
-    this._items = this.config.items.map(blockConfig => {
-      const BlockCtor = Factory.get(blockConfig['block']);
-
+    this._items = mapValues(this.config.items, blockConfig => {
+      const BlockCtor = Factory.get(blockConfig.block);
       const block = new BlockCtor(blockConfig);
 
       block.parent = this;
@@ -23,36 +24,45 @@ export default class Container extends Base {
   render() {
     super.render();
 
-    this.items.forEach(block => {
+    if (Array.isArray(this.config.itemsOrder)) {
+      this.config.itemsOrder.forEach(k => {
+        const block = this.items[k];
+
+        block.render();
+        this.appendChild(block);
+      });
+
+      return;
+    }
+
+    mapValues(this.items, block => {
       block.render();
       this.appendChild(block);
     });
   }
 
   getItemById(id) {
-    return this.items.find(item => { return item.id === id; });
+    return this.itemsValues.find(item => id === item.id);
   }
 
   validate() {
-    return this.items.every(block => {
-      return block.validate();
-    });
+    return this.itemsValues.every(item => item.validate());
   }
 
   get isValid() {
-    return this.items.every(block => {
-      return block.isValid;
-    });
+    return this.itemsValues.every(item => item.isValid);
   }
 
   get value() {
-    const result = {};
+    return mapValues(this.items, block => block.value);
+  }
 
-    this.items.forEach(block => {
-      Object.assign(result, block.value);
-    });
+  get itemsKeys() {
+    return Object.keys(this.items);
+  }
 
-    return this.config.name ? {[this.config.name]: result} : result;
+  get itemsValues() {
+    return this.itemsKeys.map(key => this.items[key]);
   }
 
   set value(val) {
@@ -63,9 +73,7 @@ export default class Container extends Base {
   }
 
   afterRender() {
-    this.items.forEach(block => {
-      block.afterRender();
-    });
+    mapValues(this.items, block => block.afterRender());
   }
 
   get items() {

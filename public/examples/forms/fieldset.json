@@ -1,90 +1,79 @@
 {
   "cls": "form",
-  "items": [
-    {
+  "items": {
+    "fieldset0": {
       "block": "fieldset",
       "label": "Fieldset with layout",
       "layout": [ 1, { "count": 2, "width": [ 3, 9 ] }, 3 ],
-      "name": "fieldset0",
-      "items": [
-        {
+      "items": {
+        "test0": {
           "block": "input",
           "label": "test",
           "disabled": true,
-          "placeholder": "test0",
-          "name": "test0"
+          "placeholder": "test0"
         },
-        {
+        "test1": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test1",
-          "name": "test1"
+          "placeholder": "test1"
         },
-        {
+        "test2": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test2",
-          "name": "test2"
+          "placeholder": "test2"
         },
-        {
+        "test3": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test3",
-          "name": "test3"
+          "placeholder": "test3"
         },
-        {
+        "test4": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test4",
-          "name": "test4"
+          "placeholder": "test4"
         },
-        {
+        "test5": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test5",
-          "name": "test5"
+          "placeholder": "test5"
         }
-      ]
+      }
     },
-    {
+    "fieldset1": {
       "block": "fieldset",
       "label": "Fieldset without layout",
-      "name": "fieldset1",
-      "items": [
-        {
+      "items": {
+        "test6": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test6",
-          "name": "test6"
+          "placeholder": "test6"
         },
-        {
+        "test7": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test7",
-          "name": "test7"
+          "placeholder": "test7"
         },
-        {
+        "test8": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test8",
-          "name": "test8"
+          "placeholder": "test8"
         }
-      ]
+      }
     },
-    {
+    "actions": {
       "block": "actions",
-      "items": [
-        {
+      "items": {
+        "okButton": {
           "block": "button",
           "label": "OK",
           "disabled": true,
           "cls": "btn-primary"
         },
-        {
+        "cancelButton": {
           "block": "button",
           "label": "Cancel"
         }
-      ]
+      }
     }
-  ]
+  }
 }

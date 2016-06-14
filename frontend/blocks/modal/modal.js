@@ -6,8 +6,6 @@ import Form from '../form/form';
 import template from './modal.jade';
 import './modal.scss';
 
-import assign from 'lodash/assign';
-
 export default class Modal extends Base {
   constructor(config) {
     super(config);
@@ -37,7 +35,7 @@ export default class Modal extends Base {
   }
 
   get value() {
-    return assign(this._bodyForm.value, this._footerForm.value);
+    return Object.assign(this._bodyForm.value, this._footerForm.value);
   }
 
   render() {

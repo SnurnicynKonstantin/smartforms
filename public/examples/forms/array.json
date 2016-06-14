@@ -1,9 +1,8 @@
 {
   "cls": "form",
-  "items": [
-    {
+  "items": {
+    "typeAndSum": {
       "block": "array",
-      "name": "typeAndSum",
       "itemLabel": "Вид платежа и сумма",
       "maxLength": 6,
       "helpMessage": "Список сумм к оплате может иметь максимум 6 видов платежа.",
@@ -31,43 +30,43 @@
             },
             {
               "name": "ВДГО",
-              "value": "1"
+              "value": "vdgo"
             },
             {
               "name": "Вода ОДН",
-              "value": "2"
+              "value": "voda_odn"
             },
             {
               "name": "Водоотведение",
-              "value": "3"
+              "value": "vodootv"
             },
             {
               "name": "Водоотведение ГВС",
-              "value": "4"
+              "value": "vodootv_gvs"
             },
             {
               "name": "Водоотведение ХВС",
-              "value": "5"
+              "value": "vodootv_hvs"
             },
             {
               "name": "Водопотребление",
-              "value": "6"
+              "value": "vodopotr"
             },
             {
               "name": "Вывоз ТКО",
-              "value": "7"
+              "value": "vivoz_tko"
             },
             {
               "name": "Вывоз мусора",
-              "value": "8"
+              "value": "vivoz_msr"
             },
             {
               "name": "ГВС",
-              "value": "9"
+              "value": "gvs"
             },
             {
               "name": "ГВС ОДН",
-              "value": "10"
+              "value": "gvs_odn"
             }
           ]
         },
@@ -76,28 +75,24 @@
           "label": "Добавить"
         }
       },
-      "items": [
-        {
+      "items": {
+        "name1": {
           "label": "Содержание жилья",
-          "value": "0.00",
-          "name": "name1"
+          "value": "0.00"
         },
-        {
+        "name2": {
           "label": "Пеня",
-          "value": "0.00",
-          "name": "name2"
+          "value": "0.00"
         },
-        {
+        "name3": {
           "label": "Антена",
-          "value": "0.00",
-          "name": "name3"
+          "value": "0.00"
         },
-        {
+        "name4": {
           "label": "Иное",
-          "value": "0.00",
-          "name": "name4"
+          "value": "0.00"
         }
-      ]
+      }
     }
-  ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "cls": "form form-horizontal",
-  "items": [
-    {
+  "items": {
+    "name": {
       "block": "input",
       "type": "text",
       "name": "name",
@@ -10,9 +10,8 @@
       "placeholder": "Введите имя",
       "suppressLabel": true
     },
-    {
+    "month": {
       "block": "select",
-      "name": "month",
       "label": "месяц",
       "labelWidth": 3,
       "value": "11",
@@ -67,46 +66,42 @@
         }
       ]
     },
-    {
+    "fieldset1": {
       "block": "fieldset",
       "label": "Fieldset without layout",
       "labelWidth": 3,
-      "name": "fieldset1",
-      "items": [
-        {
+      "items": {
+        "test6": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test6",
-          "name": "test6"
+          "placeholder": "test6"
         },
-        {
+        "test7": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test7",
-          "name": "test7"
+          "placeholder": "test7"
         },
-        {
+        "test8": {
           "block": "input",
           "disabled": false,
-          "placeholder": "test8",
-          "name": "test8"
+          "placeholder": "test8"
         }
-      ]
+      }
     },
-    {
+    "actions": {
       "block": "actions",
-      "items": [
-        {
+      "items": {
+        "okButton": {
           "block": "button",
           "label": "OK",
           "disabled": true,
           "cls": "btn-primary"
         },
-        {
+        "cancelButton": {
           "block": "button",
           "label": "Cancel"
         }
-      ]
+      }
     }
-  ]
+  }
 }

@@ -13,9 +13,7 @@ export default class Date extends Base {
   }
 
   get value() {
-    return {
-      [this.config.name]: this._dateEl.find('input').val() || null
-    };
+    return this._dateEl.find('input').val() || null;
   }
 
   set value(val) {

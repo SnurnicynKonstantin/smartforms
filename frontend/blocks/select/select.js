@@ -14,9 +14,7 @@ export default class Select extends Base {
   }
 
   get value() {
-    return {
-      [this.config.name]: this._select.options[this._select.selectedIndex].value
-    };
+    return this._select.options[this._select.selectedIndex].value;
   }
 
   set value(val) {

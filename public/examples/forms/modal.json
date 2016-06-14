@@ -2,83 +2,89 @@
   "block": "modal",
   "title": "Интернет Я.ru (Омские Кабельные Сети)",
   "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/oks_inet.jpg",
-  "body": [
-    {
+  "body": {
+    "accountId": {
       "block": "input",
       "type": "text",
       "label": "Номер лицевого счета",
       "labelWidth": 3,
       "name": "accountId"
     },
-    {
+    "customer": {
       "block": "fieldset",
       "label": "Плательщик",
       "labelWidth": 3,
-      "items": [
-        {
+      "items": {
+        "lastname": {
           "block": "input",
           "type": "text",
           "placeholder": "фамилия",
           "name": "lastname",
-          "validationRules": [{
-            "rule": "обязательное && русский",
-            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
-          }]
+          "validationRules": [
+            {
+              "rule": "обязательное && русский",
+              "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+            }
+          ]
         },
-        {
+        "firstname": {
           "block": "input",
           "type": "text",
           "placeholder": "имя",
-          "name": "firstname",
-          "validationRules": [{
-            "rule": "обязательное && русский",
-            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
-          }]
+          "validationRules": [
+            {
+              "rule": "обязательное && русский",
+              "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+            }
+          ]
         },
-        {
+        "patronym": {
           "block": "input",
           "type": "text",
           "placeholder": "отчество",
-          "name": "patronym",
-          "validationRules": [{
-            "rule": "обязательное && русский",
-            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
-          }]
+          "validationRules": [
+            {
+              "rule": "обязательное && русский",
+              "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+            }
+          ]
         }
-      ]
+      }
     },
-    {
+    "address": {
       "block": "address",
       "minLength": 3,
       "highlight": true,
       "label": "Адрес",
-      "layout": [1, 3],
-      "name": "Адрес",
-      "url": "https://dadata.ru/api/v2/suggest/address/",
-      "items": [
-        {
-          "name": "address",
-          "validationRules": [{
-            "rule": "адрес",
-            "errorMessage": "Неверно указана улица. Название улицы может состоять из русских букв, цифр, точек, запятых и знаков /, ,\", ;, -, (, ).'"
-          }]
-        },
-        {
-          "name": "house",
-          "validationRules": [{
-            "rule": "дом",
-            "errorMessage": "Неверно указан номер дома. Введите номер дома."
-          }]
-        },
-        {
-          "block": "input",
-          "name": "block"
-        },
-        {
-          "block": "input",
-          "name": "apartment"
-        }
+      "layout": [
+        1,
+        3
       ],
+      "url": "https://dadata.ru/api/v2/suggest/address/",
+      "items": {
+        "address": {
+          "validationRules": [
+            {
+              "rule": "адрес",
+              "errorMessage": "Неверно указана улица. Название улицы может состоять из русских букв, цифр, точек, запятых и знаков /, ,\", ;, -, (, ).'"
+            }
+          ]
+        },
+        "house": {
+          "validationRules": [
+            {
+              "rule": "дом",
+              "errorMessage": "Неверно указан номер дома. Введите номер дома."
+            }
+          ]
+        },
+        "additional": {
+          "block": "input"
+        },
+        "apartment": {
+          "block": "input"
+        }
+      },
       "settings": {
         "type": "POST",
         "dataType": "json",
@@ -88,14 +94,16 @@
         },
         "data": {
           "count": 20,
-          "locations": ["Омская"]
+          "locations": [
+            "Омская"
+          ]
         }
       }
     },
-    {
+    "div": {
       "block": "divider"
     },
-    {
+    "fieldset1": {
       "block": "fieldset",
       "label": "Период оплаты",
       "labelWidth": 3,
@@ -189,13 +197,12 @@
         }
       ]
     },
-    {
+    "typeAndSum": {
       "block": "array",
-      "name": "typeAndSum",
       "itemLabel": "Вид платежа и сумма",
       "maxLength": 6,
       "helpMessage": "Список сумм к оплате может иметь максимум 6 видов платежа.",
-      "errorMessage": "Не верно указана услуга",
+      "errorMessage": "Неверно указана услуга",
       "labelRightMark": "'<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"></span>'",
       "defaultValueForNewItem": "0.00",
       "newItemInputTextAlign": "right",
@@ -219,43 +226,43 @@
             },
             {
               "name": "ВДГО",
-              "value": "1"
+              "value": "vdgo"
             },
             {
               "name": "Вода ОДН",
-              "value": "2"
+              "value": "voda_odn"
             },
             {
               "name": "Водоотведение",
-              "value": "3"
+              "value": "vodootv"
             },
             {
               "name": "Водоотведение ГВС",
-              "value": "4"
+              "value": "vodootv_gvs"
             },
             {
               "name": "Водоотведение ХВС",
-              "value": "5"
+              "value": "vodootv_hvs"
             },
             {
               "name": "Водопотребление",
-              "value": "6"
+              "value": "vodopotr"
             },
             {
               "name": "Вывоз ТКО",
-              "value": "7"
+              "value": "vivoz_tko"
             },
             {
               "name": "Вывоз мусора",
-              "value": "8"
+              "value": "vivoz_msr"
             },
             {
               "name": "ГВС",
-              "value": "9"
+              "value": "gvs"
             },
             {
               "name": "ГВС ОДН",
-              "value": "10"
+              "value": "gvs_odn"
             }
           ]
         },
@@ -264,35 +271,30 @@
           "label": "Добавить"
         }
       },
-      "items": [
-        {
+      "items": {
+        "name1": {
           "label": "Содержание жилья",
-          "value": "0.00",
-          "name": "name1"
+          "value": "0.00"
         },
-        {
+        "name2": {
           "label": "Пеня",
-          "value": "0.00",
-          "name": "name2"
+          "value": "0.00"
         },
-        {
+        "name3": {
           "label": "Антена",
-          "value": "0.00",
-          "name": "name3"
+          "value": "0.00"
         },
-        {
+        "name4": {
           "label": "Иное",
-          "value": "0.00",
-          "name": "name4"
+          "value": "0.00"
         }
-      ]
+      }
     },
-    {
+    "div2": {
       "block": "divider"
     },
-    {
+    "accountingUnit": {
       "block": "array",
-      "name": "accountingUnit",
       "newItemInputTextAlign": "center",
       "removeButton": {
         "block": "button",
@@ -332,12 +334,12 @@
         }
       }
     },
-    {
+    "div3": {
       "block": "divider"
     }
-  ],
-  "footer": [
-    {
+  },
+  "footer": {
+    "iagree": {
       "block": "checkbox",
       "checkboxCls": "iagree",
       "cls": "vp-dialog-control",
@@ -345,10 +347,10 @@
       "checked": true,
       "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты"
     },
-    {
+    "submitButton": {
       "block": "button",
       "type": "submit",
       "label": "Submit"
     }
-  ]
+  }
 }

@@ -12,6 +12,10 @@ export default class Actions extends Container {
   appendChild(block) {
     this.el.append(block.el);
   }
+
+  get value() {
+    return null;
+  }
 }
 
 Factory.register('actions', Actions);

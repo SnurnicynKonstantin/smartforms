@@ -16,9 +16,7 @@ export default class Text extends Input {
   }
 
   get value() {
-    return {
-      [this.config.name]: this._input.val()
-    };
+    return this._input.val();
   }
 
   set value(val) {
