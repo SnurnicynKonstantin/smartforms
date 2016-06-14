@@ -5,7 +5,7 @@ $(function () {
     var type = $(this).val();
 
     $.get('forms/' + type + '.json', function (data) {
-      smartforms.createForm(el, data);
+      window.form = smartforms.createForm(el, data);
     });
   });
 
@@ -13,7 +13,7 @@ $(function () {
 
   $('.modal-btn').click(function () {
     $.get('forms/modal.json', function (data) {
-      smartforms.createModal($('.modal'), data);
+      window.modal = smartforms.createModal($('.modal'), data);
       $('.modal').modal('show');
     });
   });
