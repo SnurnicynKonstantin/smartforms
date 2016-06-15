@@ -116,10 +116,9 @@
           ]
         }
       ],
-      "items": [
-        {
+      "items": {
+        "month": {
           "block": "select",
-          "name": "month",
           "value": "06",
           "values": [
             {
@@ -172,9 +171,8 @@
             }
           ]
         },
-        {
+        "year": {
           "block": "select",
-          "name": "year",
           "value": "2016",
           "values": [
             {
@@ -195,7 +193,7 @@
             }
           ]
         }
-      ]
+      }
     },
     "typeAndSum": {
       "block": "array",

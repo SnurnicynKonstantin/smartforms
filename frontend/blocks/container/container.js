@@ -11,11 +11,12 @@ export default class Container extends Base {
   }
 
   initItems() {
-    this._items = mapValues(this.config.items, blockConfig => {
+    this._items = mapValues(this.config.items, (blockConfig, name) => {
       const BlockCtor = Factory.get(blockConfig.block);
       const block = new BlockCtor(blockConfig);
 
       block.parent = this;
+      block.name = name;
 
       return block;
     });
@@ -54,7 +55,19 @@ export default class Container extends Base {
   }
 
   get value() {
-    return mapValues(this.items, block => block.value);
+    return this.itemsKeys.reduce((acc, key) => {
+      if (this.items[key].isPrimitiveValue) {
+        acc[key] = this.items[key].value;
+
+        return acc;
+      }
+
+      return Object.assign(acc, this.items[key].value);
+    }, {});
+  }
+
+  get isPrimitiveValue() {
+    return false;
   }
 
   get itemsKeys() {

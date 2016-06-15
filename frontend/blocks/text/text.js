@@ -23,10 +23,6 @@ export default class Text extends Input {
     this._input.val(val);
   }
 
-  get name() {
-    return this.config.name;
-  }
-
   getTemplateData() {
     return Object.assign(super.getTemplateData(), {type: 'text'});
   }

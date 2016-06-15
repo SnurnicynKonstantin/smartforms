@@ -10,7 +10,7 @@ export default class Form extends Container {
   }
 
   validate() {
-    return this.items.some(block => !block.validate());
+    return this.itemsKeys.some(key => !this.items[key].validate());
   }
 
   appendChild(block) {

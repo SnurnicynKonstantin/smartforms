@@ -12,6 +12,7 @@ import flow from 'lodash/fp/flow';
 
 export default class Address extends Fieldset {
   constructor(config) {
+    const items = config.items || {};
     const finalConfig = Object.assign({}, config, {
       label: 'Адрес',
       labelWidth: 3,
@@ -19,22 +20,22 @@ export default class Address extends Fieldset {
       regions: '',
       layout: [1, 3],
       items: {
-        address: {
+        address: merge({
           block: 'input',
           placeholder: 'введите адрес в свободной форме'
-        },
-        house: {
+        }, items.address || {}),
+        house: merge({
           block: 'input',
           placeholder: 'дом'
-        },
-        block: {
+        }, items.house || {}),
+        block: merge({
           block: 'input',
           placeholder: 'корпус'
-        },
-        flat: {
+        }, items.block || {}),
+        flat: merge({
           block: 'input',
           placeholder: 'квартира'
-        }
+        }, items.flat || {})
       }
     });
 
@@ -78,6 +79,14 @@ export default class Address extends Fieldset {
 
     this.el.find('.tt-menu').css('z-index', 200);
     super.afterRender();
+  }
+
+  get value() {
+    const value = super.value || {};
+
+    value.address = this.addressAutocompleteInput.typeahead('val');
+
+    return value;
   }
 
   prepareSettings(query, settings) {

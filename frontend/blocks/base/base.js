@@ -5,7 +5,7 @@ import defaults from 'lodash/defaults';
 import uniqueId from 'lodash/uniqueId';
 import parser from '../../services/parser';
 
-export default class Block {
+export default class Base {
   constructor(config) {
     this._el = null;
     this._parent = null;
@@ -112,7 +112,11 @@ export default class Block {
   }
 
   get name() {
-    return this.config.name;
+    return this._name;
+  }
+
+  set name(name) {
+    this._name = name;
   }
 
   getErrorMessageFn() {
@@ -139,6 +143,10 @@ export default class Block {
 
   popover(opt) {
     this.popoverEl.popover(opt);
+  }
+
+  get isPrimitiveValue() {
+    return true;
   }
 
   get templateDefaults() {

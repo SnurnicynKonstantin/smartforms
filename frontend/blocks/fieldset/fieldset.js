@@ -68,7 +68,7 @@ export default class Fieldset extends Container {
   }
 
   validate() {
-    return this.items.reduce((acc, block) => block.validate() && acc, true);
+    return this.itemsKeys.reduce((acc, key) => this.items[key].validate() && acc, true);
   }
 
   removeRowById(id) {
@@ -85,11 +85,6 @@ export default class Fieldset extends Container {
     return this.items[findKey(this.items, item => item.items.hasOwnProperty(name))].items[name];
   }
 
-  get value() {
-    const value = super.value;
-
-    return Object.keys(value).reduce((acc, key) => Object.assign(acc, value[key]), {});
-  }
 }
 
 Factory.register('fieldset', Fieldset);
