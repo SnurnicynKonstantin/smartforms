@@ -18,7 +18,7 @@ export default class FieldsetRow extends Container {
 
   appendChild(block) {
     const width = this.width && `col-xs-${this.width.shift()}`;
-    this.el.append($(colTemplate({width})).append(block.el));
+    this.el.append($(colTemplate({ width })).append(block.el));
   }
 
   validate() {

@@ -46,7 +46,7 @@ export default class Container extends Base {
 
     this.items.forEach(block => Object.assign(result, block.value));
 
-    return this.config.name ? {[this.config.name]: result} : result;
+    return this.config.name ? { [this.config.name]: result } : result;
   }
 
   set value(val) {

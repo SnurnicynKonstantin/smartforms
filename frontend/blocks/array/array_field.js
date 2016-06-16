@@ -29,32 +29,32 @@ export default class ArrayField extends Container {
       }
     ]], []);
 
-    const finalConfig = Object.assign({}, config, { items: [{
-      block: 'fieldset',
-      id: fieldsetId,
-      label: config.itemLabel,
-      labelWidth: config.itemLabel ? 3 : 0,
-      layout: items.map(() => {
-        return {count: 3, width: [1, 8, 3]};
-      }),
-      items: fieldsetItems
-    }, {
-      block: 'actions',
-      id: editorId,
-      items: [
-        Object.assign(config.actions.label, {
-          cls: config.actions.label.cls || 'col-sm-3'
-        }),
-        Object.assign(config.actions.select, {
-          cls: config.actions.select.cls || 'col-sm-7',
-          id: selectId
-        }),
-        Object.assign(config.actions.addButton, {
-          cls: config.actions.addButton.cls || 'col-sm-2',
-          id: addBtnId
-        })
-      ]
-    }]});
+    const finalConfig = Object.assign({}, config, {
+      items: [{
+        block: 'fieldset',
+        id: fieldsetId,
+        label: config.itemLabel,
+        labelWidth: config.itemLabel ? 3 : 0,
+        layout: items.map(() => ({ count: 3, width: [1, 8, 3] })),
+        items: fieldsetItems
+      }, {
+        block: 'actions',
+        id: editorId,
+        items: [
+          Object.assign(config.actions.label, {
+            cls: config.actions.label.cls || 'col-sm-3'
+          }),
+          Object.assign(config.actions.select, {
+            cls: config.actions.select.cls || 'col-sm-7',
+            id: selectId
+          }),
+          Object.assign(config.actions.addButton, {
+            cls: config.actions.addButton.cls || 'col-sm-2',
+            id: addBtnId
+          })
+        ]
+      }]
+    });
 
     super(finalConfig);
 

@@ -85,7 +85,7 @@ export default class Address extends Fieldset {
   }
 
   get value() {
-    return Object.assign(super.value, {address: this.addressAutocompleteInput.typeahead('val')});
+    return Object.assign(super.value, { address: this.addressAutocompleteInput.typeahead('val') });
   }
 
   prepareSettings(query, settings) {
@@ -103,7 +103,7 @@ export default class Address extends Fieldset {
     }, settings, this.config.settings);
 
     settings.url = `${settings.url}?regions=${settings.data.locations.join(',')}&q=${query}`;
-    settings.data.locations = settings.data.locations.map(region => ({region}));
+    settings.data.locations = settings.data.locations.map(region => ({ region }));
     settings.data = JSON.stringify(settings.data);
 
     return settings;

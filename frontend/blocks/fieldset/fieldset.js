@@ -15,8 +15,8 @@ export default class Fieldset extends Container {
     const items = config.items.map(item => Object.assign({}, item, { suppressLabel: true }));
     const finalConfig = Object.assign({}, config, { items });
 
-    finalConfig.layout = Array.isArray(config.layout) ? config.layout : [{count: config.items.length}];
-    finalConfig.layout = finalConfig.layout.map(rowConfig => Number.isInteger(rowConfig) ? {count: rowConfig} : rowConfig);
+    finalConfig.layout = (Array.isArray(config.layout) ? config.layout : [{ count: config.items.length }])
+      .map(count => Number.isInteger(count) ? { count } : count);
 
     let start = 0;
     finalConfig.items = finalConfig.layout.map(rowConfig => {

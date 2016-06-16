@@ -11,7 +11,7 @@ export default class Text extends Input {
     super.render();
 
     this._input = this.el.find('input:text');
-    this._input.mask(this.config.mask, {placeholder: this.config.maskPlaceholder});
+    this._input.mask(this.config.mask, { placeholder: this.config.maskPlaceholder });
     this._input.addClass(`text-align-${this.config.textAlign || 'left'}`);
   }
 
@@ -30,7 +30,7 @@ export default class Text extends Input {
   }
 
   getTemplateData() {
-    return Object.assign(super.getTemplateData(), {type: 'text'});
+    return Object.assign(super.getTemplateData(), { type: 'text' });
   }
 }
 
