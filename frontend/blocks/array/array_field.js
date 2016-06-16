@@ -1,7 +1,5 @@
 import uniqueId from 'lodash/uniqueId';
 import cloneDeep from 'lodash/cloneDeep';
-import findKey from 'lodash/findKey';
-import size from 'lodash/size';
 
 import Container from '../container/container';
 import Factory from '../factory';
@@ -16,62 +14,52 @@ export default class ArrayField extends Container {
     const selectId = uniqueId();
     const editorId = uniqueId();
 
-    const items = config.items;
-    const fieldsetItems = Object.keys(items || {}).reduce((acc, key) => Object.assign(acc, {
-      [`${key}-removeButton`]: config.removeButton,
-      [`${key}-label`]: {
+    const items = Array.isArray(config.items) ? config.items : [];
+    const fieldsetItems = items.reduce((acc, item) => [...acc, ...[
+      config.removeButton,
+      {
         block: 'label',
-        labelText: items[key].label,
+        labelText: item.label,
         rightMark: config.labelRightMark
-      },
-      [key]: {
+      }, {
         block: 'text',
-        value: items[key].value || '',
-        name: items[key].name,
+        value: item.value || '',
+        name: item.name,
         textAlign: config.newItemInputTextAlign
       }
-    }), {});
+    ]], []);
 
-    if (!config.actions) {
-      throw new Error("Array block should contain 'actions' property");
-    }
-
-    const finalConfig = Object.assign({}, config, {
-      items: {
-        fieldset: {
-          block: 'fieldset',
-          id: fieldsetId,
-          label: config.itemLabel,
-          labelWidth: config.itemLabel ? 3 : 0,
-          layout: Object.keys(items || {}).map(() => {
-            return {count: 3, width: [1, 8, 3]};
-          }),
-          items: fieldsetItems
-        },
-        actions: {
-          block: 'actions',
-          id: editorId,
-          items: {
-            [uniqueId('label')]: Object.assign({}, config.actions.label, {
-              cls: config.actions.label.cls || 'col-sm-3'
-            }),
-            [uniqueId('select')]: Object.assign({}, config.actions.select, {
-              cls: config.actions.select.cls || 'col-sm-7',
-              id: selectId
-            }),
-            [uniqueId('input')]: Object.assign({}, config.actions.addButton, {
-              cls: config.actions.addButton.cls || 'col-sm-2',
-              id: addBtnId
-            })
-          }
-        }
-      }
-    });
+    const finalConfig = Object.assign({}, config, { items: [{
+      block: 'fieldset',
+      id: fieldsetId,
+      label: config.itemLabel,
+      labelWidth: config.itemLabel ? 3 : 0,
+      layout: items.map(() => {
+        return {count: 3, width: [1, 8, 3]};
+      }),
+      items: fieldsetItems
+    }, {
+      block: 'actions',
+      id: editorId,
+      items: [
+        Object.assign(config.actions.label, {
+          cls: config.actions.label.cls || 'col-sm-3'
+        }),
+        Object.assign(config.actions.select, {
+          cls: config.actions.select.cls || 'col-sm-7',
+          id: selectId
+        }),
+        Object.assign(config.actions.addButton, {
+          cls: config.actions.addButton.cls || 'col-sm-2',
+          id: addBtnId
+        })
+      ]
+    }]});
 
     super(finalConfig);
 
     this.maxLength = config.maxLength;
-    this.currentLength = size(items);
+    this.currentLength = items.length;
     this.editor = this.getItemById(editorId);
     this.addBtn = this.editor.getItemById(addBtnId);
     this.fieldset = this.getItemById(fieldsetId);
@@ -83,12 +71,11 @@ export default class ArrayField extends Container {
       this.addNewRow({
         labelText: this.select.nameOfValue,
         value: this.config.defaultValueForNewItem || '',
-        name: this.select.value
+        name: this.select.value[this.select.name]
       });
     });
-
-    this.fieldset.itemsValues.forEach(row => {
-      row.itemsValues[0].el.on('click', () => {
+    this.fieldset.items.forEach(row => {
+      row.items[0].el.on('click', () => {
         this.removeRowById(row.id);
       });
     });
@@ -100,11 +87,9 @@ export default class ArrayField extends Container {
   }
 
   get value() {
-    return this.fieldset.itemsValues.reduce((acc, item) => {
-      const textKey = findKey(item.items, o => 'text' === o.config.block);
-
-      return Object.assign(acc, { [textKey]: item.items[textKey].value});
-    }, {});
+    return {
+      [this.config.name]: this.fieldset.items.reduce((acc, row) => Object.assign(acc, row.items[2].value), {})
+    };
   }
 
   set value(val) {
@@ -129,24 +114,20 @@ export default class ArrayField extends Container {
     if (row && '' !== row.name) {
       const newRow = this.fieldset.addRow({
         width: [1, 8, 3],
-        items: {
-          [`${row.name}-removeButton`]: this.config.removeButton,
-          [`${row.name}-label`]: {
-            block: 'label',
-            labelText: row.labelText,
-            rightMark: this.config.labelRightMark
-          },
-          [`${row.name}`]: {
-            block: 'text',
-            value: row.value,
-            textAlign: this.config.newItemInputTextAlign
-          }
-        },
-        itemsOrder: [`${row.name}-removeButton`, `${row.name}-label`, `${row.name}`]
+        items: [this.config.removeButton, {
+          block: 'label',
+          labelText: row.labelText,
+          rightMark: this.config.labelRightMark
+        }, {
+          block: 'text',
+          value: row.value,
+          name: row.name,
+          textAlign: this.config.newItemInputTextAlign
+        }]
       });
 
       this.currentLength++;
-      newRow.itemsValues[0].el.on('click', () => {
+      newRow.items[0].el.on('click', () => {
         this.removeRowById(newRow.id);
       });
       this.select.removeOptionByValue(row.name);
@@ -159,22 +140,19 @@ export default class ArrayField extends Container {
   }
 
   removeRowById(id) {
-    const rowKey = this.fieldset.itemsKeys.find(key => this.fieldset.items[key].id === id);
-    const row = this.fieldset.items[rowKey];
+    const row = this.fieldset.getItemById(id);
 
     this.select.addOption({
-      value: row.items[Object.keys(row.items)[2]].name,
-      text: row.items[Object.keys(row.items)[1]].dataText
+      value: row.items[2].name,
+      text: row.items[1].dataText
     });
     this.select.sortOptionsByText();
     this.fieldset.removeRowById(id);
     this.currentLength--;
-
-    delete this.fieldset.items[rowKey];
   }
 
   get sum() {
-    return this.fieldset.itemsValues.reduce((acc, row) => acc + parseFloat(row.itemsValues[2].value), 0);
+    return this.fieldset.items.reduce((acc, row) => acc + parseFloat(row.items[2].value[row.items[2].name]), 0);
   }
 }
 

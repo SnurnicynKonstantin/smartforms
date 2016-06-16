@@ -9,7 +9,9 @@ export default class Static extends Base {
   }
 
   get value() {
-    return this.el.find('span.form-control-static')[0].innerHTML;
+    return {
+      [this.config.name]: this.el.find('span.form-control-static')[0].innerHTML
+    };
   }
 
   set value(val) {

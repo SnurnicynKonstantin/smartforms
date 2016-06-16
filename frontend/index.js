@@ -16,8 +16,10 @@ import './blocks/address/address';
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
 
+import configReader from './services/config_reader';
+
 function createForm(el, config) {
-  const form = new Form(config);
+  const form = new Form(configReader.createFormConfig(config));
 
   form.render();
 
@@ -29,7 +31,7 @@ function createForm(el, config) {
 }
 
 function createModal(el, config) {
-  const modal = new Modal(config);
+  const modal = new Modal(configReader.createModalConfig(config));
 
   modal.render();
 

@@ -5,39 +5,30 @@ import './fieldset.scss';
 import Container from '../container/container';
 import Factory from '../factory';
 
-import uniqueId from 'lodash/uniqueId';
-import size from 'lodash/size';
-import mapValues from 'lodash/mapValues';
-import findKey from 'lodash/findKey';
+import map from 'lodash/fp/map';
+import flatten from 'lodash/fp/flatten';
+import find from 'lodash/fp/find';
+import flow from 'lodash/fp/flow';
 
 export default class Fieldset extends Container {
   constructor(config) {
-    const finalConfig = Object.assign({}, config);
+    const items = config.items.map(item => Object.assign({}, item, { suppressLabel: true }));
+    const finalConfig = Object.assign({}, config, { items });
 
-    finalConfig.layout = Array.isArray(config.layout) ? config.layout : [{count: size(config.items)}];
+    finalConfig.layout = Array.isArray(config.layout) ? config.layout : [{count: config.items.length}];
     finalConfig.layout = finalConfig.layout.map(rowConfig => Number.isInteger(rowConfig) ? {count: rowConfig} : rowConfig);
 
     let start = 0;
-
     finalConfig.items = finalConfig.layout.map(rowConfig => {
       const result = {
+        items: items.slice(start, start + rowConfig.count),
         block: 'fieldsetRow',
         width: rowConfig.width
       };
-
-      const itemsKeys = Object.keys(config.items).slice(start, start + rowConfig.count);
       start += rowConfig.count;
 
-      result.items = itemsKeys.reduce((acc, key) => Object.assign(acc, {[key]: config.items[key]}), {});
-
-      result.items = mapValues(result.items, item => {
-        item.suppressLabel = true;
-
-        return item;
-      });
-
       return result;
-    }, {}).reduce((acc, item) => Object.assign(acc, {[uniqueId()]: item}), {});
+    });
 
     super(finalConfig);
   }
@@ -55,7 +46,7 @@ export default class Fieldset extends Container {
     row.parent = this;
     row.render();
 
-    this.items[uniqueId()] = row;
+    this.items.push(row);
 
     const appendChildWithIndex = {
       last: () => this.el.find('.fieldset-rows-container').append(row.el),
@@ -68,13 +59,16 @@ export default class Fieldset extends Container {
   }
 
   validate() {
-    return this.itemsKeys.reduce((acc, key) => this.items[key].validate() && acc, true);
+    return this.items.reduce((acc, block) => block.validate() && acc, true);
+  }
+
+  removeRow(index) {
+    this.el.find('.input-set-row').eq(index).remove();
+    this.items.splice(index, 1);
   }
 
   removeRowById(id) {
-    const key = findKey(this.items, item => id === item.id);
-    this.items[key].el.remove();
-    delete this.items[key];
+    this.removeRow(this.items.findIndex(item => id === item.id));
   }
 
   appendChild(block) {
@@ -82,9 +76,8 @@ export default class Fieldset extends Container {
   }
 
   getItemByName(name) {
-    return this.items[findKey(this.items, item => item.items.hasOwnProperty(name))].items[name];
+    return flow(map('items'), flatten, find(item => item.name === name))(this.items);
   }
-
 }
 
 Factory.register('fieldset', Fieldset);

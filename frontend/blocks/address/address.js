@@ -12,31 +12,34 @@ import flow from 'lodash/fp/flow';
 
 export default class Address extends Fieldset {
   constructor(config) {
-    const items = config.items || {};
+    const items = config.items || [];
     const finalConfig = Object.assign({}, config, {
       label: 'Адрес',
       labelWidth: 3,
-      name: 'address',
       regions: '',
       layout: [1, 3],
-      items: {
-        address: merge({
+      items: [
+        merge({
           block: 'input',
-          placeholder: 'введите адрес в свободной форме'
-        }, items.address || {}),
-        house: merge({
+          placeholder: 'введите адрес в свободной форме',
+          name: 'address'
+        }, items.find(item => 'address' === item.name) || {}),
+        merge({
           block: 'input',
-          placeholder: 'дом'
-        }, items.house || {}),
-        block: merge({
+          placeholder: 'дом',
+          name: 'house'
+        }, items.find(item => 'house' === item.name) || {}),
+        merge({
           block: 'input',
-          placeholder: 'корпус'
-        }, items.block || {}),
-        flat: merge({
+          placeholder: 'корпус',
+          name: 'block'
+        }, items.find(item => 'block' === item.name) || {}),
+        merge({
           block: 'input',
-          placeholder: 'квартира'
-        }, items.flat || {})
-      }
+          placeholder: 'квартира',
+          name: 'flat'
+        }, items.find(item => 'flat' === item.name) || {})
+      ]
     });
 
     super(finalConfig);
@@ -82,11 +85,7 @@ export default class Address extends Fieldset {
   }
 
   get value() {
-    const value = super.value || {};
-
-    value.address = this.addressAutocompleteInput.typeahead('val');
-
-    return value;
+    return Object.assign(super.value, {address: this.addressAutocompleteInput.typeahead('val')});
   }
 
   prepareSettings(query, settings) {

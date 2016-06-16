@@ -1,8 +1,6 @@
 import Base from '../base/base';
 import Factory from '../factory';
 
-import mapValues from 'lodash/mapValues';
-
 export default class Container extends Base {
   constructor(config) {
     super(config);
@@ -11,12 +9,12 @@ export default class Container extends Base {
   }
 
   initItems() {
-    this._items = mapValues(this.config.items, (blockConfig, name) => {
-      const BlockCtor = Factory.get(blockConfig.block);
+    this._items = this.config.items.map(blockConfig => {
+      const BlockCtor = Factory.get(blockConfig['block']);
+
       const block = new BlockCtor(blockConfig);
 
       block.parent = this;
-      block.name = name;
 
       return block;
     });
@@ -25,57 +23,30 @@ export default class Container extends Base {
   render() {
     super.render();
 
-    if (Array.isArray(this.config.itemsOrder)) {
-      this.config.itemsOrder.forEach(k => {
-        const block = this.items[k];
-
-        block.render();
-        this.appendChild(block);
-      });
-
-      return;
-    }
-
-    mapValues(this.items, block => {
+    this.items.forEach(block => {
       block.render();
       this.appendChild(block);
     });
   }
 
   getItemById(id) {
-    return this.itemsValues.find(item => id === item.id);
+    return this.items.find(item => item.id === id);
   }
 
   validate() {
-    return this.itemsValues.every(item => item.validate());
+    return this.items.every(block => block.validate());
   }
 
   get isValid() {
-    return this.itemsValues.every(item => item.isValid);
+    return this.items.every(block => block.isValid);
   }
 
   get value() {
-    return this.itemsKeys.reduce((acc, key) => {
-      if (this.items[key].isPrimitiveValue) {
-        acc[key] = this.items[key].value;
+    const result = {};
 
-        return acc;
-      }
+    this.items.forEach(block => Object.assign(result, block.value));
 
-      return Object.assign(acc, this.items[key].value);
-    }, {});
-  }
-
-  get isPrimitiveValue() {
-    return false;
-  }
-
-  get itemsKeys() {
-    return Object.keys(this.items);
-  }
-
-  get itemsValues() {
-    return this.itemsKeys.map(key => this.items[key]);
+    return this.config.name ? {[this.config.name]: result} : result;
   }
 
   set value(val) {
@@ -86,7 +57,7 @@ export default class Container extends Base {
   }
 
   afterRender() {
-    mapValues(this.items, block => block.afterRender());
+    this.items.forEach(block => block.afterRender());
   }
 
   get items() {

@@ -1,8 +1,9 @@
 {
   "cls": "form",
-  "items": {
+  "form": {
     "month": {
       "block": "select",
+      "name": "month",
       "label": "месяц",
       "value": "11",
       "values": [
@@ -58,5 +59,8 @@
         }
       ]
     }
-  }
+  },
+  "schema": [
+    "month"
+  ]
 }

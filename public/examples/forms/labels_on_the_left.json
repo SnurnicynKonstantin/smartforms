@@ -1,6 +1,6 @@
 {
   "cls": "form form-horizontal",
-  "items": {
+  "form": {
     "name": {
       "block": "input",
       "type": "text",
@@ -66,42 +66,53 @@
         }
       ]
     },
-    "fieldset1": {
+    "test6": {
+      "block": "input",
+      "disabled": false,
+      "placeholder": "test6"
+    },
+    "test7": {
+      "block": "input",
+      "disabled": false,
+      "placeholder": "test7"
+    },
+    "test8": {
+      "block": "input",
+      "disabled": false,
+      "placeholder": "test8"
+    },
+    "okButton": {
+      "block": "button",
+      "label": "OK",
+      "disabled": true,
+      "cls": "btn-primary"
+    },
+    "cancelButton": {
+      "block": "button",
+      "label": "Cancel"
+    }
+  },
+  "schema": [
+    "name",
+    "month",
+    {
+      "name": "fieldset1",
       "block": "fieldset",
       "label": "Fieldset without layout",
       "labelWidth": 3,
-      "items": {
-        "test6": {
-          "block": "input",
-          "disabled": false,
-          "placeholder": "test6"
-        },
-        "test7": {
-          "block": "input",
-          "disabled": false,
-          "placeholder": "test7"
-        },
-        "test8": {
-          "block": "input",
-          "disabled": false,
-          "placeholder": "test8"
-        }
-      }
+      "items": [
+        "test6",
+        "test7",
+        "test8"
+      ]
     },
-    "actions": {
+    {
+      "name": "actions",
       "block": "actions",
-      "items": {
-        "okButton": {
-          "block": "button",
-          "label": "OK",
-          "disabled": true,
-          "cls": "btn-primary"
-        },
-        "cancelButton": {
-          "block": "button",
-          "label": "Cancel"
-        }
-      }
+      "items": [
+        "okButton",
+        "cancelButton"
+      ]
     }
-  }
+  ]
 }

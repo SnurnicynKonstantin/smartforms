@@ -12,7 +12,9 @@ export default class Checkbox extends Base {
   }
 
   get value() {
-    return this._checkboxWrapper.prop('checked');
+    return {
+      [this.config.name]: this._checkboxWrapper.prop('checked')
+    };
   }
 
   set value(val) {

@@ -1,8 +1,9 @@
 {
   "cls": "form",
-  "items": {
+  "form": {
     "accountNumber": {
       "block": "text",
+      "name": "accountNumber",
       "label": "Лицевой счёт c двумя правилами",
       "textAlign": "center",
       "value": "1234 9999999",
@@ -33,5 +34,9 @@
         }
       ]
     }
-  }
+  },
+  "schema": [
+    "accountNumber",
+    "accountNumber1"
+  ]
 }

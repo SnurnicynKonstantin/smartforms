@@ -81,7 +81,7 @@ export default class Base {
   }
 
   get value() {
-    return null;
+    return {};
   }
 
   set value(val) {
@@ -112,11 +112,7 @@ export default class Base {
   }
 
   get name() {
-    return this._name;
-  }
-
-  set name(name) {
-    this._name = name;
+    return this.config.name;
   }
 
   getErrorMessageFn() {
@@ -143,10 +139,6 @@ export default class Base {
 
   popover(opt) {
     this.popoverEl.popover(opt);
-  }
-
-  get isPrimitiveValue() {
-    return true;
   }
 
   get templateDefaults() {

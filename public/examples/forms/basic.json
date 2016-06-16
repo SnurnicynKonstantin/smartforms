@@ -1,9 +1,10 @@
 {
   "cls": "form",
-  "items": {
+  "form": {
     "name": {
       "block": "input",
       "type": "text",
+      "name": "name",
       "label": "Имя",
       "placeholder": "Введите имя",
       "suppressLabel": true
@@ -13,31 +14,40 @@
       "value": "14.09.2016",
       "label": "Дата снятия показаний"
     },
-    "actions": {
-      "block": "actions",
-      "items": {
-        "okButton": {
-          "block": "button",
-          "label": "OK",
-          "disabled": true,
-          "cls": "btn-primary"
-        },
-        "cancelButton": {
-          "block": "button",
-          "label": "Cancel"
-        },
-        "deleteButton": {
-          "block": "button",
-          "label": "Delete",
-          "glyphicon": "trash",
-          "cls": "btn-danger"
-        },
-        "envelopeButton": {
-          "block": "button",
-          "glyphicon": "envelope",
-          "cls": "btn-link"
-        }
-      }
+    "okButton": {
+      "block": "button",
+      "label": "OK",
+      "disabled": true,
+      "cls": "btn-primary"
+    },
+    "cancelButton": {
+      "block": "button",
+      "label": "Cancel"
+    },
+    "deleteButton": {
+      "block": "button",
+      "label": "Delete",
+      "glyphicon": "trash",
+      "cls": "btn-danger"
+    },
+    "envelopeButton": {
+      "block": "button",
+      "glyphicon": "envelope",
+      "cls": "btn-link"
     }
-  }
+  },
+  "schema": [
+    "name",
+    "date",
+    {
+      "name": "actions",
+      "block": "actions",
+      "items": [
+        "okButton",
+        "cancelButton",
+        "deleteButton",
+        "envelopeButton"
+      ]
+    }
+  ]
 }

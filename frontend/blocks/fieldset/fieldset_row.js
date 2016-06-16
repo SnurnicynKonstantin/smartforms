@@ -22,7 +22,7 @@ export default class FieldsetRow extends Container {
   }
 
   validate() {
-    return this.itemsKeys.reduce((acc, key) => this.items[key].validate() && acc, true);
+    return this.items.reduce((acc, block) => block.validate() && acc, true);
   }
 }
 

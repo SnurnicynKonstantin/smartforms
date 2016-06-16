@@ -19,7 +19,9 @@ export default class Input extends Base {
   }
 
   get value() {
-    return this.el.find('input').val();
+    return {
+      [this.config.name]: this.el.find('input').val()
+    };
   }
 
   set value(val) {

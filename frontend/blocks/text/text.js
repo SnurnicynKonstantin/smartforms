@@ -16,11 +16,17 @@ export default class Text extends Input {
   }
 
   get value() {
-    return this._input.val();
+    return {
+      [this.config.name]: this._input.val()
+    };
   }
 
   set value(val) {
     this._input.val(val);
+  }
+
+  get name() {
+    return this.config.name;
   }
 
   getTemplateData() {
