@@ -74,11 +74,23 @@ export default class ArrayField extends Container {
         name: this.select.value[this.select.name]
       });
     });
+
+    this.select.el.on('change', e => {
+      if ('' !== e.target.value) {
+        this.select.popover('destroy');
+      }
+    });
+    this.el.on('click', '.popover-close', e => {
+      e.preventDefault();
+      this.select.popover('destroy');
+    });
+
     this.fieldset.items.forEach(row => {
       row.items[0].el.on('click', () => {
         this.removeRowById(row.id);
       });
     });
+
     super.afterRender();
   }
 
@@ -102,41 +114,46 @@ export default class ArrayField extends Container {
   }
 
   addNewRow(row) {
+    let errorPopover = false;
     if (this.maxLength <= this.currentLength) {
-      this.addBtn.popover({
-        placement: 'top',
-        content: this.config.helpMessage
-      });
+      errorPopover = {
+        content: this.config.helpMessage,
+        title: '<div class="clearfix"><a href="#" class="popover-close pull-right">×</a></div>'
+      };
+    }
+
+    if (!row || '' === row.name) {
+      errorPopover = {
+        content: `<span class="error-message">${this.config.errorMessage}</span>`
+      };
+    }
+
+    if (errorPopover) {
+      this.select.popover(Object.assign(errorPopover, { html: true, placement: 'top' }));
+      this.select.popover('show');
 
       return;
     }
 
-    if (row && '' !== row.name) {
-      const newRow = this.fieldset.addRow({
-        width: [1, 8, 3],
-        items: [this.config.removeButton, {
-          block: 'label',
-          labelText: row.labelText,
-          rightMark: this.config.labelRightMark
-        }, {
-          block: 'text',
-          value: row.value,
-          name: row.name,
-          textAlign: this.config.newItemInputTextAlign
-        }]
-      });
+    const newRow = this.fieldset.addRow({
+      width: [1, 8, 3],
+      items: [this.config.removeButton, {
+        block: 'label',
+        labelText: row.labelText,
+        rightMark: this.config.labelRightMark
+      }, {
+        block: 'text',
+        value: row.value,
+        name: row.name,
+        textAlign: this.config.newItemInputTextAlign
+      }]
+    });
 
-      this.currentLength++;
-      newRow.items[0].el.on('click', () => {
-        this.removeRowById(newRow.id);
-      });
-      this.select.removeOptionByValue(row.name);
-    } else {
-      this.select.popover({
-        placement: 'top',
-        content: this.config.errorMessage
-      });
-    }
+    this.currentLength++;
+    newRow.items[0].el.on('click', () => {
+      this.removeRowById(newRow.id);
+    });
+    this.select.removeOptionByValue(row.name);
   }
 
   removeRowById(id) {

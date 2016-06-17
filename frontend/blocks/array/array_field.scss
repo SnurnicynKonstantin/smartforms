@@ -1,8 +1,23 @@
 @import "../../styles/variables";
 
+$red-danger: #e01f2b;
+
 .#{$cls-prefix}-form-array {
   .#{$cls-prefix}-fieldset .input-set-col .control-label {
     display: block;
     height: 42px;
+  }
+
+  .popover-close {
+    &:hover,
+    &:focus {
+      border-bottom-color: #f0b6ba;
+      color: $red-danger;
+      text-decoration: none;
+    }
+  }
+
+  .error-message {
+    color: $red-danger;
   }
 }
