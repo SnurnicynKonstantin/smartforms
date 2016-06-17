@@ -4,6 +4,13 @@
   transition: $transition;
 }
 
+@mixin transform($transform) {
+  -webkit-transform: scale($transform);
+  -ms-transform: scale($transform);
+  -o-transform: scale($transform);
+  transform: scale($transform);
+}
+
 @mixin print-styles($map) {
   @each $property, $value in $map {
     #{$property}: $value;
