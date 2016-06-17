@@ -9,7 +9,6 @@ $item-placeholder-clr: #96a7b7;
 $textmask-clr: #a9a9a9;
 
 $jq-select-bg-clr: #fff;
-$jq-select-border-clr: #d7d7d7;
 $jq-select-hover-clr: #bebebe;
 $jq-select-border-focus-clr: #bebebe;
 $jq-select-trigger-clr: #252525;
@@ -23,7 +22,7 @@ $jq-disabled: (
 
 $jq-has-error: (
   background-color: #fce8e9 !important,
-  border-color: #d7d7d7,
+  border-color: $border-clr,
   color: #e01f2b,
 );
 
@@ -79,7 +78,7 @@ $jq-has-error: (
 
   .jq-selectbox__select {
     background: $jq-select-bg-clr;
-    border: 1px solid $jq-select-border-clr;
+    border: 1px solid $border-clr;
     border-radius: 3px;
     font-size: 15px;
     height: 42px;

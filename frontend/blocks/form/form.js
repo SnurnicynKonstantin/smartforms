@@ -2,6 +2,8 @@ import Container from '../container/container';
 
 import template from './form.jade';
 
+import './form.scss';
+
 export default class Form extends Container {
   get templateFn() {
     return template;
