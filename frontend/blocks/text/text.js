@@ -13,6 +13,8 @@ export default class Text extends Input {
     this._input = this.el.find('input:text');
     this._input.mask(this.config.mask, { placeholder: this.config.maskPlaceholder });
     this._input.addClass(`text-align-${this.config.textAlign || 'left'}`);
+
+    this._input.on('input change', () => this.trigger('change', [this, this.value]));
   }
 
   get value() {

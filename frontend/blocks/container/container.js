@@ -33,6 +33,10 @@ export default class Container extends Base {
     return this.items.find(item => item.id === id);
   }
 
+  getItemByName(name) {
+    return this.items.find(item => item.name === name);
+  }
+
   validate() {
     return this.items.every(block => block.validate());
   }

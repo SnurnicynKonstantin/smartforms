@@ -42,6 +42,8 @@ export default class Select extends Base {
     if (this.config && this.config.value) {
       this.value = this.config.value;
     }
+
+    this._selectWrapper.on('change', () => this.trigger('change', [this, this.value]));
   }
 
   removeOptionByValue(val) {

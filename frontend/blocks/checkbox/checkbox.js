@@ -27,6 +27,7 @@ export default class Checkbox extends Base {
 
     this._checkboxWrapper = this.el.find(`#${this.id}`);
     this._checkboxWrapper.styler();
+    this._checkboxWrapper.on('change', () => this.trigger('change', [this, this.value]));
   }
 }
 

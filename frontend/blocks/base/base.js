@@ -76,6 +76,42 @@ export default class Base {
     this.popover('show');
   }
 
+  on(...args) {
+    $(this).on(...args);
+
+    return this;
+  }
+
+  trigger(...args) {
+    $(this).trigger(...args);
+
+    return this;
+  }
+
+  hide() {
+    if (this.isHidden) {
+      return;
+    }
+
+    this._isHidden = true;
+    this.el.hide();
+    this.trigger('hide', this);
+  }
+
+  show() {
+    if (!this.isHidden) {
+      return;
+    }
+
+    this._isHidden = false;
+    this.el.show();
+    this.trigger('show', this);
+  }
+
+  get isHidden() {
+    return this._isHidden;
+  }
+
   get isValid() {
     return true;
   }

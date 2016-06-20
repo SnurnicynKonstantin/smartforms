@@ -30,6 +30,12 @@ export default class RadioGroup extends Base {
 
     this._radioButtons = this.el.find('input[type="radio"]');
     this._radioButtons.styler();
+
+    this._radioButtons.on('change', () => this.onChange());
+  }
+
+  onChange() {
+    this.trigger('change', [this, this.value]);
   }
 
 }
