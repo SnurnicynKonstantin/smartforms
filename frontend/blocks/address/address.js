@@ -85,7 +85,7 @@ export default class Address extends Fieldset {
   }
 
   get value() {
-    return Object.assign(super.value, { address: this.addressAutocompleteInput.typeahead('val') });
+    return Object.assign(super.value[this.name] || super.value, { address: this.addressAutocompleteInput.typeahead('val') });
   }
 
   prepareSettings(query, settings) {
