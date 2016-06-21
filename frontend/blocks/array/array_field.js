@@ -49,7 +49,7 @@ export default class ArrayField extends Container {
             id: selectId
           }),
           Object.assign(config.actions.addButton, {
-            cls: config.actions.addButton.cls || 'col-sm-2',
+            cls: config.actions.addButton.cls || 'col-sm-2 btn-default',
             id: addBtnId
           })
         ]

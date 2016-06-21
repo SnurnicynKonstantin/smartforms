@@ -17,18 +17,24 @@
     "okButton": {
       "block": "button",
       "label": "OK",
+      "cls": "btn-primary"
+    },
+    "disabledButton": {
+      "block": "button",
+      "label": "I'm disabled",
       "disabled": true,
       "cls": "btn-primary"
     },
     "cancelButton": {
       "block": "button",
-      "label": "Cancel"
+      "label": "Cancel",
+      "cls": "btn-default"
     },
     "deleteButton": {
       "block": "button",
       "label": "Delete",
       "glyphicon": "trash",
-      "cls": "btn-danger"
+      "cls": "btn-default"
     },
     "envelopeButton": {
       "block": "button",
@@ -44,6 +50,7 @@
       "block": "actions",
       "items": [
         "okButton",
+        "disabledButton",
         "cancelButton",
         "deleteButton",
         "envelopeButton"

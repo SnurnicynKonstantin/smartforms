@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 $backgroundColor: #fff;
 $borderColor: #cccccc;
@@ -19,8 +20,7 @@ $cursorTextColor: #fff;
     background-color: $backgroundColor;
     border: 1px solid $borderColor;
     border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    @include box-shadow(0 6px 12px rgba(0, 0, 0, 0.175));
     background-clip: padding-box;
 
     [class*=tt-dataset] {

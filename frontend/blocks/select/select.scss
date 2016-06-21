@@ -169,7 +169,7 @@ $jq-has-error: (
     padding: 0;
     top: 42px;
     width: 100% !important;
-    box-shadow: 0 4px 59px rgba(0, 0, 0, 0.15);
+    @include box-shadow(0 4px 59px rgba(0, 0, 0, 0.15));
   }
 
   .jq-selectbox.select-sm {

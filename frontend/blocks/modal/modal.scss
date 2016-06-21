@@ -10,6 +10,16 @@ $header-border-clr: #e1e1e1;
 $hover-close-button-clr: #252525;
 
 .#{$cls-prefix}-modal {
+  .modal-dialog {
+    &.modal-md {
+      width: 744px;
+    }
+
+    &.modal-sm {
+      width: 400px;
+    }
+  }
+
   .header-wrap {
     position: relative;
     height: $modal-header-height;

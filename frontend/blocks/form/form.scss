@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/mixins";
 
 .#{$cls-prefix}-form {
   .form-control {
@@ -10,8 +11,7 @@
 
     &:focus {
       border-color: #b5e1ef;
-      -webkit-box-shadow: inset 0 0 6px rgba(10, 154, 203, 0.2);
-      box-shadow: inset 0 0 6px rgba(10, 154, 203, 0.2);
+      @include box-shadow(inset 0 0 6px rgba(10, 154, 203, 0.2));
     }
   }
 }

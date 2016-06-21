@@ -16,3 +16,8 @@
     #{$property}: $value;
   }
 }
+
+@mixin box-shadow($box-shadow...) {
+  -webkit-box-shadow: $box-shadow;
+  box-shadow: $box-shadow;
+}

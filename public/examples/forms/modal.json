@@ -366,7 +366,8 @@
       "submitButton": {
         "block": "button",
         "type": "submit",
-        "label": "Submit"
+        "label": "Submit",
+        "cls": "btn-primary"
       }
     },
     "schema": [
