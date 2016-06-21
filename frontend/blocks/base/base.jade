@@ -9,7 +9,9 @@
     .controls(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
         block inner
 
-        if description
-            span.help-block #{description}
+        if helpMessage && helpMessage.text
+            p.help-block(
+                style="color: #{helpMessage.fontColor}; font-size: #{helpMessage.fontSize}px;"
+            ) !{helpMessage.text}
 
         span.help-block.errortext(style="display:none;")

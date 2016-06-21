@@ -1,6 +1,10 @@
 {
   "cls": "form",
   "form": {
+    "Метка": {
+      "block": "label",
+      "labelText": "1) Введите данные 2) Проверим штрафы 3) Оплатите со скидкой<br>Для штрафов не старше 20 дней — скидка 50%!"
+    },
     "Тип": {
       "block": "radiogroup",
       "options": [
@@ -19,15 +23,43 @@
         }
       ]
     },
-    "accountNumber": {
+    "Вариант1": {
       "block": "text",
       "name": "accountNumber",
-      "label": "Лицевой счёт c двумя правилами",
       "textAlign": "center",
-      "value": "1234 9999999",
-      "mask": "9999 9999999",
-      "maskPlaceholder": "_",
+      "value": "",
+      "mask": "99gg999999",
+      "maskPlaceholder": "",
       "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+      "helpMessage": {
+        "fontSize": "13",
+        "fontColor": "#96a7b7",
+        "text": "Введите номер в формате: 77ТС123456<br>(допускаются цифры и русские буквы)"
+      },
+      "validationRules": [
+        {
+          "rule": "обязательное",
+          "errorMessage": "Поле должно быть заполнено"
+        },
+        {
+          "rule": "длина > 5",
+          "errorMessage": "Длина поля должна быть больше 5"
+        }
+      ],
+      "dependencies": "Тип == \"1\""
+    },
+    "Вариант2": {
+      "block": "text",
+      "name": "accountNumber",
+      "textAlign": "center",
+      "mask": "99gg999999",
+      "maskPlaceholder": "",
+      "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+      "helpMessage": {
+        "fontSize": "13",
+        "fontColor": "#96a7b7",
+        "text": "Введите номер в формате: 55ВА123456<br>(допускаются цифры и русские буквы)"
+      },
       "validationRules": [
         {
           "rule": "обязательное",
@@ -40,12 +72,18 @@
       ],
       "dependencies": "Тип == \"2\""
     },
-    "accountNumber1": {
+    "Вариант3": {
       "block": "text",
-      "label": "Лицевой счёт с двойным правилом",
       "textAlign": "center",
-      "value": "1234 1234567",
+      "value": "",
+      "mask": "********************",
+      "maskPlaceholder": "",
       "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+      "helpMessage": {
+        "fontSize": "13",
+        "fontColor": "#96a7b7",
+        "text": "Введите номер постановления (20 символов)"
+      },
       "validationRules": [
         {
           "rule": "обязательное && длина > 5",
@@ -56,8 +94,10 @@
     }
   },
   "schema": [
+    "Метка",
     "Тип",
-    "accountNumber",
-    "accountNumber1"
+    "Вариант1",
+    "Вариант2",
+    "Вариант3"
   ]
 }

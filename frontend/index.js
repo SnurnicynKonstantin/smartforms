@@ -18,6 +18,7 @@ import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
 
 import configReader from './services/config_reader';
+import './services/mask_initializer';
 
 function createForm(el, config) {
   const form = new Form(configReader.createFormConfig(config));

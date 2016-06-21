@@ -1,4 +1,13 @@
 $(function () {
+  function createAndShowModal(btnSel, jsonPath, modalSel) {
+    $(btnSel).click(function () {
+      $.get(jsonPath, function (data) {
+        window.modal = smartforms.createModal($(modalSel), data);
+        $(modalSel).modal('show');
+      });
+    });
+  }
+
   $('.select-example').change(function () {
     $('.modal-container').hide();
     var el = $('.well form');
@@ -11,10 +20,6 @@ $(function () {
 
   $('.select-example').change();
 
-  $('.modal-btn').click(function () {
-    $.get('forms/modal.json', function (data) {
-      window.modal = smartforms.createModal($('.modal'), data);
-      $('.modal').modal('show');
-    });
-  });
+  createAndShowModal('.modal-btn', 'forms/modal.json', '.ocn .modal');
+  createAndShowModal('.modal-fines-btn', 'forms/fines_modal.json', '.modal-fines .modal');
 });

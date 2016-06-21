@@ -188,7 +188,10 @@ export default class Base {
       disabled: false,
       append: null,
       prepend: null,
-      description: null,
+      helpMessage: {
+        fontColor: '#96a7b7',
+        fontSize: '14'
+      },
       placeholder: null,
       suppressLabel: false
     };
