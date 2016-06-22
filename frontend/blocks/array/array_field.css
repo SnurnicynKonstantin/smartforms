@@ -15,6 +15,10 @@
     }
   }
 
+  .input-set-row button {
+    color: $red-danger;
+  }
+
   .popover-content span.help-message{
     color: #333;
   }
