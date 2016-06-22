@@ -66,6 +66,10 @@ export default {
 
   createModalConfig(config) {
     const finalConfig = cloneDeep(config);
+
+    // allow users to create modal configuration without footer
+    finalConfig.footer = Object.assign({ form: {}, schema: [] }, finalConfig.footer);
+
     const bodyJsonWithFormatedForm = finalConfig.body;
     const footerJsonWithFormattedForm = finalConfig.footer;
 

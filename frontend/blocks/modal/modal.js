@@ -6,9 +6,40 @@ import Form from '../form/form';
 import template from './modal.jade';
 import './modal.css';
 
+import cloneDeep from 'lodash/cloneDeep';
+import uniqueId from 'lodash/uniqueId';
+
 export default class Modal extends Base {
   constructor(config) {
-    super(config);
+    const finalConfig = cloneDeep(config);
+
+    if (finalConfig.iagree) {
+      finalConfig.iagreeId = uniqueId();
+      finalConfig.iagree = Object.assign({
+        block: 'checkbox',
+        checkboxCls: 'iagree',
+        name: 'iagree',
+        checked: true,
+        id: finalConfig.iagreeId,
+        labelWidth: 3
+      }, finalConfig.iagree);
+      finalConfig.footer = [finalConfig.iagree, ...finalConfig.footer];
+    }
+
+    if (finalConfig.submitButton) {
+      finalConfig.submitButtonId = uniqueId();
+      finalConfig.submitButton = Object.assign({
+        block: 'button',
+        type: 'submit',
+        label: 'Submit',
+        cls: 'btn-primary',
+        id: finalConfig.submitButtonId,
+        labelWidth: 3
+      }, finalConfig.submitButton);
+      finalConfig.footer.push(finalConfig.submitButton);
+    }
+
+    super(finalConfig);
 
     this._bodyForm = new Form({
       block: 'form',
@@ -52,6 +83,13 @@ export default class Modal extends Base {
     this._footerForm.el.find('button[type=submit]').click(e => this._onSubmit(e));
     this._bodyForm.afterRender();
     this._footerForm.afterRender();
+
+    const iagree = this.el.find(`input#${this.config.iagreeId}`);
+    const submitButton = this.el.find(`button#${this.config.submitButtonId}`);
+
+    iagree.on('change', () => {
+      submitButton.prop('disabled', () => !iagree.prop('checked'));
+    }).change();
   }
 
   _onSubmit(e) {

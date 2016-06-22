@@ -2,6 +2,9 @@
   "block": "modal",
   "title": "Оплата штрафов ГИБДД (Федеральное Казначейство)",
   "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/gibdd.png",
+  "submitButton": {
+    "label": "Далее"
+  },
   "body": {
     "form": {
       "Метка": {
@@ -102,18 +105,6 @@
       "Вариант1",
       "Вариант2",
       "Вариант3"
-    ]
-  },
-  "footer": {
-    "form": {
-      "Кнопка далее": {
-        "block": "button",
-        "type": "submit",
-        "label": "Далее"
-      }
-    },
-    "schema": [
-      "Кнопка далее"
     ]
   }
 }

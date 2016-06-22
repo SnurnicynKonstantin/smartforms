@@ -5,6 +5,7 @@ $primary-background-color: #0a9acb;
 $default-color: #0a9acb;
 $default-hover-active-color: $red-danger;
 $default-inactive-color: #96a7b7;
+$disabled-text-color: rgba(255, 255, 255, 0.3);
 
 .$(cls-prefix)-button {
   &.btn-primary {
@@ -51,9 +52,12 @@ $default-inactive-color: #96a7b7;
       }
     }
 
-    &.inactive {
-      color: rgba(255, 255, 255, 0.3);
+    &.inactive,
+    &[disabled] {
+      color: $disabled-text-color;
       cursor: default;
+      opacity: 1;
+      text-shadow: none;
 
       &:hover,
       &:focus {
@@ -108,10 +112,13 @@ $default-inactive-color: #96a7b7;
       }
     }
 
-    &.inactive {
+    &.inactive,
+    &[disabled] {
       border-color: $default-inactive-color;
-      color: $default-inactive-color;
+      color: $disabled-text-color;
       cursor: default;
+      opacity: 1;
+      text-shadow: none;
     }
   }
 }

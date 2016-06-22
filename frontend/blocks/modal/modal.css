@@ -104,7 +104,7 @@ $hover-close-button-clr: #252525;
     background-color: $footer-background-clr;
     border-top-color: $footer-border-clr;
     padding: 24px 20px;
-    text-align: center;
+    text-align: left;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
   }
