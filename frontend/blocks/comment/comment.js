@@ -1,5 +1,5 @@
 import template from './comment.jade';
-import './comment.scss';
+import './comment.css';
 
 import Base from '../base/base';
 import Factory from '../factory';
