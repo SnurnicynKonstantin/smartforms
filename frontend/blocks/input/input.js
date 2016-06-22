@@ -6,7 +6,7 @@ import Factory from '../factory';
 export default class Input extends Base {
 
   afterRender() {
-    this._popoverEl = this.el.find('input');
+    this._popoverEl = this.el.find(`#${this.id}`);
     this._errorEl = this.el.find('.controls');
     super.afterRender();
   }
