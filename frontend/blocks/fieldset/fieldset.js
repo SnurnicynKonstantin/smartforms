@@ -1,6 +1,6 @@
 import template from './fieldset.jade';
 
-import './fieldset.scss';
+import './fieldset.css';
 
 import Container from '../container/container';
 import Factory from '../factory';

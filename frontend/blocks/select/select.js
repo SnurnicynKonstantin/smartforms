@@ -1,6 +1,6 @@
 import 'jquery.formstyler';
 
-import './select.scss';
+import './select.css';
 import optionTemplate from './option.jade';
 import template from './select.jade';
 

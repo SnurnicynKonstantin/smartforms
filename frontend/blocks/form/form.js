@@ -3,7 +3,7 @@ import Container from '../container/container';
 import template from './form.jade';
 import parser from '../../services/parser';
 
-import './form.scss';
+import './form.css';
 
 export default class Form extends Container {
   get templateFn() {

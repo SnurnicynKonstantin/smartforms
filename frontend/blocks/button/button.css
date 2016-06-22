@@ -1,5 +1,4 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/_variables.css";
 
 $box-shadow-color: #006aa4;
 $primary-background-color: #0a9acb;
@@ -7,7 +6,7 @@ $default-color: #0a9acb;
 $default-hover-active-color: #e01f2b;
 $default-inactive-color: #96a7b7;
 
-.#{$cls-prefix}-button {
+.$(cls-prefix)-button {
   &.btn-primary {
     background: $primary-background-color none;
     border: 0;
@@ -17,7 +16,7 @@ $default-inactive-color: #96a7b7;
     font-weight: 700;
     height: auto;
     padding: 11px 28px 9px;
-    @include box-shadow(0 3px 0 $box-shadow-color);
+    box-shadow: 0 3px 0 $box-shadow-color;
 
     &:hover,
     &:focus {
@@ -27,7 +26,7 @@ $default-inactive-color: #96a7b7;
     &:active,
     &.active {
       background-color: #087da4;
-      @include box-shadow(0 3px 0 $box-shadow-color, inset 0 2px 5px rgba(0, 0, 0, .25));
+      box-shadow: 0 3px 0 $box-shadow-color, inset 0 2px 5px rgba(0, 0, 0, .25);
     }
 
     &.btn-cancel {
@@ -36,7 +35,7 @@ $default-inactive-color: #96a7b7;
       font-size: 17px;
       font-weight: 400;
       min-width: 0 !important;
-      @include box-shadow(0 3px 0 rgba(0, 0, 0, 0.1));
+      box-shadow: 0 3px 0 rgba(0, 0, 0, 0.1);
 
       &:hover,
       &:focus {
@@ -48,7 +47,7 @@ $default-inactive-color: #96a7b7;
       &.active {
         background-color: #fff;
         color: #111;
-        @include box-shadow(0 3px 0 rgba(0, 0, 0, .1), inset 0 3px 5px rgba(0, 0, 0, .1))
+        box-shadow: 0 3px 0 rgba(0, 0, 0, .1), inset 0 3px 5px rgba(0, 0, 0, .1);
       }
     }
 
@@ -64,10 +63,10 @@ $default-inactive-color: #96a7b7;
       &:active,
       &.active {
         background-color: $primary-background-color;
-        @include box-shadow(0 3px 0 $box-shadow-color);
+        box-shadow: 0 3px 0 $box-shadow-color;
       }
     }
-  } // end of .btn-primary styles
+  }
 
   &.btn-default {
     background: transparent none;
@@ -114,5 +113,5 @@ $default-inactive-color: #96a7b7;
       color: $default-inactive-color;
       cursor: default;
     }
-  } // end of .btn-default styles
+  }
 }

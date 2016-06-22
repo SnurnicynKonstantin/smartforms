@@ -2,7 +2,7 @@ import 'jquery.formstyler';
 
 import template from './radiogroup.jade';
 
-import './radiogroup.scss';
+import './radiogroup.css';
 import Base from '../base/base';
 import Factory from '../factory';
 

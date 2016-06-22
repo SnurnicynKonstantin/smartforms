@@ -1,6 +1,6 @@
-@import "../../styles/variables";
+@import "../../styles/_variables.css";
 
-.#{$cls-prefix}-form-group {
+.$(cls-prefix)-form-group {
   input.text-align-left {
     text-align: left;
   }

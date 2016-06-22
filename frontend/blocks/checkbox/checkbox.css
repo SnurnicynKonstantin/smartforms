@@ -1,11 +1,10 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/_variables.css";
 
 $checked-clr: #0a9acb;
 $focus-clr: #0a9acb;
 $unchecked-clr: #fff;
 
-.#{$cls-prefix}-form-group .#{$cls-prefix}-checkbox {
+.$(cls-prefix)-form-group .$(cls-prefix)-checkbox {
   margin-top: -20px;
 
   .text-wrapper {
@@ -50,7 +49,7 @@ $unchecked-clr: #fff;
     vertical-align: middle;
     width: 19px;
 
-    @include transition(all 0.1s ease-out);
+    transition: all 0.1s ease-out;
 
     &.focused {
       border-color: $focus-clr;
@@ -67,7 +66,7 @@ $unchecked-clr: #fff;
     }
 
     .jq-checkbox__div {
-      @include transition(all 0.3s linear);
+      transition: all 0.3s linear;
 
       background: url(./icons/checkbox.png) no-repeat;
       height: 14px;

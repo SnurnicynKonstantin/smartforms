@@ -4,7 +4,7 @@ import Factory from '../factory';
 import Form from '../form/form';
 
 import template from './modal.jade';
-import './modal.scss';
+import './modal.css';
 
 export default class Modal extends Base {
   constructor(config) {

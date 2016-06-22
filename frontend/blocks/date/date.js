@@ -1,7 +1,7 @@
 import 'bootstrap-datepicker';
 import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
 import 'bootstrap-datepicker/js/locales/bootstrap-datepicker.ru';
-import './date.scss';
+import './date.css';
 
 import Base from '../base/base';
 import Factory from '../factory';

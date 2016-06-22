@@ -5,7 +5,7 @@ import compact from 'lodash/compact';
 import Container from '../container/container';
 import Factory from '../factory';
 
-import './array_field.scss';
+import './array_field.css';
 import template from './array_field.jade';
 
 export default class ArrayField extends Container {

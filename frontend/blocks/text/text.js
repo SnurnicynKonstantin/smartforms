@@ -1,7 +1,7 @@
 import Input from '../input/input';
 import Factory from '../factory';
 
-import './text.scss';
+import './text.css';
 
 import 'jquery.maskedinput/src/jquery.maskedinput';
 

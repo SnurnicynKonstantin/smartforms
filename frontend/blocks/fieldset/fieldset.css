@@ -1,6 +1,6 @@
-@import "../../styles/variables";
+@import "../../styles/_variables.css";
 
-.#{$cls-prefix}-fieldset {
+.$(cls-prefix)-fieldset {
   .form-control,
   .jq-selectbox .jq-selectbox__select {
     border-radius: 0;

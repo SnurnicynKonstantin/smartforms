@@ -1,5 +1,4 @@
-@import "../../styles/variables";
-@import "../../styles/mixins";
+@import "../../styles/_variables.css";
 
 $item-clr: #4b5c70;
 $selected-item-clr: #96a7b7;
@@ -14,20 +13,7 @@ $jq-select-border-focus-clr: #bebebe;
 $jq-select-trigger-clr: #252525;
 $jq-select-dropdown-clr: #fff;
 
-$jq-disabled: (
-  background: #f5f5f5,
-  border-color: #ccc,
-  color: #888,
-);
-
-$jq-has-error: (
-  background-color: #fce8e9 !important,
-  border-color: $border-clr,
-  color: #e01f2b,
-);
-
-
-.#{$cls-prefix}-form-group {
+.$(cls-prefix)-form-group {
 
   .jq-selectbox {
     border: 0;
@@ -85,7 +71,7 @@ $jq-has-error: (
     line-height: 40px;
     padding: 0 45px 0 12px;
 
-    @include transition(all 0.15s ease-out);
+    transition: all 0.15s ease-out;
 
     &:hover, &:active {
       border-color: $jq-select-hover-clr;
@@ -98,12 +84,16 @@ $jq-has-error: (
     }
 
     &.disabled .jq-selectbox__select {
-      @include print-styles($jq-disabled);
+       background: #f5f5f5;
+       border-color: #ccc;
+       color: #888;
     }
   }
 
   .has-error .jq-selectbox__select {
-    @include print-styles($jq-has-error);
+    background-color: #fce8e9 !important;
+    border-color: $border-clr;
+    color: #e01f2b;
   }
 
   .jq-selectbox__select-text {
@@ -147,7 +137,7 @@ $jq-has-error: (
     opacity: 0.35;
     filter: alpha(opacity=35);
 
-    @include transition(all 0.15s ease-out);
+    transition: all 0.15s ease-out;
   }
 
   .jq-selectbox {
@@ -169,7 +159,7 @@ $jq-has-error: (
     padding: 0;
     top: 42px;
     width: 100% !important;
-    @include box-shadow(0 4px 59px rgba(0, 0, 0, 0.15));
+    box-shadow: 0 4px 59px rgba(0, 0, 0, 0.15);
   }
 
   .jq-selectbox.select-sm {

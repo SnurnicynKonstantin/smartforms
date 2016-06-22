@@ -1,6 +1,6 @@
 import Fieldset from '../fieldset/fieldset';
 import Factory from '../factory';
-import './address.scss';
+import './address.css';
 
 import Bloodhound from 'typeahead.js';
 import merge from 'lodash/merge';

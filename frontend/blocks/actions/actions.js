@@ -1,4 +1,4 @@
-import './actions.scss';
+import './actions.css';
 import template from './actions.jade';
 
 import Container from '../container/container';

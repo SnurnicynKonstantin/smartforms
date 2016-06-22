@@ -1,6 +1,6 @@
 import 'jquery.formstyler';
 
-import './checkbox.scss';
+import './checkbox.css';
 import template from './checkbox.jade';
 
 import Base from '../base/base';
