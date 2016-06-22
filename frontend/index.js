@@ -13,6 +13,7 @@ import './blocks/array/array_field';
 import './blocks/divider/divider';
 import './blocks/address/address';
 import './blocks/radiogroup/radiogroup';
+import './blocks/comment/comment';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';

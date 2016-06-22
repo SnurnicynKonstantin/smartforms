@@ -1,5 +1,6 @@
 import uniqueId from 'lodash/uniqueId';
 import cloneDeep from 'lodash/cloneDeep';
+import compact from 'lodash/compact';
 
 import Container from '../container/container';
 import Factory from '../factory';
@@ -37,7 +38,7 @@ export default class ArrayField extends Container {
         labelWidth: config.itemLabel ? 3 : 0,
         layout: items.map(() => ({ count: 3, width: [1, 8, 3] })),
         items: fieldsetItems
-      }, {
+      }, config.comment, {
         block: 'actions',
         id: editorId,
         items: [
@@ -55,6 +56,8 @@ export default class ArrayField extends Container {
         ]
       }]
     });
+
+    finalConfig.items = compact(finalConfig.items);
 
     super(finalConfig);
 
