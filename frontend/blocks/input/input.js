@@ -7,6 +7,7 @@ export default class Input extends Base {
 
   afterRender() {
     this._popoverEl = this.el.find('input');
+    this._errorEl = this.el.find('.controls');
     super.afterRender();
   }
 
@@ -26,6 +27,10 @@ export default class Input extends Base {
 
   set value(val) {
     this.el.find('input').val(val);
+  }
+
+  get errorEl() {
+    return this._errorEl;
   }
 }
 

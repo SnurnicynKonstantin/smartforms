@@ -93,7 +93,7 @@ $jq-select-dropdown-clr: #fff;
   .has-error .jq-selectbox__select {
     background-color: #fce8e9 !important;
     border-color: $border-clr;
-    color: #e01f2b;
+    color: $red-danger;
   }
 
   .jq-selectbox__select-text {

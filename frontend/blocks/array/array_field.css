@@ -1,7 +1,5 @@
 @import "../../styles/_variables.css";
 
-$red-danger: #e01f2b;
-
 .$(cls-prefix)-form-array {
   .$(cls-prefix)-fieldset .input-set-col .control-label {
     display: block;
@@ -17,7 +15,7 @@ $red-danger: #e01f2b;
     }
   }
 
-  .error-message {
-    color: $red-danger;
+  .popover-content span.help-message{
+    color: #333;
   }
 }

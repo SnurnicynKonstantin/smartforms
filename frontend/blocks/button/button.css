@@ -3,7 +3,7 @@
 $box-shadow-color: #006aa4;
 $primary-background-color: #0a9acb;
 $default-color: #0a9acb;
-$default-hover-active-color: #e01f2b;
+$default-hover-active-color: $red-danger;
 $default-inactive-color: #96a7b7;
 
 .$(cls-prefix)-button {

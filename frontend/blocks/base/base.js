@@ -3,7 +3,9 @@ import $ from 'jquery';
 import cloneDeep from 'lodash/cloneDeep';
 import defaults from 'lodash/defaults';
 import uniqueId from 'lodash/uniqueId';
+
 import parser from '../../services/parser';
+import './base.css';
 
 export default class Base {
   constructor(config) {
@@ -45,6 +47,7 @@ export default class Base {
     }
     this.popover('destroy');
     this._popoverExist = false;
+    this.removeErrorClass();
 
     return true;
   }
@@ -59,13 +62,13 @@ export default class Base {
     if (!invalidRule) {
       return true;
     }
-    this.errorMessage = invalidRule.errorMessage;
     this.showErrorMessage(invalidRule.errorMessage);
 
     return false;
   }
 
-  showErrorMessage() {
+  showErrorMessage(message) {
+    this.errorMessage = message;
     if (!this._popoverExist) {
       this.popover({
         placement: this.config.popoverPlacement || 'top',
@@ -74,6 +77,7 @@ export default class Base {
       this._popoverExist = true;
     }
     this.popover('show');
+    this.addErrorClass();
   }
 
   on(...args) {
@@ -195,5 +199,17 @@ export default class Base {
       placeholder: null,
       suppressLabel: false
     };
+  }
+
+  get errorEl() {
+    return this.el;
+  }
+
+  addErrorClass() {
+    this.errorEl.addClass('has-error');
+  }
+
+  removeErrorClass() {
+    this.errorEl.removeClass('has-error');
   }
 }

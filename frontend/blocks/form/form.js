@@ -2,6 +2,7 @@ import Container from '../container/container';
 
 import template from './form.jade';
 import parser from '../../services/parser';
+import forEach from 'lodash/forEach';
 
 import './form.css';
 
@@ -50,5 +51,13 @@ export default class Form extends Container {
 
   appendChild(block) {
     this.el.children().append(block.el);
+  }
+
+  showErrors(errors) {
+    forEach(errors, (errorMsg, fieldName) => {
+      const field = this.getItemByName(fieldName);
+
+      field.showErrorMessage(errorMsg);
+    });
   }
 }

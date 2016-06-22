@@ -120,14 +120,14 @@ export default class ArrayField extends Container {
     let errorPopover = false;
     if (this.maxLength <= this.currentLength) {
       errorPopover = {
-        content: this.config.helpMessage,
+        content: `<span class="help-message">${this.config.helpMessage}</span>`,
         title: '<div class="clearfix"><a href="#" class="popover-close pull-right">×</a></div>'
       };
     }
 
     if (!row || '' === row.name) {
       errorPopover = {
-        content: `<span class="error-message">${this.config.errorMessage}</span>`
+        content: `<span>${this.config.errorMessage}</span>`
       };
     }
 
