@@ -1,4 +1,6 @@
-.small {
+@import "../../styles/_variables.css";
+
+.small.$(cls-prefix)-small {
   padding-right: 15px;
   padding-left: 15px;
 }

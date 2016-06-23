@@ -1,12 +1,8 @@
 @import "../../styles/_variables.css";
 
 .$(cls-prefix)-form-group {
-  label.base-label {
+  label.container-label {
     font-weight: 400;
     font-size: 17px;
-  }
-
-  .popover-content {
-    color: $ red-danger
   }
 }

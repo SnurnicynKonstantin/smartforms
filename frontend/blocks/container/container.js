@@ -1,5 +1,6 @@
 import Base from '../base/base';
 import Factory from '../factory';
+import './container.css';
 
 export default class Container extends Base {
   constructor(config) {
