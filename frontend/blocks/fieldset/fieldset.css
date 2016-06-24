@@ -97,6 +97,16 @@
         .jq-selectbox .jq-selectbox__select {
           border-top-right-radius: 3px;
         }
+
+        .date {
+          .input-group-addon {
+            border-bottom-right-radius: 0;
+          }
+
+          .form-control {
+            border-top-right-radius: 0;
+          }
+        }
       }
     }
 
@@ -114,6 +124,17 @@
         .control-label,
         .jq-selectbox .jq-selectbox__select {
           border-bottom-right-radius: 3px;
+        }
+
+        .date {
+          .input-group-addon {
+            border-top: 0;
+            border-top-right-radius: 0;
+          }
+
+          .form-control {
+            border-bottom-right-radius: 0;
+          }
         }
       }
     }

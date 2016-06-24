@@ -7,6 +7,10 @@ block inner
         data-date-language=(language || "ru")
         data-date-autoclose="true"
     )
-        input.form-control(type="text", id=id)
+        input.form-control(
+            type="text"
+            id=id
+            placeholder=placeholder
+        )
         .input-group-addon
             span.glyphicon.glyphicon-calendar
