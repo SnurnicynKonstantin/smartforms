@@ -1,4 +1,5 @@
 import template from './label.jade';
+import './label.css';
 
 import Base from '../base/base';
 import Factory from '../factory';

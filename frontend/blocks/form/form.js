@@ -15,16 +15,42 @@ export default class Form extends Container {
     super.render();
 
     this.items.forEach(block => {
-      if (block.config.dependencies) {
-        const compiledDependencies = parser.parse(block.config.dependencies);
-
-        compiledDependencies.identifiers.forEach(fieldName => {
-          this.getItemByName(fieldName).on('change hide show', () => this.resolveDependencies(block, compiledDependencies));
-        });
-
-        this.resolveDependencies(block, compiledDependencies);
-      }
+      this.initBlockDependencies(block);
+      this.initBlockSummarize(block);
     });
+  }
+
+  initBlockSummarize(block) {
+    if (block.config.summarize && Array.isArray(block.config.summarize)) {
+      block.config.summarize.forEach(fieldName => {
+        this.getItemByName(fieldName).on('change', () => this.changeSum(block));
+      });
+
+      this.changeSum(block);
+    }
+  }
+
+  changeSum(block) {
+    block.value = parseFloat(block.config.summarize.reduce((acc, fieldName) => {
+      const field = this.getItemByName(fieldName);
+      if ('array' === field.config.block) {
+        return acc + field.sum;
+      }
+
+      return acc + (parseFloat(field.value[field.name]) || 0);
+    }, 0)).toFixed(2);
+  }
+
+  initBlockDependencies(block) {
+    if (block.config.dependencies) {
+      const compiledDependencies = parser.parse(block.config.dependencies);
+
+      compiledDependencies.identifiers.forEach(fieldName => {
+        this.getItemByName(fieldName).on('change hide show', () => this.resolveDependencies(block, compiledDependencies));
+      });
+
+      this.resolveDependencies(block, compiledDependencies);
+    }
   }
 
   resolveDependencies(block, compiledDependencies) {

@@ -92,6 +92,10 @@ export default class ArrayField extends Container {
       row.items[0].el.on('click', () => {
         this.removeRowById(row.id);
       });
+
+      row.items[2].on('change', () => {
+        this.trigger('change');
+      });
     });
 
     super.afterRender();
@@ -156,6 +160,11 @@ export default class ArrayField extends Container {
     newRow.items[0].el.on('click', () => {
       this.removeRowById(newRow.id);
     });
+
+    newRow.items[2].on('change', () => {
+      this.trigger('change');
+    });
+
     this.select.removeOptionByValue(row.name);
   }
 
@@ -168,11 +177,12 @@ export default class ArrayField extends Container {
     });
     this.select.sortOptionsByText();
     this.fieldset.removeRowById(id);
+    this.trigger('change');
     this.currentLength--;
   }
 
   get sum() {
-    return this.fieldset.items.reduce((acc, row) => acc + parseFloat(row.items[2].value[row.items[2].name]), 0);
+    return this.fieldset.items.reduce((acc, row) => acc + (parseFloat(row.items[2].value[row.items[2].name]) || 0), 0);
   }
 }
 

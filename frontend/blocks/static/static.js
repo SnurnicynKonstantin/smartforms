@@ -1,4 +1,5 @@
 import template from './static.jade';
+import './static.css';
 
 import Base from '../base/base';
 import Factory from '../factory';
@@ -10,12 +11,12 @@ export default class Static extends Base {
 
   get value() {
     return {
-      [this.config.name]: this.el.find('span.form-control-static')[0].innerHTML
+      [this.config.name]: this.el.find('.form-control-static').eq(0).html()
     };
   }
 
   set value(val) {
-    this.el.find('span.form-control-static')[0].innerHTML = val;
+    this.el.find('.form-control-static').eq(0).html(val);
   }
 }
 
