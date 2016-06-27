@@ -12,12 +12,34 @@
     height: 42px;
   }
 
-  .popover-close {
-    &:hover,
-    &:focus {
-      border-bottom-color: #f0b6ba;
-      color: $red-danger;
-      text-decoration: none;
+  .popover-title {
+    height: 22px;
+    margin: 0;
+    padding: 8px 14px;
+    font-size: 15px;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 5px 5px 0 0;
+
+    .popover-close {
+      font-size: 11px;
+      font-weight: 700;
+      border-top-right-radius: 2px;
+      height: 15px;
+      margin: 3px;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      z-index: 5;
+      opacity: 1;
+      transition: all 0.15s ease-out 0s;
+
+      &:hover,
+      &:focus {
+        border-bottom-color: #f0b6ba;
+        color: $red-danger;
+        text-decoration: none;
+      }
     }
   }
 

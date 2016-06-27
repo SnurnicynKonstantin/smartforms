@@ -46,6 +46,16 @@ export default class Select extends Base {
     this._selectWrapper.on('change', () => this.trigger('change', [this, this.value]));
   }
 
+  disable() {
+    this._selectWrapper.prop('disabled', true);
+    this._selectWrapper.trigger('refresh');
+  }
+
+  enable() {
+    this._selectWrapper.prop('disabled', false);
+    this._selectWrapper.trigger('refresh');
+  }
+
   removeOptionByValue(val) {
     this.el.find(`option[value='${val}']`).remove();
     this._selectWrapper.trigger('refresh');

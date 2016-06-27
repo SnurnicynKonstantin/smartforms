@@ -98,6 +98,10 @@ export default class ArrayField extends Container {
       });
     });
 
+    if (this.currentLength === this.maxLength) {
+      this.disableControls();
+    }
+
     super.afterRender();
   }
 
@@ -116,18 +120,22 @@ export default class ArrayField extends Container {
     val.forEach(row => this.addNewRow(row));
   }
 
+  disableControls() {
+    this.select.disable();
+    this.addBtn.disable();
+  }
+
+  enableControls() {
+    this.select.enable();
+    this.addBtn.enable();
+  }
+
   appendChild(block) {
     this.el.find('.form-array').append(block.el);
   }
 
   addNewRow(row) {
     let errorPopover = false;
-    if (this.maxLength <= this.currentLength) {
-      errorPopover = {
-        content: `<span class="help-message">${this.config.helpMessage}</span>`,
-        title: '<div class="clearfix"><a href="#" class="popover-close pull-right">×</a></div>'
-      };
-    }
 
     if (!row || '' === row.name) {
       errorPopover = {
@@ -157,6 +165,19 @@ export default class ArrayField extends Container {
     });
 
     this.currentLength++;
+
+    if (this.currentLength === this.maxLength) {
+      this.disableControls();
+
+      errorPopover = {
+        content: `<span class="help-message">${this.config.helpMessage}</span>`,
+        title: '<div class="clearfix"><a href="#" class="popover-close pull-right">Закрыть ×</a></div>'
+      };
+
+      this.select.popover(Object.assign(errorPopover, { html: true, placement: 'top' }));
+      this.select.popover('show');
+    }
+
     newRow.items[0].el.on('click', () => {
       this.removeRowById(newRow.id);
     });
@@ -179,6 +200,10 @@ export default class ArrayField extends Container {
     this.fieldset.removeRowById(id);
     this.trigger('change');
     this.currentLength--;
+    if (this.currentLength <= this.maxLength) {
+      this.enableControls();
+      this.select.popover('destroy');
+    }
   }
 
   get sum() {

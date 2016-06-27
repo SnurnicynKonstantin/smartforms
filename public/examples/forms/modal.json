@@ -176,6 +176,7 @@
       "accountingUnit": {
         "block": "array",
         "newItemInputTextAlign": "center",
+        "maxLength": 2,
         "removeButton": {
           "block": "button",
           "glyphicon": "trash",
