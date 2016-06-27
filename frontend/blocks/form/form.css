@@ -13,4 +13,15 @@
       box-shadow: inset 0 0 6px rgba(10, 154, 203, 0.2);
     }
   }
+
+  .form-header {
+    font-size: 13px;
+    margin-bottom: 15px;
+    position: relative;
+
+    h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
 }

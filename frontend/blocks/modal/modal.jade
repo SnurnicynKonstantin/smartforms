@@ -1,3 +1,11 @@
+mixin buttonClose
+    button.close(
+        type="button"
+        data-dismiss="modal"
+        aria-label="Close"
+    )
+        i.glyphicon.glyphicon-remove
+
 .modal.fade(
     class="#{_prefix}-modal"
     tabindex=-1
@@ -8,23 +16,21 @@
         class="modal-#{size || 'md'}"
     )
         .modal-content
-            .modal-header
+            if title
+                .modal-header
+                    +buttonClose
 
-                button.close(
-                    type="button"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                )
-                    i.glyphicon.glyphicon-remove
+                    .header-wrap
+                        .header-image
+                            span
+                                img(src=imgUrl)
 
-                .header-wrap
-                    .header-image
-                        span
-                            img(src=imgUrl)
-
-                    .header-title
-                        h4.modal-title #{title}
+                        .header-title
+                            h4.modal-title #{title}
 
             .modal-body
+                if !title
+                    +buttonClose
 
-            .modal-footer
+            if footer.length
+                .modal-footer

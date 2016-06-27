@@ -13,34 +13,37 @@ import flow from 'lodash/fp/flow';
 export default class Address extends Fieldset {
   constructor(config) {
     const items = config.items || [];
-    const finalConfig = Object.assign({}, config, {
-      label: 'Адрес',
-      labelWidth: 3,
-      regions: '',
-      layout: [1, 3],
-      items: [
-        merge({
-          block: 'input',
-          placeholder: 'введите адрес в свободной форме',
-          name: 'address'
-        }, items.find(item => 'address' === item.name) || {}),
-        merge({
-          block: 'input',
-          placeholder: 'дом',
-          name: 'house'
-        }, items.find(item => 'house' === item.name) || {}),
-        merge({
-          block: 'input',
-          placeholder: 'корпус',
-          name: 'block'
-        }, items.find(item => 'block' === item.name) || {}),
-        merge({
-          block: 'input',
-          placeholder: 'квартира',
-          name: 'flat'
-        }, items.find(item => 'flat' === item.name) || {})
-      ]
-    });
+    const finalConfig = Object.assign(
+      {
+        layout: [1, 3]
+      },
+      config,
+      {
+        regions: '',
+        items: [
+          merge({
+            block: 'input',
+            placeholder: 'введите адрес в свободной форме',
+            name: 'address'
+          }, items.find(item => 'address' === item.name) || {}),
+          merge({
+            block: 'input',
+            placeholder: 'дом',
+            name: 'house'
+          }, items.find(item => 'house' === item.name) || {}),
+          merge({
+            block: 'input',
+            placeholder: 'корпус',
+            name: 'block'
+          }, items.find(item => 'block' === item.name) || {}),
+          merge({
+            block: 'input',
+            placeholder: 'квартира',
+            name: 'flat'
+          }, items.find(item => 'flat' === item.name) || {})
+        ]
+      }
+    );
 
     super(finalConfig);
   }

@@ -1,6 +1,12 @@
 @import "../../styles/_variables.css";
 
 .$(cls-prefix)-form-array {
+  /* padding for comment block */
+  .small.$(cls-prefix)-small {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
   .$(cls-prefix)-fieldset .input-set-col .control-label {
     display: block;
     height: 42px;

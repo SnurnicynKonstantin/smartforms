@@ -13,6 +13,8 @@ export default class Modal extends Base {
   constructor(config) {
     const finalConfig = cloneDeep(config);
 
+    const iagreeContainer = finalConfig.iagree && finalConfig.iagree.container ? finalConfig.iagree.container : 'footer';
+
     if (finalConfig.iagree) {
       finalConfig.iagreeId = uniqueId();
       finalConfig.iagree = Object.assign({
@@ -23,7 +25,7 @@ export default class Modal extends Base {
         id: finalConfig.iagreeId,
         labelWidth: 3
       }, finalConfig.iagree);
-      finalConfig.footer = [finalConfig.iagree, ...finalConfig.footer];
+      finalConfig[iagreeContainer].push(finalConfig.iagree);
     }
 
     if (finalConfig.submitButton) {
@@ -36,14 +38,15 @@ export default class Modal extends Base {
         id: finalConfig.submitButtonId,
         labelWidth: 3
       }, finalConfig.submitButton);
-      finalConfig.footer.push(finalConfig.submitButton);
+      finalConfig[iagreeContainer].push(finalConfig.submitButton);
     }
 
     super(finalConfig);
 
     this._bodyForm = new Form({
       block: 'form',
-      items: this.config.body
+      items: this.config.body,
+      formHeader: this.config.formHeader
     });
 
     this._footerForm = new Form({
@@ -80,7 +83,7 @@ export default class Modal extends Base {
   }
 
   afterRender() {
-    this._footerForm.el.find('button[type=submit]').click(e => this._onSubmit(e));
+    this.el.find('button[type=submit]').click(e => this._onSubmit(e));
     this._bodyForm.afterRender();
     this._footerForm.afterRender();
 

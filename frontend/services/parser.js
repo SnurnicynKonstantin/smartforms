@@ -32,13 +32,13 @@ parser.registerProperty('дом', scope => {
 });
 
 parser.registerProperty('email', scope => {
-  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/i.test(scope[scope.fieldName] || '')
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-z\-0-9]+\.)+[a-z]{2,}))$/i.test(scope[scope.fieldName] || '')
     ? scope[scope.fieldName]
     : false;
 });
 
 parser.registerProperty('password', scope => {
-  /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-z0-9!@#$%^&*]{6,16}$/i.test(scope[scope.fieldName] || '')
+  return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-z0-9!@#$%^&*]{6,16}$/i.test(scope[scope.fieldName] || '')
     ? scope[scope.fieldName]
     : false;
 });

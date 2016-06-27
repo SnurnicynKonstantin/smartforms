@@ -16,10 +16,9 @@ $(function () {
     $.get('forms/' + type + '.json', function (data) {
       window.form = smartforms.createForm(el, data);
     });
-  });
-
-  $('.select-example').change();
+  }).change();
 
   createAndShowModal('.modal-btn', 'forms/modal.json', '.ocn .modal');
   createAndShowModal('.modal-fines-btn', 'forms/fines_modal.json', '.modal-fines .modal');
+  createAndShowModal('.registration-btn', 'forms/registration.json', '.registration .modal');
 });

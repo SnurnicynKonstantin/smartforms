@@ -76,7 +76,7 @@ export default class Form extends Container {
   }
 
   appendChild(block) {
-    this.el.children().append(block.el);
+    this.el.children('.form-content').append(block.el);
   }
 
   showErrors(errors) {

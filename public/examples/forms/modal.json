@@ -23,6 +23,7 @@
         "minLength": 3,
         "highlight": true,
         "label": "Адрес",
+        "labelWidth": 3,
         "layout": [
           1,
           3
