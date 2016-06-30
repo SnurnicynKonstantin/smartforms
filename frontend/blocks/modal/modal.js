@@ -4,11 +4,14 @@ import Factory from '../factory';
 import Form from '../form/form';
 
 import template from './modal.jade';
+import helpTemplate from './help_modal.jade';
+
 import './modal.css';
 
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 import parser from '../../services/parser';
+import $ from 'jquery';
 
 export default class Modal extends Base {
   constructor(config) {
@@ -107,6 +110,17 @@ export default class Modal extends Base {
     iagree.on('change', () => {
       submitButton.prop('disabled', () => !iagree.prop('checked'));
     }).change();
+
+    if (this.config.help) {
+      this.el.find('.modal-help a').on('click', () => {
+        const helpModalTemplate = helpTemplate(Object.assign(this.getTemplateData(), this.templateDefaults));
+
+        this.el.after(helpModalTemplate);
+
+        const helpModal = $(`#help_modal_${this.id}`);
+        helpModal.on('hidden.bs.modal', () => helpModal.remove());
+      });
+    }
   }
 
   _onSubmit(e) {

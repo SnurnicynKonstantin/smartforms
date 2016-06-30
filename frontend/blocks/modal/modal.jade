@@ -31,6 +31,12 @@ mixin buttonClose
             .modal-body
                 if !title
                     +buttonClose
+            if help
+                .modal-help
+                    a.g-link-dashed(
+                        data-toggle="modal"
+                        data-target="#help_modal_#{id}"
+                    ) #{help.message}
 
             if footer.length
                 .modal-footer
