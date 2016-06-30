@@ -8,6 +8,7 @@ import './modal.css';
 
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
+import parser from '../../services/parser';
 
 export default class Modal extends Base {
   constructor(config) {
@@ -86,9 +87,22 @@ export default class Modal extends Base {
     this.el.find('button[type=submit]').click(e => this._onSubmit(e));
     this._bodyForm.afterRender();
     this._footerForm.afterRender();
+    this.modalTitle = this.el.find('.modal-title');
 
     const iagree = this.el.find(`input#${this.config.iagreeId}`);
     const submitButton = this.el.find(`button#${this.config.submitButtonId}`);
+
+    if (Array.isArray(this.config.titleDependencies)) {
+      this.config.titleDependencies.forEach(titleDependency => {
+        const compiledDependencies = parser.parse(titleDependency.dependencies);
+
+        compiledDependencies.identifiers.forEach(fieldName => {
+          this._bodyForm.getItemByName(fieldName).on('change', () => this.resolveTitleDependencies(titleDependency.title, compiledDependencies));
+        });
+
+        this.resolveTitleDependencies(titleDependency.title, compiledDependencies);
+      });
+    }
 
     iagree.on('change', () => {
       submitButton.prop('disabled', () => !iagree.prop('checked'));
@@ -100,6 +114,14 @@ export default class Modal extends Base {
 
     if (this.validate()) {
       // submit form
+    }
+  }
+
+  resolveTitleDependencies(title, compiledDependencies) {
+    const isResolved = compiledDependencies.eval(this.context);
+
+    if (isResolved) {
+      this.modalTitle.html(title);
     }
   }
 }

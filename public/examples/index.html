@@ -46,30 +46,35 @@
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary modal-btn">
-    ОКС
-  </button>
+  <table id="providers">
+    <thead>
+    <tr>
+      <th>Провайдер</th>
+      <th></th>
+    </tr>
+    </thead>
 
-  <button type="button" class="btn btn-primary modal-fines-btn">
-    Оплата штрафов ГИБДД
-  </button>
-
-  <button type="button" class="btn btn-primary registration-btn">
-    Регистрация
-  </button>
-
-  <div class="ocn">
-    <div class="modal"></div>
-  </div>
-
-  <div class="modal-fines">
-    <div class="modal"></div>
-  </div>
-
-  <div class="registration">
-    <div class="modal"></div>
-  </div>
-
+    <tbody>
+    <tr class="provider" data-json-path="forms/modal.json">
+      <td class="modal-initial-button"><a href="#">ОКС</a></td>
+      <td class="modal-column">
+        <div class="modal"></div>
+      </td>
+    </tr>
+    <tr class="provider" data-json-path="forms/fines_modal.json">
+      <td class="modal-initial-button"><a href="#">Оплата штрафов ГИБДД</a></td>
+      <td class="modal-column">
+        <div class="modal"></div>
+      </td>
+    </tr>
+    <tr class="provider" data-json-path="forms/registration.json">
+      <td class="modal-initial-button"><a href="#">Регистрация</a></td>
+      <td class="modal-column">
+        <div class="modal"></div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
 </body>
 </html>
