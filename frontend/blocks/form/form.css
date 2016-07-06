@@ -24,4 +24,20 @@
       margin: 0;
     }
   }
+
+  .form-content {
+    .form-group {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .$(cls-prefix)-fieldset {
+      .input-set-col {
+        .form-group:last-child {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
 }
