@@ -68,7 +68,7 @@ $unchecked-clr: #fff;
     .jq-checkbox__div {
       transition: all 0.3s linear;
 
-      background: url(./icons/checkbox.png) no-repeat;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAZklEQVQoz2NgoCf4//+/EqkaBIF4NxCfIUWTMRDfBeJ3IDYpmt6RqskFqgEEXNAl00AYi6a0/whQjs3D79Al0TStIuQHEJiJpgkUIILEBAA6cCEl9GCgg5T4CiXKiTg0lxPlRHIAAHKtzjIzawTVAAAAAElFTkSuQmCC') no-repeat;
       height: 14px;
       margin: 1px 0 0 1px;
       width: 0;
