@@ -339,7 +339,6 @@
         "label": "Сумма",
         "labelWidth": 3,
         "value": 0,
-        "cls": "input-money",
         "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\"><\/span>",
         "summarize": [
           "typeAndSum"

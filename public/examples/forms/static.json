@@ -6,7 +6,6 @@
       "name": "sum",
       "label": "Сумма",
       "value": 563,
-      "cls": "input-money",
       "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>"
     }
   },
