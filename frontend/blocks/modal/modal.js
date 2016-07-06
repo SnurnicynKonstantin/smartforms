@@ -90,7 +90,7 @@ export default class Modal extends Base {
     this.el.find('button[type=submit]').click(e => this._onSubmit(e));
     this._bodyForm.afterRender();
     this._footerForm.afterRender();
-    this.modalTitle = this.el.find('.modal-title');
+    this.modalTitle = this.el.find('.header-title h4');
 
     const iagree = this.el.find(`input#${this.config.iagreeId}`);
     const submitButton = this.el.find(`button#${this.config.submitButtonId}`);
