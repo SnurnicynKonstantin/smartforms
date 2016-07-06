@@ -14,8 +14,7 @@ $jq-select-trigger-clr: #252525;
 $jq-select-dropdown-clr: #fff;
 
 .$(cls-prefix)-form-group {
-
-  .jq-selectbox {
+  .jq-selectbox.jqselect {
     border: 0;
     cursor: pointer;
     padding: 0;
