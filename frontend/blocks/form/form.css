@@ -32,6 +32,11 @@
       }
     }
 
+    > .form-group {
+      margin-left: -12px;
+      margin-right: -12px;
+    }
+
     .$(cls-prefix)-fieldset {
       .input-set-col {
         .form-group:last-child {

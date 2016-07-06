@@ -1,7 +1,8 @@
 form(
     class="#{_prefix}-form #{cls}"
 )
-    .form-header
-        h2 #{formHeader}
+    if formHeader
+        .form-header
+            h2 #{formHeader}
 
     .clearfix.form-content
