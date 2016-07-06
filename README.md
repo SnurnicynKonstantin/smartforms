@@ -6,7 +6,7 @@
 
 1. Get the latest `nvm` [here](https://github.com/creationix/nvm) and run `nvm install 6`.
 
-2. Run  `$ npm install -g webpack` and `$ npm install -g babel-cli`.
+2. Run  `$ npm install -g webpack`.
 
 3. Run `$ npm install` to install node modules.
 
