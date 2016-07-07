@@ -135,17 +135,15 @@ export default class ArrayField extends Container {
   }
 
   addNewRow(row) {
-    let errorPopover = false;
-
     if (!row || '' === row.name) {
-      errorPopover = {
-        content: `<span>${this.config.errorMessage}</span>`
-      };
-    }
-
-    if (errorPopover) {
-      this.select.popover(Object.assign(errorPopover, { html: true, placement: 'top' }));
-      this.select.popover('show');
+      if (this.config.errorMessage) {
+        this.select.popover({
+          content: `<span>${this.config.errorMessage}</span>`,
+          html: true,
+          placement: 'top'
+        });
+        this.select.popover('show');
+      }
 
       return;
     }
@@ -169,13 +167,15 @@ export default class ArrayField extends Container {
     if (this.currentLength === this.maxLength) {
       this.disableControls();
 
-      errorPopover = {
-        content: `<span class="help-message">${this.config.helpMessage}</span>`,
-        title: '<div class="clearfix"><a href="#" class="popover-close pull-right">Закрыть ×</a></div>'
-      };
-
-      this.select.popover(Object.assign(errorPopover, { html: true, placement: 'top' }));
-      this.select.popover('show');
+      if (this.config.helpMessage) {
+        this.select.popover({
+          content: `<span class="help-message">${this.config.helpMessage}</span>`,
+          title: '<div class="clearfix"><a href="#" class="popover-close pull-right">Закрыть ×</a></div>',
+          html: true,
+          placement: 'top'
+        });
+        this.select.popover('show');
+      }
     }
 
     newRow.items[0].el.on('click', () => {
