@@ -20,6 +20,10 @@ module.exports = {
     libraryTarget: 'var'
   },
 
+  externals: {
+    "jquery": "jQuery"
+  },
+
   watch: NODE_ENV === 'development',
 
   watchOptions: {

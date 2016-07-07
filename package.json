@@ -54,7 +54,6 @@
     "bootstrap": "^3.3.6",
     "bootstrap-datepicker": "^1.6.1",
     "express": "^4.13.4",
-    "jquery": "^2.2.3",
     "jquery.formstyler": "^1.7.5-repackage",
     "jquery.maskedinput": "^1.4.1",
     "lodash": "^4.12.0",
