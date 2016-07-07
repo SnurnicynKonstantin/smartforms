@@ -30,6 +30,8 @@
       &:last-child {
         margin-bottom: 0;
       }
+
+      margin-bottom: 20px;
     }
 
     > .form-group {
@@ -42,6 +44,10 @@
         .form-group:last-child {
           margin-bottom: 15px;
         }
+      }
+
+      .input-set-row:last-child .form-group {
+        margin-bottom: 0;
       }
     }
   }

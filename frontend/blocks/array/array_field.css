@@ -50,4 +50,8 @@
   .popover-content span.help-message{
     color: #333;
   }
+
+  .form-actions .form-group.$(cls-prefix)-form-group {
+    margin-bottom: 0;
+  }
 }

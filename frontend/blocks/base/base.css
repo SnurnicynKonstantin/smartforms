@@ -4,6 +4,8 @@
   label.base-label {
     font-weight: 400;
     font-size: 17px;
+    line-height: 22px;
+    margin-bottom: 0;
   }
 
   .popover-content {
