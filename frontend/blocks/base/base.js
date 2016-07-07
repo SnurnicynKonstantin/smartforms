@@ -72,11 +72,11 @@ export default class Base {
     if (!this._popoverExist) {
       this.popover({
         placement: this.config.popoverPlacement || 'top',
-        content: this.getErrorMessageFn()
+        content: this.getErrorMessageFn(),
+        trigger: 'focus'
       });
       this._popoverExist = true;
     }
-    this.popover('show');
     this.addErrorClass();
   }
 
@@ -175,6 +175,14 @@ export default class Base {
 
   get popoverEl() {
     return this.el;
+  }
+
+  get focusEl() {
+    return this.el;
+  }
+
+  focus() {
+    this.focusEl.focus();
   }
 
   popover(opt) {

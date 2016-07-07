@@ -14,6 +14,7 @@ export default class Input extends Base {
 
   afterRender() {
     this._popoverEl = this.el.find(`#${this.id}`);
+    this._focusEl = this.el.find(`#${this.id}`);
     this._errorEl = this.el.find('.controls');
     super.afterRender();
   }
@@ -24,6 +25,10 @@ export default class Input extends Base {
 
   get popoverEl() {
     return this._popoverEl;
+  }
+
+  get focusEl() {
+    return this._focusEl;
   }
 
   get value() {

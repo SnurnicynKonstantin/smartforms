@@ -22,7 +22,23 @@ export default class FieldsetRow extends Container {
   }
 
   validate() {
-    return this.items.reduce((acc, block) => block.validate() && acc, true);
+    return this.items.reduce((acc, block) => {
+      const isValid = block.validate();
+
+      if (acc && !isValid) {
+        this.firstInvalidField = block;
+      }
+
+      return isValid && acc;
+    }, true);
+  }
+
+  focus() {
+    this.firstInvalidField.focus();
+  }
+
+  hideErrors() {
+    this.items.forEach(block => block.popover('hide'));
   }
 }
 

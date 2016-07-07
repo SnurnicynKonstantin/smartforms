@@ -72,7 +72,15 @@ export default class Form extends Container {
   }
 
   validate() {
-    return this.items.every(block => block.isHidden || block.validate());
+    return this.items.every(block => {
+      const isValid = block.isHidden || block.validate();
+
+      if (!isValid) {
+        block.focus();
+      }
+
+      return isValid;
+    });
   }
 
   appendChild(block) {
