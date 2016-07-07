@@ -80,6 +80,14 @@ export default class Base {
     this.addErrorClass();
   }
 
+  removeErrors() {
+    if (this._popoverExist) {
+      this.popover('destroy');
+      this._popoverExist = false;
+      this.removeErrorClass();
+    }
+  }
+
   on(...args) {
     $(this).on(...args);
 

@@ -42,6 +42,10 @@ export default class Container extends Base {
     return this.items.every(block => block.validate());
   }
 
+  removeErrors() {
+    this.items.forEach(block => block.removeErrors());
+  }
+
   get isValid() {
     return this.items.every(block => block.isValid);
   }

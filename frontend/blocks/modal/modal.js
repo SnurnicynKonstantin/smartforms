@@ -65,6 +65,9 @@ export default class Modal extends Base {
   }
 
   validate() {
+    this._bodyForm.removeErrors();
+    this._footerForm.removeErrors();
+
     return this._bodyForm.validate() && this._footerForm.validate();
   }
 
