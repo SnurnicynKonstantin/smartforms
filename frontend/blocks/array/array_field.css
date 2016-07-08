@@ -10,6 +10,7 @@
   .$(cls-prefix)-fieldset .input-set-col .control-label {
     display: block;
     height: 42px;
+    line-height: 22px;
   }
 
   .popover-title {
