@@ -165,6 +165,20 @@ $modal-title-color: #252525;
   .modal-body,
   .modal-footer {
     padding: 16px 20px;
+
+    @media (min-width: 768px) {
+      .btn-primary {
+        min-width: 210px;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+    }
+
+    .btn-primary {
+      font-size: 16px;
+      padding-left: 25px;
+      padding-right: 25px;
+    }
   }
 
   @media (min-width: 768px) {
