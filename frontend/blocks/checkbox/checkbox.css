@@ -14,10 +14,10 @@ $unchecked-clr: #fff;
   .checkbox {
     position: relative;
     display: block;
-    margin-top: 10px;
     margin-bottom: 10px;
     line-height: 1.534;
     padding-top: 13px;
+
     label {
       min-height: 19px;
       padding-left: 30px;
