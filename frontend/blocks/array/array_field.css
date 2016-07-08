@@ -35,6 +35,8 @@
       opacity: 1;
       transition: all 0.15s ease-out 0s;
       border-bottom: none;
+      line-height: 1.316;
+      color: #0a9acb;
 
       &:hover,
       &:focus {
