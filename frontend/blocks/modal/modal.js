@@ -65,9 +65,6 @@ export default class Modal extends Base {
   }
 
   validate() {
-    this._bodyForm.removeErrors();
-    this._footerForm.removeErrors();
-
     return this._bodyForm.validate() && this._footerForm.validate();
   }
 
@@ -129,9 +126,14 @@ export default class Modal extends Base {
   _onSubmit(e) {
     e.preventDefault();
 
-    if (this.validate()) {
-      // submit form
-    }
+    this._bodyForm.removeErrors();
+    this._footerForm.removeErrors();
+
+    setTimeout(() => {
+      if (this.validate()) {
+        // submit form
+      }
+    }, 200);
   }
 
   resolveTitleDependencies(title, compiledDependencies) {
