@@ -1,0 +1,11 @@
+@import "../../styles/_variables.css";
+
+.$(cls-prefix)-form-group {
+  .right-mark-input {
+    display: inline-block;
+  }
+
+  .right-mark {
+    margin-left: 5px;
+  }
+}

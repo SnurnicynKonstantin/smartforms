@@ -1,12 +1,21 @@
 extends ../base/base.jade
 
 block inner
-    input.form-control(
-        id=id
-        type=type
-        class=cls
-        name=name
-        value=value
-        disabled=disabled
-        placeholder=placeholder
-    )
+    mixin input
+        input.form-control(
+            id=id
+            type=type
+            class=cls
+            name=name
+            value=value
+            disabled=disabled
+            placeholder=placeholder
+        )
+
+    if rightMark
+        span.right-mark-input
+            +input
+        span.right-mark
+            !{rightMark}
+    else
+        +input

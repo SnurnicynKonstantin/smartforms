@@ -3,6 +3,8 @@ import template from './input.jade';
 import Base from '../base/base';
 import Factory from '../factory';
 
+import './input.css';
+
 export default class Input extends Base {
 
   render() {
