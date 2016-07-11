@@ -43,4 +43,6 @@ parser.registerProperty('password', scope => {
     : false;
 });
 
+parser.registerProperty('изЦифр', scope => /^\d+$/.test(scope[scope.fieldName] || ''));
+
 export default parser;
