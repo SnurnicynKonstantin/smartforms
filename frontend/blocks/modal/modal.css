@@ -8,6 +8,7 @@ $header-background-clr: #f3f3f3;
 $header-border-clr: #e1e1e1;
 $hover-close-button-clr: #252525;
 $modal-title-color: #252525;
+$modal-subtitle-color: #9E9E9E;
 
 .$(cls-prefix)-modal {
   .modal-dialog {
@@ -59,12 +60,22 @@ $modal-title-color: #252525;
     height: $modal-header-height;
     width: 100%;
 
-    h4 {
+    h4.title {
       display: table-cell;
       vertical-align: middle;
       font-size: 19px;
       line-height: 27px;
       color: $modal-title-color;
+    }
+
+    h5.subtitle {
+      color: $modal-subtitle-color;
+      font-size: 14px;
+      line-height: 16px;
+      margin: 0;
+      padding: 5px 0 7px;
+      white-space: pre-wrap;
+      display: table-row;
     }
   }
 
