@@ -1,0 +1,110 @@
+{
+  "block": "modal",
+  "title": "ТСЖ «АрунА», ИНН 7017157997",
+  "subtitle": "ТСЖ «АрунА», ИНН 7017157997",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/default/uk.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Штрихкод": {
+        "block": "text",
+        "label": "Штрихкод",
+        "labelWidth": 3,
+        "mask": "9999999999999",
+        "maskPlaceholder": "_",
+        "value": "3529150001123",
+        "disabled": true,
+        "validationRules": [
+          {
+            "rule": "штрихкод",
+            "errorMessage": "Проверьте правильность введенного штрихкода. Штрихкод состоит из цифр и содержит 13 символов."
+          }
+        ]
+      },
+      "Фамилия": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "фамилия",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Имя": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "имя",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Отчество": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "отчество",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Адрес": {
+        "block": "input",
+        "type": "text",
+        "label": "Адрес",
+        "labelWidth": 3,
+        "name": "Адрес",
+        "disabled": true,
+        "value": "Томск, ул.Иркутский пр-д, д 13, кв. 11"
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "value": "825.54",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 < Сумма && Сумма < 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Штрихкод",
+      {
+        "block": "fieldset",
+        "label": "Плательщик",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "labelWidth": 3,
+        "items": [
+          "Фамилия",
+          "Имя",
+          "Отчество"
+        ]
+      },
+      "Адрес",
+      "Сумма"
+    ]
+  }
+}

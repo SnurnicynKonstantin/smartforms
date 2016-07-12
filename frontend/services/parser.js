@@ -45,4 +45,6 @@ parser.registerProperty('password', scope => {
 
 parser.registerProperty('изЦифр', scope => /^\d+$/.test(scope[scope.fieldName] || ''));
 
+parser.registerProperty('штрихкод', scope => /^[0-9]{13}$/i.test(scope[scope.fieldName] || ''));
+
 export default parser;
