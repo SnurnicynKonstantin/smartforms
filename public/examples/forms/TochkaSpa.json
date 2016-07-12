@@ -1,0 +1,80 @@
+{
+  "block": "modal",
+  "title": "ООО «ТОЧКА СПА»",
+  "subtitle": "ООО «ТОЧКА СПА»",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/tochkaspa.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Артикул": {
+        "block": "input",
+        "type": "text",
+        "label": "Артикул",
+        "labelWidth": 3,
+        "validationRules": [
+          {
+            "rule": "артикул",
+            "errorMessage": "Проверьте правильность введенного артикула. Артикул состоит из букв и цифр и содержит от 7 до 9 символов."
+          }
+        ]
+      },
+      "Номер телефона": {
+        "block": "text",
+        "label": "Номер телефона",
+        "labelWidth": 3,
+        "mask": "+7 9999999999",
+        "maskPlaceholder": "_",
+        "inputWidth": "215px",
+        "validationRules": [
+          {
+            "rule": "телефон",
+            "errorMessage": "Проверьте правильность введенного номера. Номер телефона необходимо ввести в формате +7 9241234567."
+          }
+        ]
+      },
+      "email": {
+        "block": "input",
+        "label": "E-mail",
+        "labelWidth": 3,
+        "validationRules": [
+          {
+            "rule": "email",
+            "errorMessage": "Адрес электронной почты указан неверно. Адрес должен иметь формат name@example."
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "value": "825.54",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "textAlign": "right",
+        "inputWidth": "200px",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 < Сумма && Сумма < 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Артикул",
+      "Номер телефона",
+      "email",
+      "Сумма"
+    ]
+  }
+}

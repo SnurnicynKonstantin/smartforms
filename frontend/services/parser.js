@@ -47,4 +47,10 @@ parser.registerProperty('изЦифр', scope => /^\d+$/.test(scope[scope.fieldN
 
 parser.registerProperty('штрихкод', scope => /^[0-9]{13}$/i.test(scope[scope.fieldName] || ''));
 
+parser.registerProperty('артикул', scope => /^[а-яё0-9.,\/]{7,9}$/i.test(scope[scope.fieldName] || ''));
+
+parser.registerProperty('телефон', scope => /^\+7\s9[0-9]{9}$/i.test(scope[scope.fieldName] || ''));
+
+parser.registerProperty('число', scope => /^[0-9]+(([.,])[0-9]{1,2})?$/i.test(scope[scope.fieldName] || ''));
+
 export default parser;
