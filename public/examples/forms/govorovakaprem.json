@@ -1,0 +1,209 @@
+{
+  "block": "modal",
+  "title": "ТСЖ «Говорова 26, 28» Капремонт, ИНН 7017125850",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/default/uk.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "help": {
+    "message": "Где посмотреть лицевой счёт?",
+    "helpTitle": "Лицевой счёт указан на вашей квитанции:",
+    "imageUrl": "https://vp.ru/resources/media/images/provider/receipt/receipt_govorova.png"
+  },
+  "body": {
+    "form": {
+      "Лицевой счёт": {
+        "block": "text",
+        "label": "Лицевой счёт",
+        "labelWidth": 3,
+        "mask": "99999",
+        "maskPlaceholder": "_",
+        "disabled": true,
+        "value": "28050",
+        "validationRules": [
+          {
+            "rule": "длина == 5 && изЦифр",
+            "errorMessage": "Проверьте правильность введенного лицевого счета. Лицевой счет состоит из цифр и содержит 5 символов."
+          }
+        ]
+      },
+      "Фамилия": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "фамилия",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Имя": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "имя",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Отчество": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "отчество",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Адрес": {
+        "block": "input",
+        "type": "text",
+        "label": "Адрес",
+        "labelWidth": 3,
+        "name": "Адрес",
+        "disabled": true,
+        "value": "634057, Томская обл, Томск г, Говорова ул, 28 Кв. 50"
+      },
+      "Месяц": {
+        "block": "select",
+        "value": "05",
+        "values": [
+          {
+            "name": "январь",
+            "value": "01"
+          },
+          {
+            "name": "февраль",
+            "value": "02"
+          },
+          {
+            "name": "март",
+            "value": "03"
+          },
+          {
+            "name": "апрель",
+            "value": "04"
+          },
+          {
+            "name": "май",
+            "value": "05"
+          },
+          {
+            "name": "июнь",
+            "value": "06"
+          },
+          {
+            "name": "июль",
+            "value": "07"
+          },
+          {
+            "name": "август",
+            "value": "08"
+          },
+          {
+            "name": "сентябрь",
+            "value": "09"
+          },
+          {
+            "name": "октябрь",
+            "value": "10"
+          },
+          {
+            "name": "ноябрь",
+            "value": "11"
+          },
+          {
+            "name": "декабрь",
+            "value": "12"
+          }
+        ]
+      },
+      "Год": {
+        "block": "select",
+        "value": "2016",
+        "values": [
+          {
+            "name": "2017",
+            "value": "2017"
+          },
+          {
+            "name": "2016",
+            "value": "2016"
+          },
+          {
+            "name": "2015",
+            "value": "2015"
+          },
+          {
+            "name": "2014",
+            "value": "2014"
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "value": "367.16",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 < Сумма && Сумма < 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Лицевой счёт",
+      {
+        "block": "fieldset",
+        "label": "Плательщик",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "labelWidth": 3,
+        "items": [
+          "Фамилия",
+          "Имя",
+          "Отчество"
+        ]
+      },
+      "Адрес",
+      {
+        "name": "fieldset1",
+        "block": "fieldset",
+        "label": "Период оплаты",
+        "labelWidth": 3,
+        "layout": [
+          {
+            "count": 2,
+            "width": [
+              4,
+              4
+            ]
+          }
+        ],
+        "items": [
+          "Месяц",
+          "Год"
+        ]
+      },
+      "Сумма"
+    ]
+  }
+}
