@@ -1,0 +1,208 @@
+{
+  "block": "modal",
+  "title": "ЗАО «МКС-Томск», ИНН 7017276320»",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/mkstomsk.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "help": {
+    "message": "Где посмотреть штрихкод?",
+    "helpTitle": "Штрихкод указан на вашей квитанции:",
+    "imageUrl": "https://vp.ru/resources/media/images/provider/receipt/receipt_mkstomsk.png"
+  },
+  "body": {
+    "form": {
+      "Штрихкод": {
+        "block": "input",
+        "type": "text",
+        "label": "Штрихкод",
+        "disabled": true,
+        "labelWidth": 3,
+        "value": "3526512216649",
+        "validationRules": [
+          {
+            "rule": "длина == 13 && изЦифр",
+            "errorMessage": "Проверьте правильность введенного лицевого счета. Лицевой счет состоит из цифр и содержит 13 символов."
+          }
+        ]
+      },
+      "Фамилия": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "фамилия",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Имя": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "имя",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Отчество": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "отчество",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Адрес": {
+        "block": "input",
+        "type": "text",
+        "label": "Адрес",
+        "labelWidth": 3,
+        "name": "Адрес",
+        "disabled": true,
+        "value": "Томск г, Никитина ул, д. 56, кв. 166"
+      },
+      "Месяц": {
+        "block": "select",
+        "value": "06",
+        "values": [
+          {
+            "name": "январь",
+            "value": "01"
+          },
+          {
+            "name": "февраль",
+            "value": "02"
+          },
+          {
+            "name": "март",
+            "value": "03"
+          },
+          {
+            "name": "апрель",
+            "value": "04"
+          },
+          {
+            "name": "май",
+            "value": "05"
+          },
+          {
+            "name": "июнь",
+            "value": "06"
+          },
+          {
+            "name": "июль",
+            "value": "07"
+          },
+          {
+            "name": "август",
+            "value": "08"
+          },
+          {
+            "name": "сентябрь",
+            "value": "09"
+          },
+          {
+            "name": "октябрь",
+            "value": "10"
+          },
+          {
+            "name": "ноябрь",
+            "value": "11"
+          },
+          {
+            "name": "декабрь",
+            "value": "12"
+          }
+        ]
+      },
+      "Год": {
+        "block": "select",
+        "value": "2016",
+        "values": [
+          {
+            "name": "2017",
+            "value": "2017"
+          },
+          {
+            "name": "2016",
+            "value": "2016"
+          },
+          {
+            "name": "2015",
+            "value": "2015"
+          },
+          {
+            "name": "2014",
+            "value": "2014"
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "value": "825.54",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "textAlign": "right",
+        "inputWidth": "200px",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "1 < Сумма && Сумма < 15000",
+            "errorMessage": "Сумма платежа не может быть меньше 1 руб. и больше 15 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Штрихкод",
+      {
+        "block": "fieldset",
+        "label": "Плательщик",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "labelWidth": 3,
+        "items": [
+          "Фамилия",
+          "Имя",
+          "Отчество"
+        ]
+      },
+      "Адрес",
+      {
+        "name": "fieldset1",
+        "block": "fieldset",
+        "label": "Период оплаты",
+        "labelWidth": 3,
+        "layout": [
+          {
+            "count": 2,
+            "width": [
+              4,
+              4
+            ]
+          }
+        ],
+        "items": [
+          "Месяц",
+          "Год"
+        ]
+      },
+      "Сумма"
+    ]
+  }
+}
