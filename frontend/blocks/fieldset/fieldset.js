@@ -33,6 +33,12 @@ export default class Fieldset extends Container {
     super(finalConfig);
   }
 
+  afterRender() {
+    super.afterRender();
+
+    this.items.forEach(item => item.on('change', () => this.trigger('change')));
+  }
+
   get templateFn() {
     return template;
   }
@@ -89,6 +95,10 @@ export default class Fieldset extends Container {
 
   getItemByName(name) {
     return flow(map('items'), flatten, find(item => item.name === name))(this.items);
+  }
+
+  get sum() {
+    return this.items.reduce((acc, row) => acc + row.sum, 0);
   }
 }
 

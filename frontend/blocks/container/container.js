@@ -38,6 +38,10 @@ export default class Container extends Base {
     return this.items.find(item => item.name === name);
   }
 
+  getItemByAlias(alias) {
+    return this.items.find(item => item.config.alias === alias);
+  }
+
   validate() {
     return this.items.every(block => block.validate());
   }

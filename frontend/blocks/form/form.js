@@ -23,7 +23,8 @@ export default class Form extends Container {
   initBlockSummarize(block) {
     if (block.config.summarize && Array.isArray(block.config.summarize)) {
       block.config.summarize.forEach(fieldName => {
-        this.getItemByName(fieldName).on('change', () => this.changeSum(block));
+        const field = this.getItemByName(fieldName) || this.getItemByAlias(fieldName);
+        field.on('change', () => this.changeSum(block));
       });
 
       this.changeSum(block);
@@ -31,9 +32,14 @@ export default class Form extends Container {
   }
 
   changeSum(block) {
+    const summableContainers = [
+      'array',
+      'fieldset'
+    ];
+
     block.value = parseFloat(block.config.summarize.reduce((acc, fieldName) => {
-      const field = this.getItemByName(fieldName);
-      if ('array' === field.config.block) {
+      const field = this.getItemByName(fieldName) || this.getItemByAlias(fieldName);
+      if (summableContainers.includes(field.config.block)) {
         return acc + field.sum;
       }
 

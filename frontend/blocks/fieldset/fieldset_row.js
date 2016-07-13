@@ -21,6 +21,12 @@ export default class FieldsetRow extends Container {
     this.el.append($(colTemplate({ width })).append(block.el));
   }
 
+  afterRender() {
+    super.afterRender();
+
+    this.items.forEach(item => item.on('change', () => this.trigger('change')));
+  }
+
   validate() {
     return this.items.reduce((acc, block) => {
       const isValid = block.validate();
@@ -39,6 +45,18 @@ export default class FieldsetRow extends Container {
 
   hideErrors() {
     this.items.forEach(block => block.popover('hide'));
+  }
+
+  get sum() {
+    return this.items.reduce((acc, block) => {
+      if (!block.config.isSummable) {
+        return acc;
+      }
+
+      const value = block.value || {};
+
+      return acc + parseFloat(value[block.name] || 0);
+    }, 0);
   }
 }
 
