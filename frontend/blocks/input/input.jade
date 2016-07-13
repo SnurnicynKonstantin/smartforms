@@ -10,7 +10,7 @@ block inner
             value=value
             disabled=disabled
             placeholder=placeholder
-            style="width:#{inputWidth}"
+            style=(inputWidth ? "width:#{inputWidth}" : undefined)
         )
 
     if rightMark
