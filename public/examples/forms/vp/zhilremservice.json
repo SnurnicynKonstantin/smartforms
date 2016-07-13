@@ -16,7 +16,13 @@
         "type": "text",
         "label": "Лицевой счёт",
         "labelWidth": 3,
-        "name": "accountId"
+        "name": "accountId",
+        "validationRules": [
+          {
+            "rule": "длина > 0 && длина < 9 && изЦифр",
+            "errorMessage": "Проверьте правильность введеного лицевого счета. Лицевой счет состоит из цифр и содержит от 1 до 8 символов."
+          }
+        ]
       },
       "address": {
         "block": "address",
@@ -110,7 +116,17 @@
         "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\"><\/span>",
         "inputWidth": "200px",
         "labelWidth": 3,
-        "label": "Сумма"
+        "label": "Сумма",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 <= Сумма && Сумма <= 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
       }
     },
     "schema": [
