@@ -20,8 +20,6 @@
         "block": "text",
         "label": "Лицевой счёт",
         "labelWidth": 3,
-        "mask": "99999",
-        "maskPlaceholder": "",
         "validationRules": [
           {
             "rule": "длина >= 1 && длина <= 5 && изЦифр",
@@ -218,6 +216,13 @@
         "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\"><\/span>",
         "summarize": [
           "Вид платежа и сумма"
+        ],
+        "validationRules": [
+          {
+            "rule": "5 < Сумма && Сумма < 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб.",
+            "isGlobalError": true
+          }
         ]
       }
     },
