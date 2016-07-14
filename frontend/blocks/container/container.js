@@ -70,7 +70,12 @@ export default class Container extends Base {
   }
 
   afterRender() {
-    this.items.forEach(block => block.afterRender());
+    this.items.forEach(block => {
+      block.afterRender();
+      block.on('showGlobalError', (e, errorMessage) => {
+        this.trigger('showGlobalError', errorMessage);
+      });
+    });
   }
 
   get items() {

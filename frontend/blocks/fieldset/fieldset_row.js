@@ -55,7 +55,7 @@ export default class FieldsetRow extends Container {
 
       const value = block.value || {};
 
-      return acc + parseFloat(value[block.name] || 0);
+      return acc + (parseFloat(value[block.name]) || 0);
     }, 0);
   }
 }

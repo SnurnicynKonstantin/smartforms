@@ -3,6 +3,7 @@ import Container from '../container/container';
 import template from './form.jade';
 import parser from '../../services/parser';
 import forEach from 'lodash/forEach';
+import $ from 'jquery';
 
 import './form.css';
 
@@ -18,6 +19,13 @@ export default class Form extends Container {
       this.initBlockDependencies(block);
       this.initBlockSummarize(block);
     });
+  }
+
+  afterRender() {
+    super.afterRender();
+
+    this.formGlobalError = this.el.find('.form-global-error');
+    this.on('showGlobalError', (e, errorMessage) => this.showError(errorMessage));
   }
 
   initBlockSummarize(block) {
@@ -99,5 +107,19 @@ export default class Form extends Container {
 
       field.showErrorMessage(errorMsg);
     });
+  }
+
+  removeErrors() {
+    super.removeErrors();
+
+    this.hideError();
+  }
+
+  showError(errorMessage) {
+    this.formGlobalError.append($(`<div class="alert alert-danger validation" role="alert">${errorMessage}</div>`));
+  }
+
+  hideError() {
+    this.formGlobalError.empty();
   }
 }

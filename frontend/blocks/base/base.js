@@ -62,7 +62,12 @@ export default class Base {
     if (!invalidRule) {
       return true;
     }
-    this.showErrorMessage(invalidRule.errorMessage);
+
+    if (!invalidRule.isGlobalError) {
+      this.showErrorMessage(invalidRule.errorMessage);
+    } else {
+      this.trigger('showGlobalError', invalidRule.errorMessage);
+    };
 
     return false;
   }
