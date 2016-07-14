@@ -1,7 +1,7 @@
 {
   "block": "modal",
-  "title": "Агентство ТОМИКА",
-  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/tomica_cyberplat.png",
+  "title": "ООО «Томика»",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/oootomica.png",
   "iagree": {
     "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
     "checked": false
@@ -14,13 +14,13 @@
       "id": {
         "block": "input",
         "type": "text",
-        "label": "Идентификационный номер плательщика (ID)",
+        "label": "Идентификационный номер (ID)",
         "labelWidth": 3,
         "name": "accountId",
         "validationRules": [
           {
-            "rule": "значение && изЦифр",
-            "errorMessage": "Неверно указан идентификационный номер плательщика."
+            "rule": "длина > 0 && длина < 9 && значение && изЦифр",
+            "errorMessage": "Проверьте правильность введенного идентификационного номера (ID). Идентификационный номер (ID) состоит из цифр и содержит от 1 до 8 символов."
           }
         ]
       },
