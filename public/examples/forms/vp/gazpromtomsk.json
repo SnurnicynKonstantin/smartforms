@@ -1,0 +1,241 @@
+{
+  "block": "modal",
+  "title": "ОАО «Газпром межрегионгаз Новосибирск» Филиал в Томской области",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/gazpromtomsk.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Лицевой счёт": {
+        "block": "text",
+        "mask": "99999999999",
+        "maskPlaceholder": "_",
+        "label": "Лицевой счёт",
+        "value": "12345678912",
+        "disabled": true,
+        "labelWidth": 3,
+        "validationRules": [
+          {
+            "rule": "значение && изЦифр",
+            "errorMessage": "Проверьте правильность введеного лицевого счёта. Лицевой счёт состоит из цифр и содержит 11 символов."
+          }
+        ]
+      },
+      "Фамилия": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "фамилия",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введена фамилия. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Имя": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "имя",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено имя. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Отчество": {
+        "block": "input",
+        "type": "text",
+        "placeholder": "отчество",
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введено отчество. Значение должно быть указано и состоять только из русских букв."
+          }
+        ]
+      },
+      "Месяц": {
+        "block": "select",
+        "value": "05",
+        "values": [
+          {
+            "name": "январь",
+            "value": "01"
+          },
+          {
+            "name": "февраль",
+            "value": "02"
+          },
+          {
+            "name": "март",
+            "value": "03"
+          },
+          {
+            "name": "апрель",
+            "value": "04"
+          },
+          {
+            "name": "май",
+            "value": "05"
+          },
+          {
+            "name": "июнь",
+            "value": "06"
+          },
+          {
+            "name": "июль",
+            "value": "07"
+          },
+          {
+            "name": "август",
+            "value": "08"
+          },
+          {
+            "name": "сентябрь",
+            "value": "09"
+          },
+          {
+            "name": "октябрь",
+            "value": "10"
+          },
+          {
+            "name": "ноябрь",
+            "value": "11"
+          },
+          {
+            "name": "декабрь",
+            "value": "12"
+          }
+        ]
+      },
+      "Год": {
+        "block": "select",
+        "value": "2016",
+        "values": [
+          {
+            "name": "2017",
+            "value": "2017"
+          },
+          {
+            "name": "2016",
+            "value": "2016"
+          },
+          {
+            "name": "2015",
+            "value": "2015"
+          },
+          {
+            "name": "2014",
+            "value": "2014"
+          }
+        ]
+      },
+      "Сумма редактируемая": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "value": 0,
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>"
+      },
+      "div": {
+        "block": "divider"
+      },
+      "Газ метка": {
+        "block": "label",
+        "labelText": "Газ"
+      },
+      "Газ": {
+        "block": "text",
+        "value": 0,
+        "isSummable": true,
+        "textAlign": "center"
+      },
+      "Предыдущие показания": {
+        "block": "comment",
+        "text": "Предыдущие показания прибора учета: 2708",
+        "fontColor": "#252525",
+        "fontSize": "13px"
+      },
+      "Сумма": {
+        "block": "static",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "value": 0,
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\"><\/span>",
+        "summarize": [
+          "Сумма редактируемая"
+        ],
+        "validationRules": [
+          {
+            "rule": "1 < Сумма && Сумма < 15000",
+            "errorMessage": "Сумма платежа не может быть меньше 1 руб. и больше 15 000 руб.",
+            "isGlobalError": true
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Лицевой счёт",
+      {
+        "block": "fieldset",
+        "label": "Плательщик",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "labelWidth": 3,
+        "items": [
+          "Фамилия",
+          "Имя",
+          "Отчество"
+        ]
+      },
+      {
+        "block": "fieldset",
+        "label": "Период оплаты",
+        "labelWidth": 3,
+        "layout": [
+          {
+            "count": 2,
+            "width": [
+              4,
+              4
+            ]
+          }
+        ],
+        "items": [
+          "Месяц",
+          "Год"
+        ]
+      },
+      "Сумма редактируемая",
+      "div",
+      {
+        "block": "table",
+        "label": "Введите показания приборов учёта",
+        "columnHeaders": [
+          "Тип ПУ",
+          "Текущие показания"
+        ],
+        "layout": {
+          "columns": 2,
+          "width": [
+            7,
+            2
+          ]
+        },
+        "items": [
+          "Газ метка",
+          "Газ"
+        ]
+      },
+      "Предыдущие показания",
+      "Сумма"
+    ]
+  }
+}
