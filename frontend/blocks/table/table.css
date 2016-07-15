@@ -1,0 +1,13 @@
+@import "../../styles/_variables.css";
+
+.$(cls-prefix)-table {
+  .table-header {
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .table-header-row {
+    display: flex;
+    align-items: flex-end;
+  }
+}

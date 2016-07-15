@@ -15,6 +15,7 @@ import './blocks/address/address';
 import './blocks/radiogroup/radiogroup';
 import './blocks/comment/comment';
 import './blocks/link/link';
+import './blocks/table/table';
 
 import Modal from './blocks/modal/modal';
 import Form from './blocks/form/form';
