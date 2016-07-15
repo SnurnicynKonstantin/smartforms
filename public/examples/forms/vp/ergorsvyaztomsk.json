@@ -1,0 +1,55 @@
+{
+  "block": "modal",
+  "title": "ДОМ.RU, Телефония, Томская обл.",
+  "subtitle": "ДОМ.RU, Телефония, Томская обл.",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/dom_ru.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Номер телефона": {
+        "block": "text",
+        "label": "Номер телефона",
+        "labelWidth": 3,
+        "mask": "+7 9999999999",
+        "maskPlaceholder": "_",
+        "placeholder": "+7 __________",
+        "inputWidth": "215px",
+        "validationRules": [
+          {
+            "rule": "домашнийТелефон",
+            "errorMessage": "Необходимо ввести 10 цифр номера телефона (код города+номер телефона)."
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "1 <= Сумма && Сумма <= 15000",
+            "errorMessage": "Сумма платежа не может быть меньше 1 руб. и больше 15 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Номер телефона",
+      "Сумма"
+    ]
+  }
+}
