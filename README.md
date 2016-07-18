@@ -10,10 +10,10 @@
 
 3. Run `$ npm install` to install node modules.
 
-4. Go to `./node_modules/morph_expressions` and run `npm run build` to build it.
-
 ## Run project
 
 1. Run `$ webpack` to build project.
 
 2. Run Express node server: `$ node app.js`
+
+3. Visit [localhost:3000/static/examples/](http://localhost:3000/static/examples/) to see examples
