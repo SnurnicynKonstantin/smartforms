@@ -1,0 +1,64 @@
+{
+  "block": "modal",
+  "title": "ООО ЧОП «Патриот-Т»",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/patriott.jpg",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Лицевой счёт": {
+        "label": "Лицевой счёт",
+        "labelWidth": 3,
+        "block": "text",
+        "mask": "gg9999999",
+        "validationRules": [
+          {
+            "rule": "обязательное",
+            "errorMessage": "Неверно введен лицевой счёт. Введите лицевой счёт."
+          }
+        ]
+      },
+      "Адрес": {
+        "label": "Адрес",
+        "labelWidth": 3,
+        "block": "input",
+        "type": "text",
+        "validationRules": [
+          {
+            "rule": "обязательное",
+            "errorMessage": "Неверно введен адрес. Введите адрес."
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 < Сумма && Сумма < 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Лицевой счёт",
+      "Адрес",
+      "Сумма"
+    ]
+  }
+}
