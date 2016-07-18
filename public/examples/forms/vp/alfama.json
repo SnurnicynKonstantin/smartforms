@@ -1,0 +1,52 @@
+{
+  "block": "modal",
+  "title": "ООО «АЛФАМА» (интернет-магазин INTERSOUND), ИНН 7017329188",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/alfama.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Номер договора/заказа": {
+        "block": "text",
+        "mask": "9999999",
+        "maskPlaceholder": "_",
+        "label": "Номер договора/заказа",
+        "labelWidth": 3,
+        "validationRules": [
+          {
+            "rule": "длина == 7 && изЦифр",
+            "errorMessage": "Проверьте правильность введеного номера договора/заказа. Номер договора/заказа состоит из цифр и содержит 7 символов."
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 <= Сумма && Сумма <= 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Номер договора/заказа",
+      "Сумма"
+    ]
+  }
+}
