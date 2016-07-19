@@ -66,7 +66,8 @@ $(function () {
     { path: 'forms/vp/alfama.json', name: 'ООО «АЛФАМА» (интернет-магазин INTERSOUND), ИНН 7017329188' },
     { path: 'forms/vp/ukkirovskij_massiv.json', name: 'ООО «УК «Кировс​кий Массив»' },
     { path: 'forms/vp/departamentohrany.json', name: 'ООО ЧОО «Департамент охраны»' },
-    { path: 'forms/vp/patriott.json', name: 'ООО ЧОП «Патриот-Т»' }
+    { path: 'forms/vp/patriott.json', name: 'ООО ЧОП «Патриот-Т»' },
+    { path: 'forms/vp/domservicetdsk.json', name: 'ООО «Дом-Сервис ТДСК»' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
