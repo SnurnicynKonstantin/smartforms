@@ -42,7 +42,8 @@ export default class Form extends Container {
   changeSum(block) {
     const summableContainers = [
       'array',
-      'fieldset'
+      'fieldset',
+      'table'
     ];
 
     block.value = parseFloat(block.config.summarize.reduce((acc, fieldName) => {
