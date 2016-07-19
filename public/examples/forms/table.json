@@ -36,6 +36,24 @@
     "cancelButton": {
       "block": "button",
       "label": "Cancel"
+    },
+    "test00": {
+      "block": "input",
+      "label": "test",
+      "disabled": true,
+      "placeholder": "test0"
+    },
+    "test01": {
+      "block": "input",
+      "placeholder": "test1"
+    },
+    "test02": {
+      "block": "input",
+      "placeholder": "test2"
+    },
+    "test03": {
+      "block": "input",
+      "placeholder": "test3"
     }
   },
   "schema": [
@@ -61,6 +79,24 @@
         "test3",
         "test4",
         "test5"
+      ]
+    },
+    {
+      "name": "table",
+      "block": "table",
+      "label": "Table without column headers example",
+      "layout": {
+        "columns": 2,
+        "width": [
+          5,
+          7
+        ]
+      },
+      "items": [
+        "test00",
+        "test01",
+        "test02",
+        "test03"
       ]
     },
     {
