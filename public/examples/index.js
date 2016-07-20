@@ -69,7 +69,8 @@ $(function () {
     { path: 'forms/vp/patriott.json', name: 'ООО ЧОП «Патриот-Т»' },
     { path: 'forms/vp/domservicetdsk.json', name: 'ООО «Дом-Сервис ТДСК»' },
     { path: 'forms/vp/ukstrojsojuz.json', name: 'ООО «УК СТРОЙСОЮЗ»' },
-    { path: 'forms/vp/jilservice497.json', name: 'ООО «Компания Жилсервис», ИНН7017208497' }
+    { path: 'forms/vp/jilservice497.json', name: 'ООО «Компания Жилсервис», ИНН7017208497' },
+    { path: 'forms/vp/iceberg_servis.json', name: 'ООО ЧОП «АЙСБЕРГ-СЕРВИС», ИНН 7017189660' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
