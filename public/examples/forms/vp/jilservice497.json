@@ -1,26 +1,31 @@
 {
   "block": "modal",
-  "title": "ООО «УК «Союз»",
-  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/uksoyuz.png",
+  "title": "ООО «Компания Жилсервис», ИНН7017208497",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/jilservice.jpg",
   "iagree": {
     "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
     "checked": false
+  },
+  "help": {
+    "message": "Где посмотреть штрихкод?",
+    "helpTitle": "Штрихкод указан на вашей квитанции:",
+    "imageUrl": "https://vp.ru/resources/media/images/provider/receipt/receipt_jilservice.jpg"
   },
   "submitButton": {
     "label": "Перейти к оплате"
   },
   "body": {
     "form": {
-      "Штрихкод квитанции": {
+      "Штрихкод": {
         "block": "text",
-        "label": "Штрихкод квитанции",
+        "label": "Штрихкод",
+        "labelWidth": 3,
         "mask": "999999 99999-9",
         "maskPlaceholder": "_",
-        "labelWidth": 3,
         "validationRules": [
           {
             "rule": "значение",
-            "errorMessage": "Проверьте правильность введенного лицевого счета. Лицевой счет состоит из цифр и содержит 12 символов."
+            "errorMessage": "Проверьте правильность введенного штрихкода квитанции. Штрихкод квитанции состоит из цифр и содержит 12 символов."
           }
         ]
       },
@@ -197,14 +202,14 @@
             "errorMessage": "Неверно указана сумма."
           },
           {
-            "rule": "5 < Сумма && Сумма < 13000",
+            "rule": "5 <= Сумма && Сумма <= 13000",
             "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
           }
         ]
       }
     },
     "schema": [
-      "Штрихкод квитанции",
+      "Штрихкод",
       {
         "block": "fieldset",
         "label": "Плательщик",
