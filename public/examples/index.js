@@ -75,7 +75,8 @@ $(function () {
     { path: 'forms/vp/jilservice520.json', name: 'ООО «Жилсервис», ИНН 7017070520' },
     { path: 'forms/vp/jek30.json', name: 'ООО «ЖЭК №30», ИНН 7017113206' },
     { path: 'forms/vp/ukistochnoye.json', name: 'ООО «Управляющая компания «Источное», ИНН 7017120796' },
-    { path: 'forms/vp/jilservice472.json', name: 'ООО «Жилсервис «Черемошники», ИНН 7017208472' }
+    { path: 'forms/vp/jilservice472.json', name: 'ООО «Жилсервис «Черемошники», ИНН 7017208472' },
+    { path: 'forms/vp/ukjilremservis1.json', name: 'ООО «УК «Жилремсервис-I», ИНН 7017171110' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
