@@ -67,7 +67,8 @@ $(function () {
     { path: 'forms/vp/ukkirovskij_massiv.json', name: 'ООО «УК «Кировс​кий Массив»' },
     { path: 'forms/vp/departamentohrany.json', name: 'ООО ЧОО «Департамент охраны»' },
     { path: 'forms/vp/patriott.json', name: 'ООО ЧОП «Патриот-Т»' },
-    { path: 'forms/vp/domservicetdsk.json', name: 'ООО «Дом-Сервис ТДСК»' }
+    { path: 'forms/vp/domservicetdsk.json', name: 'ООО «Дом-Сервис ТДСК»' },
+    { path: 'forms/vp/ukstrojsojuz.json', name: 'ООО «УК СТРОЙСОЮЗ»' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
