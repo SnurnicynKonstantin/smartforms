@@ -71,7 +71,8 @@ $(function () {
     { path: 'forms/vp/ukstrojsojuz.json', name: 'ООО «УК СТРОЙСОЮЗ»' },
     { path: 'forms/vp/jilservice497.json', name: 'ООО «Компания Жилсервис», ИНН7017208497' },
     { path: 'forms/vp/iceberg_servis.json', name: 'ООО ЧОП «АЙСБЕРГ-СЕРВИС», ИНН 7017189660' },
-    { path: 'forms/vp/uknewage.json', name: 'ООО «УК Новый Век», ИНН 7017344330' }
+    { path: 'forms/vp/uknewage.json', name: 'ООО «УК Новый Век», ИНН 7017344330' },
+    { path: 'forms/vp/jilservice520.json', name: 'ООО «Жилсервис», ИНН 7017070520' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
