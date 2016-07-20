@@ -70,7 +70,8 @@ $(function () {
     { path: 'forms/vp/domservicetdsk.json', name: 'ООО «Дом-Сервис ТДСК»' },
     { path: 'forms/vp/ukstrojsojuz.json', name: 'ООО «УК СТРОЙСОЮЗ»' },
     { path: 'forms/vp/jilservice497.json', name: 'ООО «Компания Жилсервис», ИНН7017208497' },
-    { path: 'forms/vp/iceberg_servis.json', name: 'ООО ЧОП «АЙСБЕРГ-СЕРВИС», ИНН 7017189660' }
+    { path: 'forms/vp/iceberg_servis.json', name: 'ООО ЧОП «АЙСБЕРГ-СЕРВИС», ИНН 7017189660' },
+    { path: 'forms/vp/uknewage.json', name: 'ООО «УК Новый Век», ИНН 7017344330' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
