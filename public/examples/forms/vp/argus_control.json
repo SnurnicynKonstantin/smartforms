@@ -1,6 +1,6 @@
 {
   "block": "modal",
-  "title": "ООО «ЧОП «Аргус-Север», ИНН 7017055963",
+  "title": "ООО «Аргус-Контроль», ИНН 7017116430",
   "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/argus.png",
   "iagree": {
     "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
@@ -18,8 +18,8 @@
         "labelWidth": 3,
         "validationRules": [
           {
-            "rule": "1 <= длина && длина <= 5 && изЦифр",
-            "errorMessage": "Проверьте правильность введенного лицевого счёта. Лицевой счёт состоит из цифр и содержит от 1 до 5 символов."
+            "rule": "1 <= длина && длина <= 4 && изЦифр",
+            "errorMessage": "Проверьте правильность введенного лицевого счёта. Лицевой счёт состоит из цифр и содержит от 1 до 4 символов."
           }
         ]
       },
@@ -109,7 +109,6 @@
       "Сумма": {
         "block": "text",
         "placeholder": "0",
-        "value": "825.54",
         "label": "Сумма",
         "labelWidth": 3,
         "inputWidth": "200px",
