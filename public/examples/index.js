@@ -84,7 +84,8 @@ $(function () {
     { path: 'forms/vp/rt_tomsk.json', name: 'ОАО «Ростелеком», г. Томск, Номер телефона' },
     { path: 'forms/vp/rt_tomsk_acc.json', name: 'ОАО «Ростелеком», г. Томск, Лицевой счет' },
     { path: 'forms/vp/skala.json', name: 'ООО ЧОП «Скала-Техно», ИНН 7017114633' },
-    { path: 'forms/vp/ukgromada.json', name: 'ООО «УК «Громада», ИНН 7017157242' }
+    { path: 'forms/vp/ukgromada.json', name: 'ООО «УК «Громада», ИНН 7017157242' },
+    { path: 'forms/vp/pravoporjadokt.json', name: 'ООО «ЧОО «ПРАВОПОРЯДОК-Т», ИНН 7017109721' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
