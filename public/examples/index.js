@@ -80,7 +80,8 @@ $(function () {
     { path: 'forms/vp/ukcentralnaya080.json', name: 'ООО «УК Центральная», ИНН 7017192470' },
     { path: 'forms/vp/argus.json', name: 'ООО «ЧОП «Аргус-Томск», ИНН 7017109601' },
     { path: 'forms/vp/argus_control.json', name: 'ООО «Аргус-Контроль», ИНН 7017116430' },
-    { path: 'forms/vp/ukremstrojbyt.json', name: 'ООО «УК Ремстройбыт», ИНН 7017143271' }
+    { path: 'forms/vp/ukremstrojbyt.json', name: 'ООО «УК Ремстройбыт», ИНН 7017143271' },
+    { path: 'forms/vp/rt_tomsk.json', name: 'ОАО «Ростелеком», г. Томск' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
