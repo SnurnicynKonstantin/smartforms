@@ -81,7 +81,8 @@ $(function () {
     { path: 'forms/vp/argus.json', name: 'ООО «ЧОП «Аргус-Томск», ИНН 7017109601' },
     { path: 'forms/vp/argus_control.json', name: 'ООО «Аргус-Контроль», ИНН 7017116430' },
     { path: 'forms/vp/ukremstrojbyt.json', name: 'ООО «УК Ремстройбыт», ИНН 7017143271' },
-    { path: 'forms/vp/rt_tomsk.json', name: 'ОАО «Ростелеком», г. Томск' }
+    { path: 'forms/vp/rt_tomsk.json', name: 'ОАО «Ростелеком», г. Томск, Номер телефона' },
+    { path: 'forms/vp/rt_tomsk_acc.json', name: 'ОАО «Ростелеком», г. Томск, Лицевой счет' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });

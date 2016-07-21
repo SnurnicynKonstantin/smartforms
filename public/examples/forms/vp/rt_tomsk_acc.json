@@ -1,0 +1,104 @@
+{
+  "block": "modal",
+  "title": "ОАО «Ростелеком», г. Томск, Номер телефона",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/rt_tomsk.png",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "titleDependencies": [
+    {
+      "title": "ОАО «Ростелеком», г. Томск, Номер телефона",
+      "dependencies": "Тип == '1'"
+    },
+    {
+      "title": "ОАО «Ростелеком», г. Томск, Лицевой счет",
+      "dependencies": "Тип == '2'"
+    }
+  ],
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "body": {
+    "form": {
+      "Тип метка": {
+        "block": "label",
+        "labelText": "Выберите вариант оплаты"
+      },
+      "Тип": {
+        "block": "radiogroup",
+        "labelWidth": 3,
+        "options": [
+          {
+            "name": "По номеру телефона",
+            "value": 1
+          },
+          {
+            "name": "По номеру лицевого счёта",
+            "value": 2,
+            "checked": true
+          }
+        ]
+      },
+      "Лицевой счёт": {
+        "label": "Лицевой счёт",
+        "labelWidth": 3,
+        "block": "text",
+        "mask": "9?9999999999999999999",
+        "maskPlaceholder": "",
+        "validationRules": [
+          {
+            "rule": "обязательное",
+            "errorMessage": "Неверно введен лицевой счёт. Введите лицевой счёт."
+          },
+          {
+            "rule": "1 <= длина && длина <= 20 && изЦифр",
+            "errorMessage": "Проверьте правильность введенного лицевого счета. Лицевой счет состоит из цифр и содержит от 1 до 20 символов."
+          }
+        ],
+        "dependencies": "Тип == '2'"
+      },
+      "Номер телефона": {
+        "label": "Номер телефона",
+        "labelWidth": 3,
+        "block": "text",
+        "dependencies": "Тип == '1'",
+        "mask": "+7 (3822) 999999",
+        "placeholder": "+7 (3822) ______",
+        "validationRules": [
+          {
+            "rule": "обязательное",
+            "errorMessage": "Неверно введен номер телефона. Введите номер телефона."
+          }
+        ]
+      },
+      "Сумма": {
+        "block": "text",
+        "placeholder": "0",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "inputWidth": "200px",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "число",
+            "errorMessage": "Неверно указана сумма."
+          },
+          {
+            "rule": "5 <= Сумма && Сумма <= 13000",
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ]
+      }
+    },
+    "schema": [
+      "Тип метка",
+      "Тип",
+      "Лицевой счёт",
+      "Номер телефона",
+      "Адрес",
+      "Сумма"
+    ]
+  }
+}
