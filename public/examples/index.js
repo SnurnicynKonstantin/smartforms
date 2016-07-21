@@ -77,7 +77,8 @@ $(function () {
     { path: 'forms/vp/ukistochnoye.json', name: 'ООО «Управляющая компания «Источное», ИНН 7017120796' },
     { path: 'forms/vp/jilservice472.json', name: 'ООО «Жилсервис «Черемошники», ИНН 7017208472' },
     { path: 'forms/vp/ukjilremservis1.json', name: 'ООО «УК «Жилремсервис-I», ИНН 7017171110' },
-    { path: 'forms/vp/ukcentralnaya080.json', name: 'ООО «УК Центральная», ИНН 7017192470' }
+    { path: 'forms/vp/ukcentralnaya080.json', name: 'ООО «УК Центральная», ИНН 7017192470' },
+    { path: 'forms/vp/argus.json', name: 'ООО «ЧОП «Аргус-Томск», ИНН 7017109601' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
