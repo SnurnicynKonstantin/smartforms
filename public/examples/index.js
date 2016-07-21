@@ -82,7 +82,8 @@ $(function () {
     { path: 'forms/vp/argus_control.json', name: 'ООО «Аргус-Контроль», ИНН 7017116430' },
     { path: 'forms/vp/ukremstrojbyt.json', name: 'ООО «УК Ремстройбыт», ИНН 7017143271' },
     { path: 'forms/vp/rt_tomsk.json', name: 'ОАО «Ростелеком», г. Томск, Номер телефона' },
-    { path: 'forms/vp/rt_tomsk_acc.json', name: 'ОАО «Ростелеком», г. Томск, Лицевой счет' }
+    { path: 'forms/vp/rt_tomsk_acc.json', name: 'ОАО «Ростелеком», г. Томск, Лицевой счет' },
+    { path: 'forms/vp/skala.json', name: 'ООО ЧОП «Скала-Техно», ИНН 7017114633' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
