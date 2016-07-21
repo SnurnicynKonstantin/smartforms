@@ -12,11 +12,12 @@
   "body": {
     "form": {
       "id": {
-        "block": "input",
-        "type": "text",
+        "block": "text",
         "label": "Идентификационный номер (ID)",
         "labelWidth": 3,
         "name": "accountId",
+        "mask": "9?9999999",
+        "maskPlaceholder": "",
         "validationRules": [
           {
             "rule": "длина > 0 && длина < 9 && значение && изЦифр",

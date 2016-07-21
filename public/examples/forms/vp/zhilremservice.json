@@ -12,11 +12,12 @@
   "body": {
     "form": {
       "accountId": {
-        "block": "input",
-        "type": "text",
+        "block": "text",
         "label": "Лицевой счёт",
         "labelWidth": 3,
         "name": "accountId",
+        "mask": "9?9999999",
+        "maskPlaceholder": "",
         "validationRules": [
           {
             "rule": "длина > 0 && длина < 9 && изЦифр",

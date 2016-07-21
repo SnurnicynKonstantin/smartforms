@@ -12,10 +12,11 @@
   "body": {
     "form": {
       "Лицевой счёт": {
-        "block": "input",
-        "type": "text",
+        "block": "text",
         "label": "Лицевой счёт",
         "labelWidth": 3,
+        "mask": "9?999",
+        "maskPlaceholder": "",
         "validationRules": [
           {
             "rule": "1 <= длина && длина <= 4 && изЦифр",

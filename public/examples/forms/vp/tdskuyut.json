@@ -20,6 +20,8 @@
         "block": "text",
         "label": "Лицевой счёт",
         "labelWidth": 3,
+        "mask": "99?999",
+        "maskPlaceholder": "",
         "validationRules": [
           {
             "rule": "длина >= 2 && длина <= 5 && изЦифр",
