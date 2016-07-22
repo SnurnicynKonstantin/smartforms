@@ -90,7 +90,8 @@ $(function () {
     { path: 'forms/vp/pravoporjadokservice.json', name: 'ООО «Правопорядок-сервис», ИНН 7017282564' },
     { path: 'forms/vp/jekzhilischnik.json', name: 'ООО «ЖЭК-ЖИЛИЩНИК», ИНН 7017355212' },
     { path: 'forms/vp/ukcentralnaya217.json', name: 'ООО «УК Центральная», ИНН 7017192470' },
-    { path: 'forms/vp/ukcentralnaya470.json', name: 'ООО «УК Центральная», ИНН 7017196080' }
+    { path: 'forms/vp/ukcentralnaya470.json', name: 'ООО «УК Центральная», ИНН 7017196080' },
+    { path: 'forms/vp/jilservice224.json', name: 'ООО «Жилсервис «Кировский», ИНН 7017161224' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
