@@ -88,7 +88,9 @@ $(function () {
     { path: 'forms/vp/pravoporjadokt.json', name: 'ООО «ЧОО «ПРАВОПОРЯДОК-Т», ИНН 7017109721' },
     { path: 'forms/vp/pravoporjadok.json', name: 'ООО «ЧОО «ПРАВОПОРЯДОК», ИНН 7017032557' },
     { path: 'forms/vp/pravoporjadokservice.json', name: 'ООО «Правопорядок-сервис», ИНН 7017282564' },
-    { path: 'forms/vp/jekzhilischnik.json', name: 'ООО «ЖЭК-ЖИЛИЩНИК», ИНН 7017355212' }
+    { path: 'forms/vp/jekzhilischnik.json', name: 'ООО «ЖЭК-ЖИЛИЩНИК», ИНН 7017355212' },
+    { path: 'forms/vp/ukcentralnaya217.json', name: 'ООО «УК Центральная», ИНН 7017192470' },
+    { path: 'forms/vp/ukcentralnaya470.json', name: 'ООО «УК Центральная», ИНН 7017196080' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });
