@@ -63,6 +63,7 @@ export default class Container extends Base {
   }
 
   set value(val) {
+    // TODO implement this method
   }
 
   appendChild(block) {
@@ -75,7 +76,19 @@ export default class Container extends Base {
       block.on('showGlobalError', (e, errorMessage) => {
         this.trigger('showGlobalError', errorMessage);
       });
+      block.on('initValueRule', (e, block, valueRule) => {
+        this.onInitValueRule(block, valueRule);
+      });
+      block.initBlockValueRule();
     });
+  }
+
+  onInitValueRule(block, valueRule) {
+    this.trigger('initValueRule', [block, valueRule]);
+  }
+
+  initBlockValueRule() {
+    this.items.forEach(block => block.initBlockValueRule());
   }
 
   get items() {

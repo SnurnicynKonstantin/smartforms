@@ -125,6 +125,14 @@ export default class Base {
     this.trigger('show', this);
   }
 
+  initBlockValueRule() {
+    if (!this.config.valueRule) {
+      return;
+    }
+
+    this.trigger('initValueRule', [this, this.config.valueRule]);
+  }
+
   get isHidden() {
     return this._isHidden;
   }
@@ -190,12 +198,24 @@ export default class Base {
     return this.el;
   }
 
+  get disabledEl() {
+    return this.el;
+  }
+
   get focusEl() {
     return this.el;
   }
 
   focus() {
     this.focusEl.focus();
+  }
+
+  disable() {
+    this.disabledEl.prop('disabled', true);
+  }
+
+  enable() {
+    this.disabledEl.prop('disabled', false);
   }
 
   popover(opt) {

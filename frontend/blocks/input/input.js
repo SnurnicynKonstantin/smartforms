@@ -18,6 +18,7 @@ export default class Input extends Base {
     this._popoverEl = this.el.find(`#${this.id}`);
     this._focusEl = this.el.find(`#${this.id}`);
     this._errorEl = this.el.find('.controls');
+    this._disabledEl = this.el.find(`#${this.id}`);
     super.afterRender();
   }
 
@@ -31,6 +32,10 @@ export default class Input extends Base {
 
   get focusEl() {
     return this._focusEl;
+  }
+
+  get disabledEl() {
+    return this._disabledEl;
   }
 
   get value() {

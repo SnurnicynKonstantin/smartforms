@@ -92,7 +92,8 @@ $(function () {
     { path: 'forms/vp/ukcentralnaya217.json', name: 'ООО «УК Центральная», ИНН 7017192470' },
     { path: 'forms/vp/ukcentralnaya470.json', name: 'ООО «УК Центральная», ИНН 7017196080' },
     { path: 'forms/vp/jilservice224.json', name: 'ООО «Жилсервис «Кировский», ИНН 7017161224' },
-    { path: 'forms/vp/rctomsk.json', name: 'ООО «Томский Расчетный Центр»' }
+    { path: 'forms/vp/rctomsk.json', name: 'ООО «Томский Расчетный Центр»' },
+    { path: 'forms/vp/tgk11tomsk.json', name: 'АО "ТомскРТС" (Томский филиал АО "ТГК-11")' }
   ].forEach(function (provider) {
     $providersContainer.append(providerTemplate(provider));
   });

@@ -43,7 +43,8 @@ export default class Form extends Container {
     const summableContainers = [
       'array',
       'fieldset',
-      'table'
+      'table',
+      'radiogroupwithcontainers'
     ];
 
     block.value = parseFloat(block.config.summarize.reduce((acc, fieldName) => {
@@ -66,6 +67,18 @@ export default class Form extends Container {
 
       this.resolveDependencies(block, compiledDependencies);
     }
+  }
+
+  onInitValueRule(block, rule) {
+    const compiledValueRule = parser.parse(rule);
+
+    compiledValueRule.identifiers.forEach(identifier => {
+      const fieldName = identifier.split('.')[0];
+
+      this.getItemByName(fieldName).on('change', () => {
+        block.value = compiledValueRule.eval(this.context);
+      });
+    });
   }
 
   resolveDependencies(block, compiledDependencies) {

@@ -1,0 +1,227 @@
+{
+  "block": "modal",
+  "title": "АО \"ТомскРТС\" (Томский филиал АО \"ТГК-11\")",
+  "subtitle": "АО \"ТомскРТС\" (Томский филиал АО \"ТГК-11\")",
+  "imgUrl": "https://vp.ru/pay/resources/media/images/provider/logo/tgk11tomsk.jpg",
+  "iagree": {
+    "htmlLabel": "Я соглашаюсь с <a href=\"/legal-information/docs/\" target=\"_blank\">условиями<\/a> договора-оферты",
+    "checked": false
+  },
+  "submitButton": {
+    "label": "Перейти к оплате"
+  },
+  "help": {
+    "message": "Где посмотреть штрихкод?",
+    "helpTitle": "Штрихкод указан на вашей квитанции:",
+    "imageUrl": "https://vp.ru/resources/media/images/provider/receipt/receipt_tgk11tomsk.jpg"
+  },
+  "body": {
+    "form": {
+      "Штрихкод": {
+        "block": "text",
+        "label": "Штрихкод",
+        "labelWidth": 3,
+        "mask": "999-99-999999-9",
+        "maskPlaceholder": "_",
+        "value": "131-33-154012-3",
+        "disabled": true,
+        "validationRules": [
+          {
+            "rule": "обязательное",
+            "errorMessage": "Проверьте правильность введенного штрихкода квитанции. Штрихкод квитанции состоит из цифр и содержит 12 символов."
+          }
+        ]
+      },
+      "Плательщик": {
+        "block": "text",
+        "label": "Плательщик",
+        "labelWidth": 3,
+        "validationRules": [
+          {
+            "rule": "обязательное && русский",
+            "errorMessage": "Неверно введен плательщик(ФИО). Значение должно быть указано и состоять из русских букв."
+          }
+        ]
+      },
+      "Адрес": {
+        "block": "text",
+        "label": "Адрес",
+        "labelWidth": 3,
+        "value": "п.Зональная станция ул.40 лет Победы д. 3  кв. 44",
+        "disabled": true
+      },
+      "Вариант оплаты": {
+        "block": "radiogroupwithcontainers",
+        "labelWidth": 3,
+        "options": [
+          {
+            "name": "К оплате за отопление (1/12):<br><small>(с учётом общей задолженности)</small><br>",
+            "value": "1/12",
+            "checked": true
+          },
+          {
+            "name": "К оплате за отопление (Факт):<br><small>(с учётом общей задолженности)</small><br>",
+            "value": "Факт"
+          }
+        ],
+        "containerOptions": {
+          "1/12": [
+            {
+              "name": "1/12",
+              "block": "text",
+              "textAlign": "right",
+              "inputWidth": "138px",
+              "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+              "placeholder": 0
+            }
+          ],
+          "Факт": [
+            {
+              "name": "Факт",
+              "block": "text",
+              "textAlign": "right",
+              "inputWidth": "138px",
+              "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+              "placeholder": 0
+            }
+          ]
+        }
+      },
+      "div": {
+        "block": "divider"
+      },
+      "Порядковый номер прибора учёта1": {
+        "block": "label",
+        "labelText": "1"
+      },
+      "Порядковый номер прибора учёта2": {
+        "block": "label",
+        "labelText": "2"
+      },
+      "Предыдущие_показания1": {
+        "block": "text",
+        "value": "17.00",
+        "disabled": true,
+        "textAlign": "center",
+        "returnNumber": true
+      },
+      "Предыдущие_показания2": {
+        "block": "text",
+        "value": "3.00",
+        "disabled": true,
+        "textAlign": "center",
+        "returnNumber": true
+      },
+      "Текущие_показания1": {
+        "block": "text",
+        "textAlign": "center",
+        "returnNumber": true,
+        "validationRules": [
+          {
+            "rule": "Показания_приборов_учета.Текущие_показания1 > Показания_приборов_учета.Предыдущие_показания1",
+            "errorMessage": "Текущие показания не должны быть меньше предыдущих"
+          }
+        ]
+      },
+      "Текущие_показания2": {
+        "block": "text",
+        "textAlign": "center",
+        "returnNumber": true,
+        "validationRules": [
+          {
+            "rule": "Показания_приборов_учета.Текущие_показания1 > Показания_приборов_учета.Предыдущие_показания1",
+            "errorMessage": "Текущие показания не должны быть меньше предыдущих"
+          }
+        ]
+      },
+      "Расход1": {
+        "block": "text",
+        "value": "0",
+        "disabled": true,
+        "textAlign": "center",
+        "valueRule": "Показания_приборов_учета.Текущие_показания1 > Показания_приборов_учета.Предыдущие_показания1 && Показания_приборов_учета.Текущие_показания1 - Показания_приборов_учета.Предыдущие_показания1 || 0"
+      },
+      "Расход2": {
+        "block": "text",
+        "value": "0",
+        "disabled": true,
+        "textAlign": "center",
+        "valueRule": "Показания_приборов_учета.Текущие_показания2 > Показания_приборов_учета.Предыдущие_показания2 && Показания_приборов_учета.Текущие_показания2 - Показания_приборов_учета.Предыдущие_показания2 || 0"
+      },
+      "К оплате за ГВС": {
+        "label": "К оплате за ГВС",
+        "labelWidth": 3,
+        "block": "text",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "placeholder": 0
+      },
+      "Пени": {
+        "label": "Пени",
+        "labelWidth": 3,
+        "block": "text",
+        "textAlign": "right",
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "placeholder": 0
+      },
+      "Сумма": {
+        "block": "static",
+        "label": "Сумма",
+        "labelWidth": 3,
+        "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+        "validationRules": [
+          {
+            "rule": "5 <= Сумма && Сумма <= 13000",
+            "isGlobalError": true,
+            "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+          }
+        ],
+        "summarize": [
+          "Вариант оплаты",
+          "К оплате за ГВС",
+          "Пени"
+        ]
+      }
+    },
+    "schema": [
+      "Штрихкод",
+      "Плательщик",
+      "Адрес",
+      "Вариант оплаты",
+      "div",
+      {
+        "block": "table",
+        "label": "Введите показания приборов учёта",
+        "name": "Показания_приборов_учета",
+        "columnHeaders": [
+          "Порядковый номер прибора учёта",
+          "Предыдущие показания",
+          "Текущие показания",
+          "Расход"
+        ],
+        "layout": {
+          "columns": 4,
+          "width": [
+            3,
+            2,
+            2,
+            2
+          ]
+        },
+        "items": [
+          "Порядковый номер прибора учёта1",
+          "Предыдущие_показания1",
+          "Текущие_показания1",
+          "Расход1",
+          "Порядковый номер прибора учёта2",
+          "Предыдущие_показания2",
+          "Текущие_показания2",
+          "Расход2"
+        ]
+      },
+      "К оплате за ГВС",
+      "Пени",
+      "Сумма"
+    ]
+  }
+}
