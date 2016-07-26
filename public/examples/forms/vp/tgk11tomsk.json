@@ -52,6 +52,7 @@
       },
       "Вариант оплаты": {
         "block": "radiogroupwithcontainers",
+        "label": "Вариант оплаты",
         "labelWidth": 3,
         "options": [
           {
