@@ -20,6 +20,11 @@ export default class Input extends Base {
     this._errorEl = this.el.find('.controls');
     this._disabledEl = this.el.find(`#${this.id}`);
     super.afterRender();
+
+    this.el.find('a.new-form-link').on('click', e => {
+      e.preventDefault();
+      this.trigger('getNewForm', [this.config.newFormLink.formUrl]);
+    });
   }
 
   get templateFn() {

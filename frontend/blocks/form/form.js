@@ -26,6 +26,10 @@ export default class Form extends Container {
 
     this.formGlobalError = this.el.find('.form-global-error');
     this.on('showGlobalError', (e, errorMessage) => this.showError(errorMessage));
+    this.el.find('.form-header a.new-form-link').on('click', e => {
+      e.preventDefault();
+      this.trigger('getNewForm', [this.config.formHeaderNewFormLink.formUrl]);
+    });
   }
 
   initBlockSummarize(block) {

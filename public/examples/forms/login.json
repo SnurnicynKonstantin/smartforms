@@ -1,0 +1,59 @@
+{
+  "size": "sm",
+  "block": "modal",
+  "formHeader": "Вход",
+  "formHeaderNewFormLink": {
+    "formUrl": "http://localhost:3000/static/examples/forms/registration.json",
+    "text": "Регистрация",
+    "href": "#"
+  },
+  "submitButton": {
+    "label": "Войти",
+    "labelWidth": 8,
+    "cls": "btn-default",
+    "container": "body"
+  },
+  "body": {
+    "form": {
+      "email": {
+        "block": "input",
+        "placeholder": "электронная почта",
+        "validationRules": [
+          {
+            "rule": "email",
+            "errorMessage": "Адрес электронной почты неверен"
+          }
+        ]
+      },
+      "пароль": {
+        "block": "input",
+        "type": "password",
+        "placeholder": "пароль",
+        "newFormLink": {
+          "formUrl": "http://localhost:3000/static/examples/forms/forgot_password.json",
+          "text": "Напомнить",
+          "href": "#"
+        },
+        "validationRules": [
+          {
+            "rule": "обязательное && password",
+            "errorMessage": "Пароль должен содержать не менее 6 символов и содержать только латинские буквы, цифры и спецсимволы."
+          }
+        ]
+      }
+    },
+    "schema": [
+      {
+        "block": "fieldset",
+        "items": [
+          "email",
+          "пароль"
+        ],
+        "layout": [
+          1,
+          1
+        ]
+      }
+    ]
+  }
+}

@@ -8,4 +8,12 @@
   .right-mark {
     margin-left: 5px;
   }
+
+  .$(cls-prefix)-a.new-form-link {
+    position: absolute;
+    top: 11px;
+    right: 14px;
+    font-size: 13px;
+    border-bottom: 0;
+  }
 }

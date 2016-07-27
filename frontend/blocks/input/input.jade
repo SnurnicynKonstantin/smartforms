@@ -12,6 +12,11 @@ block inner
             placeholder=placeholder
             style=(inputWidth ? "width:#{inputWidth}" : undefined)
         )
+        if newFormLink
+            a.new-form-link(
+                href=newFormLink.href
+                class="#{_prefix}-a #{cls}"
+            ) !{newFormLink.text}
 
     if rightMark
         span.right-mark-input

@@ -29,6 +29,14 @@
       font-size: 20px;
       margin: 0;
     }
+
+    .new-form-link {
+      position: absolute;
+      right: 0;
+      top: 4px;
+      font-size: 13px;
+      border-bottom: 0;
+    }
   }
 
   .form-global-error {

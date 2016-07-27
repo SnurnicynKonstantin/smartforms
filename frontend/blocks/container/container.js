@@ -76,6 +76,9 @@ export default class Container extends Base {
       block.on('showGlobalError', (e, errorMessage) => {
         this.trigger('showGlobalError', errorMessage);
       });
+      block.on('getNewForm', (e, formUrl) => {
+        this.trigger('getNewForm', formUrl);
+      });
       block.on('initValueRule', (e, block, valueRule) => {
         this.onInitValueRule(block, valueRule);
       });

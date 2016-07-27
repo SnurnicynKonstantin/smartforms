@@ -4,5 +4,10 @@ form(
     if formHeader
         .form-header
             h2 #{formHeader}
+            if formHeaderNewFormLink
+                a.new-form-link(
+                    href=formHeaderNewFormLink.href
+                    class="#{_prefix}-a #{cls}"
+                ) !{formHeaderNewFormLink.text}
     .form-global-error
     .clearfix.form-content

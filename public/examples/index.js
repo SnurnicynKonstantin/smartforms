@@ -24,6 +24,7 @@ $(function () {
     { path: 'forms/modal.json', name: 'ОКС' },
     { path: 'forms/fines_modal.json', name: 'Оплата штрафов ГИБДД' },
     { path: 'forms/registration.json', name: 'Регистрация' },
+    { path: 'forms/login.json', name: 'Вход' },
     { path: 'forms/vp/zhilremservice.json', name: 'ООО «Жилремсервис», ИНН 7017095356' },
     { path: 'forms/vp/ukmoydomtomsk.json', name: 'ООО УК «Мой дом», ИНН 7017177224' },
     { path: 'forms/vp/jekzhilischnik710.json', name: 'ООО «ЖЭК-Жилищник», ИНН 7017363710' },

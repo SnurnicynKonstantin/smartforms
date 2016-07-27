@@ -11,13 +11,20 @@ import './modal.css';
 import cloneDeep from 'lodash/cloneDeep';
 import uniqueId from 'lodash/uniqueId';
 import parser from '../../services/parser';
+import configReader from '../../services/config_reader';
 import $ from 'jquery';
 
 export default class Modal extends Base {
   constructor(config) {
     const finalConfig = cloneDeep(config);
 
-    const iagreeContainer = finalConfig.iagree && finalConfig.iagree.container ? finalConfig.iagree.container : 'footer';
+    const iagreeContainer = (finalConfig.iagree && finalConfig.iagree.container)
+      ? finalConfig.iagree.container
+      : 'footer';
+
+    const submitButtonContainer = (finalConfig.submitButton && finalConfig.submitButton.container)
+      ? finalConfig.submitButton.container
+      : (iagreeContainer || 'footer');
 
     if (finalConfig.iagree) {
       finalConfig.iagreeId = uniqueId();
@@ -42,7 +49,7 @@ export default class Modal extends Base {
         id: finalConfig.submitButtonId,
         labelWidth: 3
       }, finalConfig.submitButton);
-      finalConfig[iagreeContainer].push(finalConfig.submitButton);
+      finalConfig[submitButtonContainer].push(finalConfig.submitButton);
     }
 
     super(finalConfig);
@@ -50,7 +57,8 @@ export default class Modal extends Base {
     this._bodyForm = new Form({
       block: 'form',
       items: this.config.body,
-      formHeader: this.config.formHeader
+      formHeader: this.config.formHeader,
+      formHeaderNewFormLink: this.config.formHeaderNewFormLink
     });
 
     this._footerForm = new Form({
@@ -124,6 +132,7 @@ export default class Modal extends Base {
         helpModal.on('hidden.bs.modal', () => helpModal.remove());
       });
     }
+    this._bodyForm.on('getNewForm', (e, formUrl) => this._onGetNewForm(formUrl));
   }
 
   _onSubmit(e) {
@@ -140,6 +149,26 @@ export default class Modal extends Base {
     if (isResolved) {
       this.modalTitle.html(title);
     }
+  }
+
+  _onGetNewForm(formUrl) {
+    $.get(formUrl, config => {
+      this.el.modal('hide');
+      this.el.on('hidden.bs.modal', () => {
+        const modal = new Modal(configReader.createModalConfig(config));
+
+        modal.render();
+
+        this.el.after(modal.el);
+
+        this.el.remove();
+
+        modal.afterRender();
+        modal.el.modal('show');
+
+        return modal;
+      });
+    });
   }
 }
 
