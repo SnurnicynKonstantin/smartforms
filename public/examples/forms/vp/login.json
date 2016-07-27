@@ -3,7 +3,7 @@
   "block": "modal",
   "formHeader": "Вход",
   "formHeaderNewFormLink": {
-    "formUrl": "/api/configs/registration.json",
+    "formUrl": "/api/configs/register.json",
     "text": "Регистрация",
     "href": "#"
   },
