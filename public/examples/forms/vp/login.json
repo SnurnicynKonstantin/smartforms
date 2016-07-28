@@ -3,7 +3,7 @@
   "block": "modal",
   "formHeader": "Вход",
   "formHeaderNewFormLink": {
-    "formUrl": "/api/configs/register.json",
+    "formUrl": "/api/configs/vp/register.json",
     "text": "Регистрация",
     "href": "#"
   },
@@ -30,7 +30,7 @@
         "type": "password",
         "placeholder": "пароль",
         "newFormLink": {
-          "formUrl": "/api/configs/forgot_password.json",
+          "formUrl": "/api/configs/vp/forgot_password.json",
           "text": "Напомнить",
           "href": "#"
         },
