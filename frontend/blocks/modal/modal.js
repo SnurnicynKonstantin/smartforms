@@ -164,6 +164,7 @@ export default class Modal extends Base {
         this.el.remove();
 
         modal.afterRender();
+        this.trigger('newModalHasBeenCreated', [modal.el]);
         modal.el.modal('show');
 
         return modal;
