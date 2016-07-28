@@ -166,8 +166,6 @@ export default class Modal extends Base {
         modal.afterRender();
         this.trigger('newModalHasBeenCreated', [modal.el]);
         modal.el.modal('show');
-
-        return modal;
       });
     });
   }
