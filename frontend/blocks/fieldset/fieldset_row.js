@@ -28,6 +28,18 @@ export default class FieldsetRow extends Container {
   }
 
   validate() {
+    if (this.config.validateOnlyFirstField) {
+      return this.items.every(block => {
+        const isValid = block.validate();
+
+        if (!isValid) {
+          this.firstInvalidField = block;
+        }
+
+        return isValid;
+      });
+    }
+
     return this.items.reduce((acc, block) => {
       const isValid = block.validate();
 

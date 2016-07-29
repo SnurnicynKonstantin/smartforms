@@ -22,6 +22,7 @@ export default class Fieldset extends Container {
     finalConfig.items = finalConfig.layout.map(rowConfig => {
       const result = {
         items: items.slice(start, start + rowConfig.count),
+        validateOnlyFirstField: config.validateOnlyFirstField,
         block: 'fieldsetRow',
         width: rowConfig.width
       };
@@ -65,6 +66,18 @@ export default class Fieldset extends Container {
   }
 
   validate() {
+    if (this.config.validateOnlyFirstField) {
+      return this.items.every(block => {
+        const isValid = block.validate();
+
+        if (!isValid) {
+          this.firstInvalidField = block;
+        }
+
+        return isValid;
+      });
+    }
+
     return this.items.reduce((acc, block) => {
       const isValid = block.validate();
 
