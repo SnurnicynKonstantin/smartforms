@@ -153,16 +153,14 @@ export default class Modal extends Base {
 
   _onGetNewForm(formUrl) {
     $.get(formUrl, config => {
+      const modal = new Modal(configReader.createModalConfig(config));
+
+      modal.render();
+
+      this.el.after(modal.el);
       this.el.modal('hide');
       this.el.on('hidden.bs.modal', () => {
-        const modal = new Modal(configReader.createModalConfig(config));
-
-        modal.render();
-
-        this.el.after(modal.el);
-
         this.el.remove();
-
         modal.afterRender();
         this.trigger('newModalHasBeenCreated', [modal.el]);
         modal.el.modal('show');
