@@ -58,13 +58,15 @@ export default class Modal extends Base {
       block: 'form',
       items: this.config.body,
       formHeader: this.config.formHeader,
-      formHeaderNewFormLink: this.config.formHeaderNewFormLink
+      formHeaderNewFormLink: this.config.formHeaderNewFormLink,
+      validateAllBlocks: this.config.validateAllBlocks
     });
 
     this._footerForm = new Form({
       block: 'form',
       cls: 'form form-horizontal',
-      items: this.config.footer
+      items: this.config.footer,
+      validateAllBlocks: this.config.validateAllBlocks
     });
   }
 

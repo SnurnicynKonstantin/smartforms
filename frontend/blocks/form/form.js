@@ -104,15 +104,27 @@ export default class Form extends Container {
   }
 
   validate() {
-    return this.items.every(block => {
+    if (!this.config.validateAllBlocks) {
+      return this.items.every(block => {
+        const isValid = block.isHidden || block.validate();
+
+        if (!isValid) {
+          block.focus();
+        }
+
+        return isValid;
+      });
+    }
+
+    return this.items.reduce((acc, block) => {
       const isValid = block.isHidden || block.validate();
 
-      if (!isValid) {
+      if (acc && !isValid) {
         block.focus();
       }
 
-      return isValid;
-    });
+      return isValid && acc;
+    }, true);
   }
 
   appendChild(block) {
