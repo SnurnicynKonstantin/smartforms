@@ -139,10 +139,13 @@ export default class Modal extends Base {
 
   _onSubmit(e) {
     e.preventDefault();
+    const isValid = this.validate();
 
-    if (this.validate()) {
+    if (isValid) {
       // submit form
     }
+
+    this.trigger('afterSubmit', [isValid, this.value]);
   }
 
   resolveTitleDependencies(title, compiledDependencies) {
