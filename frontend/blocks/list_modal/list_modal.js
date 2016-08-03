@@ -4,8 +4,6 @@ import Factory from '../factory';
 
 import cloneDeep from 'lodash/cloneDeep';
 
-import 'whatwg-fetch';
-
 export default class ListModal extends Modal {
   constructor(config) {
     const finalConfig = configReader.createListModalConfig(cloneDeep(config));
@@ -14,6 +12,10 @@ export default class ListModal extends Modal {
     finalConfig.footer = [];
 
     super(finalConfig);
+  }
+
+  static prepareConfig(config) {
+    return cloneDeep(config);
   }
 
   initItems() {

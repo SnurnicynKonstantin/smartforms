@@ -16,6 +16,27 @@ import $ from 'jquery';
 
 export default class Modal extends Base {
   constructor(config) {
+    const finalConfig = Modal.prepareConfig(config);
+
+    super(finalConfig);
+
+    this._bodyForm = new Form({
+      block: 'form',
+      items: this.config.body,
+      formHeader: this.config.formHeader,
+      formHeaderNewFormLink: this.config.formHeaderNewFormLink,
+      validateAllBlocks: this.config.validateAllBlocks
+    });
+
+    this._footerForm = new Form({
+      block: 'form',
+      cls: 'form form-horizontal',
+      items: this.config.footer,
+      validateAllBlocks: this.config.validateAllBlocks
+    });
+  }
+
+  static prepareConfig(config) {
     const finalConfig = cloneDeep(config);
 
     const iagreeContainer = (finalConfig.iagree && finalConfig.iagree.container)
@@ -65,22 +86,7 @@ export default class Modal extends Base {
       finalConfig[submitButtonContainer].push(finalConfig.submitButton);
     }
 
-    super(finalConfig);
-
-    this._bodyForm = new Form({
-      block: 'form',
-      items: this.config.body,
-      formHeader: this.config.formHeader,
-      formHeaderNewFormLink: this.config.formHeaderNewFormLink,
-      validateAllBlocks: this.config.validateAllBlocks
-    });
-
-    this._footerForm = new Form({
-      block: 'form',
-      cls: 'form form-horizontal',
-      items: this.config.footer,
-      validateAllBlocks: this.config.validateAllBlocks
-    });
+    return finalConfig;
   }
 
   get templateFn() {
