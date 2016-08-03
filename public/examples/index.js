@@ -21,6 +21,7 @@ $(function () {
   var $providersContainer = $('#providers tbody');
 
   [
+    { path: 'forms/list_modal.json', name: 'Модальное окно с несколькими формами' },
     { path: 'forms/modal.json', name: 'ОКС' },
     { path: 'forms/fines_modal.json', name: 'Оплата штрафов ГИБДД' },
     { path: 'forms/registration.json', name: 'Регистрация' },

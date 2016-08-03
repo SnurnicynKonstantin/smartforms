@@ -23,6 +23,8 @@ import './blocks/check_group_list_item/check_group_list_item';
 import './blocks/image_group/image_group';
 
 import Modal from './blocks/modal/modal';
+import ListModal from './blocks/list_modal/list_modal';
+
 import Form from './blocks/form/form';
 
 import configReader from './services/config_reader';
@@ -41,7 +43,18 @@ function createForm(el, config) {
 }
 
 function createModal(el, config) {
-  const modal = new Modal(configReader.createModalConfig(config));
+  function getModalConfig(_config) {
+    return {
+      'modal': () => configReader.createModalConfig(_config),
+      'listModal': () => _config
+    }[_config.block];
+  }
+
+  const ModalCtor = {
+    'modal': Modal,
+    'listModal': ListModal
+  };
+  const modal = new ModalCtor[config.block](getModalConfig(config)());
 
   modal.render();
 

@@ -106,5 +106,13 @@ export default {
     finalConfig.footer = getItems(finalConfig.footer, footerJsonWithFormattedForm.form);
 
     return finalConfig;
+  },
+
+  createListModalConfig(config) {
+    const finalConfig = cloneDeep(config);
+
+    finalConfig.items = finalConfig.modals.map(modal => this.createModalConfig(modal).body);
+
+    return finalConfig;
   }
 };
