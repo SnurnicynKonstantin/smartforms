@@ -4,7 +4,7 @@
     (disabled ? " disabled" : ""))
 
     if showLabel
-        label.base-label.control-label(for=id, class=(labelWidth && "col-sm-#{labelWidth}")) #{label}
+        label.base-label.control-label(for=id, class=(labelWidth && "col-sm-#{labelWidth}"))= label
 
     .controls(class=(labelWidth && "col-sm-#{12 - labelWidth} ") + (labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"))
         block inner

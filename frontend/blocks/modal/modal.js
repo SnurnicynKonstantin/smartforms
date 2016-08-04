@@ -26,6 +26,10 @@ export default class Modal extends Base {
       ? finalConfig.submitButton.container
       : (iagreeContainer || 'footer');
 
+    const imageGroupContainer = (finalConfig.imageGroup && finalConfig.imageGroup.container)
+      ? finalConfig.imageGroup.container
+      : (iagreeContainer || 'footer');
+
     if (finalConfig.iagree) {
       finalConfig.iagreeId = uniqueId();
       finalConfig.iagree = Object.assign({
@@ -37,6 +41,15 @@ export default class Modal extends Base {
         labelWidth: 3
       }, finalConfig.iagree);
       finalConfig[iagreeContainer].push(finalConfig.iagree);
+    }
+
+    if (finalConfig.imageGroup) {
+      finalConfig.imageGroupId = uniqueId();
+      finalConfig.imageGroup = Object.assign({
+        block: 'imageGroup',
+        id: uniqueId()
+      }, finalConfig.imageGroup);
+      finalConfig[imageGroupContainer].push(finalConfig.imageGroup);
     }
 
     if (finalConfig.submitButton) {

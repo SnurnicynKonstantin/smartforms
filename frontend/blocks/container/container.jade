@@ -3,7 +3,7 @@
         label.container-label.control-label(
             class=(labelWidth && "col-sm-#{labelWidth}")
             for=id
-        ) #{label}
+        )= label
     div(class=[
         labelWidth && "col-sm-#{12 - labelWidth}",
         labelWidth && !showLabel && "col-sm-offset-#{labelWidth}"

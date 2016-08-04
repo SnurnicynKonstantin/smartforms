@@ -48,7 +48,8 @@ export default class Form extends Container {
       'array',
       'fieldset',
       'table',
-      'radiogroupwithcontainers'
+      'radioGroupWithContainers',
+      'checkGroupList'
     ];
 
     block.value = parseFloat(block.config.summarize.reduce((acc, fieldName) => {

@@ -2,7 +2,7 @@
   "cls": "form",
   "form": {
     "Вариант оплаты": {
-      "block": "radiogroupwithcontainers",
+      "block": "radioGroupWithContainers",
       "labelWidth": 3,
       "options": [
         {

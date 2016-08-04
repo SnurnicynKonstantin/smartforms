@@ -51,7 +51,7 @@
         "disabled": true
       },
       "Вариант оплаты": {
-        "block": "radiogroupwithcontainers",
+        "block": "radioGroupWithContainers",
         "label": "Вариант оплаты",
         "labelWidth": 3,
         "options": [

@@ -103,4 +103,4 @@ export default class RadioGroupWithContainers extends RadioGroup {
   }
 }
 
-Factory.register('radiogroupwithcontainers', RadioGroupWithContainers);
+Factory.register('radioGroupWithContainers', RadioGroupWithContainers);

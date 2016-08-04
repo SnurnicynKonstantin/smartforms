@@ -20,14 +20,15 @@ mixin buttonClose
                 .modal-header
                     +buttonClose
 
-                    .header-wrap
-                        .header-image
-                            span
-                                img(src=imgUrl)
+                    .header-wrap(class=imgUrl ? "" : "without-image")
+                        if imgUrl
+                            .header-image
+                                span
+                                    img(src=imgUrl)
 
                         .header-title
-                            h4.title #{title}
-                            h5.subtitle #{subtitle}
+                            h4.title= title
+                            h5.subtitle= subtitle
 
             .modal-body
                 if !title
@@ -37,7 +38,7 @@ mixin buttonClose
                     a.g-link-dashed(
                         data-toggle="modal"
                         data-target="#help_modal_#{id}"
-                    ) #{help.message}
+                    )= help.message
 
             if footer.length
                 .modal-footer

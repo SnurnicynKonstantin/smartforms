@@ -58,6 +58,15 @@ $modal-subtitle-color: #9E9E9E;
     position: relative;
     height: $modal-header-height;
     padding-left: calc($modal-header-height + 20px);
+
+    &.without-image {
+      height: auto;
+      padding: 0;
+
+      .header-title {
+        height: auto;
+      }
+    }
   }
 
   .header-image,
