@@ -21,11 +21,11 @@ $(function () {
   var $providersContainer = $('#providers tbody');
 
   [
-    { path: 'forms/list_modal.json', name: 'Модальное окно с несколькими формами' },
     { path: 'forms/modal.json', name: 'ОКС' },
     { path: 'forms/fines_modal.json', name: 'Оплата штрафов ГИБДД' },
     { path: 'forms/registration.json', name: 'Регистрация' },
     { path: 'forms/login.json', name: 'Вход' },
+    { path: 'forms/cart_first_step.json', name: 'Корзина первый шаг' },
     { path: 'forms/cart.json', name: 'Корзина второй шаг' },
     { path: 'forms/vp/zhilremservice.json', name: 'ООО «Жилремсервис», ИНН 7017095356' },
     { path: 'forms/vp/ukmoydomtomsk.json', name: 'ООО УК «Мой дом», ИНН 7017177224' },
