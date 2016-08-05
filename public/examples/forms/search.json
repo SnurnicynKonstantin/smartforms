@@ -1,0 +1,17 @@
+{
+  "cls": "form",
+  "form": {
+    "search": {
+      "block": "search",
+      "url": "http://vseplatezhi.makeidea.ru/ajax/suppliers/search.html",
+      "settings": {
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      }
+    }
+  },
+  "schema": [
+    "search"
+  ]
+}
