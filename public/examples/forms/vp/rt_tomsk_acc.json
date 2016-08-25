@@ -10,11 +10,11 @@
   "titleDependencies": [
     {
       "title": "ОАО «Ростелеком», г. Томск, Номер телефона",
-      "dependencies": "Тип == '1'"
+      "dependencies": "Тип == \"1\""
     },
     {
       "title": "ОАО «Ростелеком», г. Томск, Лицевой счет",
-      "dependencies": "Тип == '2'"
+      "dependencies": "Тип == \"2\""
     }
   ],
   "submitButton": {
@@ -57,13 +57,13 @@
             "errorMessage": "Проверьте правильность введенного лицевого счета. Лицевой счет состоит из цифр и содержит от 1 до 20 символов."
           }
         ],
-        "dependencies": "Тип == '2'"
+        "dependencies": "Тип == \"2\""
       },
       "Номер телефона": {
         "label": "Номер телефона",
         "labelWidth": 3,
         "block": "text",
-        "dependencies": "Тип == '1'",
+        "dependencies": "Тип == \"1\"",
         "mask": "+7 (3822) 999999",
         "placeholder": "+7 (3822) ______",
         "validationRules": [
