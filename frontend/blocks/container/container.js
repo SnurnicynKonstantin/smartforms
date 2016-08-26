@@ -35,7 +35,16 @@ export default class Container extends Base {
   }
 
   getItemByName(name) {
-    return this.items.find(item => item.name === name);
+    let itemInContainer = false;
+    const block = this.items.find(item => {
+      if (item.isContainer()) {
+        itemInContainer = item.getItemByName(name);
+      }
+
+      return item.name === name || itemInContainer;
+    });
+
+    return itemInContainer || block;
   }
 
   getItemByAlias(alias) {
@@ -63,7 +72,16 @@ export default class Container extends Base {
   }
 
   set value(val) {
-    // TODO implement this method
+    Object.keys(val)
+      .forEach(fieldName => {
+        const field = this.getItemByName(fieldName);
+
+        if (!field) {
+          return;
+        }
+
+        field.value = val[fieldName];
+      });
   }
 
   appendChild(block) {
@@ -96,5 +114,9 @@ export default class Container extends Base {
 
   get items() {
     return this._items;
+  }
+
+  isContainer() {
+    return true;
   }
 }

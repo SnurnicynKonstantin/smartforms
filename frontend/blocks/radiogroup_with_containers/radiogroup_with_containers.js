@@ -49,7 +49,12 @@ export default class RadioGroupWithContainers extends RadioGroup {
   }
 
   set value(val) {
-    // TODO implement this method
+    this.el.find(`input[name="${this.config.name}"][value="${val[this.config.name]}"]`).prop('checked', true).change();
+    this._radioButtons.trigger('refresh');
+
+    Object.keys(val).filter(fieldName => fieldName !== this.config.name).forEach(fieldName => {
+      this.activeContainer.getItemByName(fieldName).value = val[fieldName];
+    });
   }
 
   get activeContainer() {

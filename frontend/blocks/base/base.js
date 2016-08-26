@@ -253,4 +253,8 @@ export default class Base {
   removeErrorClass() {
     this.errorEl.removeClass('has-error');
   }
+
+  isContainer() {
+    return false;
+  }
 }

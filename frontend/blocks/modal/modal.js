@@ -102,6 +102,19 @@ export default class Modal extends Base {
     return Object.assign(this._bodyForm.value, this._footerForm.value);
   }
 
+  set value(value) {
+    Object.keys(value)
+      .forEach(fieldName => {
+        const field = this._bodyForm.getItemByName(fieldName) || this._footerForm.getItemByName(fieldName);
+
+        if (!field) {
+          return;
+        }
+
+        field.value = value[fieldName];
+      });
+  }
+
   render() {
     super.render();
 
