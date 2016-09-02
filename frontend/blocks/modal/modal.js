@@ -2,6 +2,7 @@ import Base from '../base/base';
 import Factory from '../factory';
 
 import Form from '../form/form';
+import PanelGroup from '../panel_group/panel_group';
 
 import template from './modal.jade';
 import helpTemplate from './help_modal.jade';
@@ -67,14 +68,20 @@ export default class Modal extends Base {
 
     super(finalConfig);
 
-    this._bodyForm = new Form({
-      block: 'form',
-      items: this.config.body,
-      formHeader: this.config.formHeader,
-      formHeaderNewFormLink: this.config.formHeaderNewFormLink,
-      validateAllBlocks: this.config.validateAllBlocks
-    });
-
+    if (!this.config.isPanelGroup) {
+      this._bodyForm = new Form({
+        block: 'form',
+        items: this.config.body,
+        formHeader: this.config.formHeader,
+        formHeaderNewFormLink: this.config.formHeaderNewFormLink,
+        validateAllBlocks: this.config.validateAllBlocks
+      });
+    } else {
+      this._bodyForm = new PanelGroup({
+        block: 'panelGroup',
+        items: this.config.body
+      });
+    }
     this._footerForm = new Form({
       block: 'form',
       cls: 'form form-horizontal',

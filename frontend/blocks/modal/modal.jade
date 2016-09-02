@@ -30,7 +30,7 @@ mixin buttonClose
                             h4.title= title
                             h5.subtitle= subtitle
 
-            .modal-body
+            .modal-body(class=isPanelGroup ? "with-panel-group" : "")
                 if !title
                     +buttonClose
             if help

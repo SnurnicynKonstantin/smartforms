@@ -248,6 +248,10 @@ $modal-subtitle-color: #9E9E9E;
       padding: 40px 48px;
     }
   }
+
+  .modal-body.with-panel-group {
+    padding: 0;
+  }
 }
 
 
