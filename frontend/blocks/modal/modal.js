@@ -168,6 +168,7 @@ export default class Modal extends Base {
       });
     }
     this._bodyForm.on('getNewForm', (e, formUrl) => this._onGetNewForm(formUrl));
+    this._bodyForm.on('afterSubmit', (e, isValid, formValue, panelName) => this.trigger('afterSubmit', [isValid, formValue, panelName]))
   }
 
   _onSubmit(e) {

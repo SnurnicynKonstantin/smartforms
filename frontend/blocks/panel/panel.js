@@ -73,7 +73,7 @@ export default class Panel extends Base {
       // submit form
     }
 
-    this.trigger('afterSubmit', [isValid, this.form.value]);
+    this.trigger('afterSubmit', [isValid]);
   }
 }
 

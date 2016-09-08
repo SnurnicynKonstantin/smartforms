@@ -10,6 +10,8 @@ export default class PanelGroup extends Container {
 
   afterRender() {
     super.afterRender();
+
+    this.items.forEach(panel => panel.on('afterSubmit', (e, isValid) => this.trigger('afterSubmit', [isValid, panel.form.value, panel.config.name])));
   }
 
   appendChild(block) {
