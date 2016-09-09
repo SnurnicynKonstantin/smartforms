@@ -62,7 +62,7 @@ export default class Panel extends Base {
 
   _onRemove(e) {
     this.el.remove();
-    this.trigger('afterRemove', [this.config]);
+    this.trigger('afterRemove');
   }
 
   _onSubmit(e) {
