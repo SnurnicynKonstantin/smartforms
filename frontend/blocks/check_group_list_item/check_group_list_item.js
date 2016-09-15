@@ -9,10 +9,11 @@ export default class CheckGroupListItem extends Checkbox {
   }
 
   get value() {
-    return {
-      [this.config.name]: this.el.find('.item-price').html(),
-      checked: this._checkboxWrapper.prop('checked')
-    };
+    if (this._checkboxWrapper.prop('checked')) {
+      return {
+          [this.config.name]: this.el.find('.item-price').html()
+      };
+    }
   }
 
   afterRender() {

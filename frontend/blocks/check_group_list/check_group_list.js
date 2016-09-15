@@ -32,10 +32,6 @@ export default class CheckGroupList extends Container {
     return this.items.reduce((acc, block) => {
       const value = block.value || {};
 
-      if (!value.checked) {
-        return acc;
-      }
-
       return acc + (parseFloat(value[block.name]) || 0);
     }, 0);
   }
