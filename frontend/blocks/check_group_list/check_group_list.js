@@ -30,9 +30,7 @@ export default class CheckGroupList extends Container {
 
   get value() {
     return {
-      [this.config.name]: this.items.map(function(block) {
-        return block.value;
-      })
+      [this.config.name]: this.items.map(block => block.value)
     };
   }
 
