@@ -29,14 +29,10 @@ export default class CheckGroupList extends Container {
   }
 
   get value() {
-    const result = [];
-
-    this.items.forEach(block => {
-      result.push(block.value);
-    });
-
     return {
-      [this.config.name]: result
+      [this.config.name]: this.items.map(function(block) {
+        return block.value;
+      })
     };
   }
 
