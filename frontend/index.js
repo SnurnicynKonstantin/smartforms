@@ -21,6 +21,7 @@ import './blocks/radiogroup_with_containers/radiogroup_with_containers';
 import './blocks/check_group_list/check_group_list';
 import './blocks/check_group_list_item/check_group_list_item';
 import './blocks/image_group/image_group';
+import './blocks/image/image';
 import './blocks/panel/panel';
 import './blocks/panel_group/panel_group';
 

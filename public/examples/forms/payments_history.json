@@ -1,0 +1,63 @@
+{
+  "cls": "form",
+  "form": {
+    "date": {
+      "block": "static",
+      "textAlign": "left",
+      "value": "20 сентября 2016, 13:47"
+    },
+    "logo" : {
+      "block" : "image",
+      "src" : "https://vp.ru/storage/c/2015/04/17/1460427699_652385_25.png"
+    },
+    "name" : {
+      "block": "static",
+      "textAlign": "left",
+      "value": "Название провайдера"
+    },
+    "sum" : {
+      "block" : "static",
+      "textAlign": "left",
+      "label": "Сумма",
+      "value": 563,
+      "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>"
+    },
+    "copy" : {
+      "block": "button",
+      "glyphicon": "refresh",
+      "cls": "btn-link"
+    },
+    "print" : {
+      "block": "button",
+      "glyphicon": "print",
+      "cls": "btn-link"
+    }
+  },
+  "schema": [
+    {
+      "name": "payment",
+      "block": "fieldset",
+      "items": [
+        "date",
+        "logo",
+        "name",
+        "sum",
+        "copy",
+        "print"
+      ],
+      "layout": [
+        {
+          "count": 6,
+          "width": [
+            3,
+            1,
+            5,
+            1,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}
