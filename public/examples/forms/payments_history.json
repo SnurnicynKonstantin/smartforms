@@ -9,8 +9,8 @@
     "logo" : {
       "block" : "image",
       "src" : "https://vp.ru/storage/c/2015/04/17/1460427699_652385_25.png",
-      "maxWidth" : 30,
-      "maxHeight" : 30
+      "maxWidth" : 25,
+      "maxHeight" : 25
     },
     "name" : {
       "block": "static",
@@ -38,8 +38,22 @@
   "schema": [
     {
       "name": "payment",
-      "block": "fieldset",
+      "block": "table",
+      "columnHeaders" : [
+        "Дата",
+        "",
+        "Провайдер",
+        "Сумма",
+        "",
+        ""
+      ],
       "items": [
+        "date",
+        "logo",
+        "name",
+        "sum",
+        "copy",
+        "print",
         "date",
         "logo",
         "name",
@@ -47,19 +61,17 @@
         "copy",
         "print"
       ],
-      "layout": [
-        {
-          "count": 6,
-          "width": [
-            3,
-            1,
-            5,
-            1,
-            1,
-            1
-          ]
-        }
-      ]
+      "layout": {
+        "columns": 6,
+        "width": [
+          3,
+          1,
+          5,
+          1,
+          1,
+          1
+        ]
+      }
     }
   ]
 }
