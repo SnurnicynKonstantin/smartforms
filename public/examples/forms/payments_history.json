@@ -8,7 +8,9 @@
     },
     "logo" : {
       "block" : "image",
-      "src" : "https://vp.ru/storage/c/2015/04/17/1460427699_652385_25.png"
+      "src" : "https://vp.ru/storage/c/2015/04/17/1460427699_652385_25.png",
+      "maxWidth" : 50,
+      "maxHeight" : 50
     },
     "name" : {
       "block": "static",

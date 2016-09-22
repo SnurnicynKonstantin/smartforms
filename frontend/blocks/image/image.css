@@ -1,4 +1,5 @@
+@import "../../styles/_variables.css";
+
 .$(cls-prefix)-image {
-    max-width: 50px;
-    max-height: 50px;
+    text-align: center;
 }
