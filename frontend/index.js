@@ -16,6 +16,7 @@ import './blocks/radiogroup/radiogroup';
 import './blocks/comment/comment';
 import './blocks/link/link';
 import './blocks/table/table';
+import './blocks/flex-table/flex-table';
 import './blocks/radiogroup_with_containers/radiogroup_container';
 import './blocks/radiogroup_with_containers/radiogroup_with_containers';
 import './blocks/check_group_list/check_group_list';

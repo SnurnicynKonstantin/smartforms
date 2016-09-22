@@ -1,0 +1,18 @@
+@import "../../styles/_variables.css";
+
+.$(cls-prefix)-flex-table_row {
+    display: flex;
+    width: 100%;
+    align-content: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.$(cls-prefix)-flex-table_row__element {
+    flex-grow: 1;
+    border-width: 2px;
+    text-align: center;
+    border-color: black;
+    border-style: solid;
+}

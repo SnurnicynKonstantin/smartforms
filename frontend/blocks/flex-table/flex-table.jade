@@ -1,0 +1,6 @@
+.flex-table
+    div(class="#{_prefix}-flex-table")
+        each row in rows
+            div(class="#{_prefix}-flex-table_row")
+                each element in row.elements
+                        div(class="#{_prefix}-flex-table_row__element" style="flex-grow: #{element};")= element

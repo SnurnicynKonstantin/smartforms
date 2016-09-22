@@ -1,0 +1,37 @@
+{
+  "cls": "form",
+  "form" : {
+    "first" : {
+      "ex" : 1
+    },
+    "second" : {
+      "ex" : 2
+    }
+  },
+  "schema": [
+    {
+      "name": "flex-table",
+      "block" : "flex-table",
+      "rows":[
+        {
+          "elements" : [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "elements" : [
+            2,
+            2,
+            3
+          ]
+        }
+      ],
+      "items" : [
+        "first",
+        "first"
+      ]
+    }
+  ]
+}
