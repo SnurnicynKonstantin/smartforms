@@ -1,37 +1,53 @@
 {
   "cls": "form",
   "form" : {
-    "first" : {
-      "ex" : 1
-    },
-    "second" : {
-      "ex" : 2
-    }
   },
   "schema": [
     {
       "name": "flex-table",
       "block" : "flex-table",
       "rows":[
-        {
-          "elements" : [
-            1,
-            2,
-            3
-          ]
-        },
-        {
-          "elements" : [
-            2,
-            2,
-            3
-          ]
-        }
+        [
+          {
+            "block" : "label",
+            "labelText" : "Example one"
+          },
+          {
+            "block" : "label",
+            "labelText" : "Здесь должно быть очень много текста, поэтому я напишу всякую никому не нужную, но, в общем-то, понятную фигню"
+          },
+          {
+            "block" : "label",
+            "labelText" : "Example three"
+          }
+        ],
+        [
+          {
+            "block" : "label",
+            "labelText" : "Example one"
+          },
+          {
+            "block" : "label",
+            "labelText" : "Example two"
+          },
+          {
+            "block" : "label",
+            "labelText" : "Здесь должно быть очень много текста, поэтому я напишу всякую никому не нужную, но, в общем-то, понятную фигню"
+          }
+        ]
       ],
-      "items" : [
-        "first",
-        "first"
-      ]
+      "relations" : [
+        1,
+        3,
+        1
+      ],
+      "tableStyle" : {
+        "margin" : "10px 0px"
+      },
+      "rowStyle" : {
+        "flex-direction" : "row",
+        "justify-content" : "flex-end"
+      }
     }
   ]
 }

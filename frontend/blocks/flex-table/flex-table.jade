@@ -1,6 +1,6 @@
 .flex-table
-    div(class="#{_prefix}-flex-table")
-        each row in rows
-            div(class="#{_prefix}-flex-table_row")
-                each element in row.elements
-                        div(class="#{_prefix}-flex-table_row__element" style="flex-grow: #{element};")= element
+    div(class="#{_prefix}-flex-table" style=tableStyle)
+        each row, rowId in rows
+            div(class="#{_prefix}-flex-table_row" style=rowStyle)
+                each element, columnNum in row
+                        div(id="flexbox-item-#{rowId}-#{columnNum}" class="#{_prefix}-flex-table_row__element" style="flex-grow: #{relations[columnNum]};")

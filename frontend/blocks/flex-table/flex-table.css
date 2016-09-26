@@ -11,8 +11,7 @@
 
 .$(cls-prefix)-flex-table_row__element {
     flex-grow: 1;
-    border-width: 2px;
+    flex-basis: 0;
     text-align: center;
-    border-color: black;
-    border-style: solid;
+    margin: auto;
 }
