@@ -10,29 +10,29 @@
         [
           {
             "block" : "label",
-            "labelText" : "Example one"
+            "labelText" : "Example one one"
           },
           {
             "block" : "label",
-            "labelText" : "Здесь должно быть очень много текста, поэтому я напишу всякую никому не нужную, но, в общем-то, понятную фигню"
+            "labelText" : "It's the place for some long-long string, but i don't, what can i write here"
           },
           {
             "block" : "label",
-            "labelText" : "Example three"
+            "labelText" : "Example one three"
           }
         ],
         [
           {
             "block" : "label",
-            "labelText" : "Example one"
+            "labelText" : "Example two one"
           },
           {
             "block" : "label",
-            "labelText" : "Example two"
+            "labelText" : "Example two two"
           },
           {
             "block" : "label",
-            "labelText" : "Здесь должно быть очень много текста, поэтому я напишу всякую никому не нужную, но, в общем-то, понятную фигню"
+            "labelText" : "It's the place for some long-long string, but i don't, what can i write here"
           }
         ]
       ],
@@ -41,13 +41,8 @@
         3,
         1
       ],
-      "tableStyle" : {
-        "margin" : "10px 0px"
-      },
-      "rowStyle" : {
-        "flex-direction" : "row",
-        "justify-content" : "flex-end"
-      }
+      "objectsOrientation" : "vertical",
+      "reverse" : true
     }
   ]
 }
