@@ -15,7 +15,7 @@ export default class PanelGroup extends Container {
       panel.on('afterSubmitPanel', (e, isValid) => {
         this.trigger('afterSubmitPanel', [isValid, panel.form.value, panel.config.name]);
       });
-      panel.on('afterRemove', (e) => {
+      panel.on('afterRemove', () => {
         this.trigger('afterRemove', panel.config.name);
       });
     });
