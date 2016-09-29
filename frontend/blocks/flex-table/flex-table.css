@@ -10,7 +10,6 @@
     flex-direction: row;
     width: 100%;
     align-content: stretch;
-    flex-direction: row;
     flex-wrap: nowrap;
     align-items: stretch;
 }
