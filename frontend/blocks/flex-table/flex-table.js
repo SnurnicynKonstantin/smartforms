@@ -9,7 +9,7 @@ function createAndAppendStyle(params) {
   const style = document.createElement('style');
   style.type = 'text/css';
 
-  const styleContent = Object.keys(params).reduce(function (resultStyle, key) {
+  const styleContent = Object.keys(params).reduce((resultStyle, key) => {
     return resultStyle + `.${key}{${params[key]}}\n`;
   });
 
