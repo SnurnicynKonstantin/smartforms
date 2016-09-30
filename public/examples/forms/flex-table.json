@@ -41,8 +41,7 @@
         3,
         1
       ],
-      "objectsOrientation" : "vertical",
-      "reverse" : true
+      "orientation" : "vertical"
     }
   ]
 }

@@ -1,6 +1,14 @@
 .flex-table
-    div(class="#{_prefix}-flex-table")
+    if orientation && orientation == "vertical"
+        div(class="#{_prefix}-flex-table #{_prefix}-flex-table-vertical")
+    else
+        div(class="#{_prefix}-flex-table #{_prefix}-flex-table-horizontal")
+
         each row, rowId in rows
-            div(class="#{_prefix}-flex-table_row #{_prefix}-flex-table_row-#{rowId}")
+            if orientation && orientation == "vertical"
+                div(class="#{_prefix}-flex-table_row #{_prefix}-flex-table_row-#{rowId} #{_prefix}-flex-table_row-vertical")
+            else
+                div(class="#{_prefix}-flex-table_row #{_prefix}-flex-table_row-#{rowId} #{_prefix}-flex-table_row-horizontal")
+
                 each element, columnNum in row
                         div(class="#{_prefix}-flex-table_row__element #{_prefix}-flex-table_row__element-#{rowId}-#{columnNum} #{_prefix}-flex_row__column-#{columnNum}")
