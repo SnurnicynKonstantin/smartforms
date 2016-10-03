@@ -5,7 +5,7 @@
   "schema": [
     {
       "name": "flex-table",
-      "block" : "flex-table",
+      "block" : "flexTable",
       "rows":[
         [
           {

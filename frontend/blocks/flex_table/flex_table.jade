@@ -1,0 +1,14 @@
+mixin createTableContent(orientation, _prefix, rows)
+    each row, rowId in rows
+        div(class="#{_prefix}-flex-table_row #{_prefix}-flex-table_row-#{rowId} #{_prefix}-flex-table_row-#{orientation}")
+            each element, columnId in row
+                div(class="#{_prefix}-flex-table_row__element #{_prefix}-flex-table_row__element-#{rowId}-#{columnId} #{_prefix}-flex_row__column-#{columnId}")
+
+.flex-table
+    if orientation
+        div(class="#{_prefix}-flex-table #{_prefix}-flex-table-#{orientation}")
+            +createTableContent(orientation, _prefix, rows)
+    else
+        div(class="#{_prefix}-flex-table #{_prefix}-flex-table-vertical")
+            +createTableContent("vertical", _prefix, rows)
+
