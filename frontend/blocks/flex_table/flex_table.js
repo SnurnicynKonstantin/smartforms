@@ -9,9 +9,6 @@ function createAndAppendStyle(params) {
   style.type = 'text/css';
 
   style.innerHTML = Object.keys(params).reduce((resultStyle, key) => {
-    console.log(resultStyle);
-    console.log(key);
-
     return resultStyle + `\n.${key}{${params[key]}}\n`;
   },
   ''
