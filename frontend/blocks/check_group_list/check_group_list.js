@@ -28,6 +28,12 @@ export default class CheckGroupList extends Container {
     });
   }
 
+  get value() {
+    return {
+      [this.config.name]: this.items.map(block => block.value)
+    };
+  }
+
   get sum() {
     return this.items.reduce((acc, block) => {
       const value = block.value || {};
