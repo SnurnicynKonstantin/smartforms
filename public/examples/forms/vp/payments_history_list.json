@@ -1,0 +1,53 @@
+{
+  "cls": "form",
+  "form" : {
+  },
+  "schema": [
+    {
+      "name": "flex-table",
+      "block" : "flexTable",
+      "rows":[
+        [
+          {
+            "block" : "label",
+            "labelText" : "06 Октября 2016 10:37"
+          },
+          {
+            "block" : "label",
+            "labelText" : "img"
+          },
+          {
+            "block" : "label",
+            "labelText" : "ОАО \"ОМСКВОДОКАНАЛ\""
+          },
+          {
+            "block" : "label",
+            "labelText" : "Оплата прошла"
+          },
+          {
+            "block" : "label",
+            "labelText" : "264.81",
+            "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>"
+          },
+          {
+            "block": "button",
+            "glyphicon": "copy"
+          },
+          {
+            "block": "button",
+            "glyphicon": "print"
+          }
+        ]
+      ],
+      "relations" : [
+        2,
+        1,
+        4,
+        2,
+        1,
+        1,
+        1
+      ]
+    }
+  ]
+}
