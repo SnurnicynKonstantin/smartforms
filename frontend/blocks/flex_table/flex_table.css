@@ -2,6 +2,7 @@
 
 .flex-table {
     display: flex;
+    width: 100%;
 }
 
 .flex-table-vertical {
