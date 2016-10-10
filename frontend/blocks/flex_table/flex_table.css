@@ -1,38 +1,38 @@
 @import "../../styles/_variables.css";
 
-.$(cls-prefix)-flex-table {
+.flex-table {
     display: flex;
 }
 
-.$(cls-prefix)-flex-table-vertical {
+.flex-table-vertical {
     flex-direction: column;
 }
-.$(cls-prefix)-flex-table-horizontal {
+.flex-table-horizontal {
     flex-direction: row;
 }
 
-.$(cls-prefix)-flex-table_row-vertical {
+.flex-table_row-vertical {
     flex-direction: row;
 }
-.$(cls-prefix)-flex-table_row-horizontal {
+.flex-table_row-horizontal {
     flex-direction: column;
 }
 
-.$(cls-prefix)-flex-table-vertical-reverse {
+.flex-table-vertical-reverse {
     flex-direction: column-reverse;
 }
-.$(cls-prefix)-flex-table-horizontal-reverse {
+.flex-table-horizontal-reverse {
     flex-direction: row-reverse;
 }
 
-.$(cls-prefix)-flex-table_row-vertical-reverse {
+.flex-table_row-vertical-reverse {
     flex-direction: row-reverse;
 }
-.$(cls-prefix)-flex-table_row-horizontal-reverse {
+.flex-table_row-horizontal-reverse {
     flex-direction: column-reverse;
 }
 
-.$(cls-prefix)-flex-table_row {
+.flex-table_row {
     display: flex;
     width: 100%;
     align-content: stretch;
@@ -40,7 +40,7 @@
     align-items: stretch;
 }
 
-.$(cls-prefix)-flex-table_row__element {
+.flex-table_row__element {
     flex-grow: 1;
     flex-basis: 0;
     text-align: center;
