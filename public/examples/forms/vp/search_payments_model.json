@@ -1,0 +1,169 @@
+{
+  "cls": "form",
+  "form" : {
+  },
+  "schema": [
+    {
+      "name": "search_payments_panel",
+      "block" : "flexTable",
+      "_prefix" : "search_payments_panel_container",
+      "rows":[
+        [
+          {
+            "block" : "label",
+            "labelText" : "Статус"
+          },
+          {
+            "block": "select",
+            "name": "status",
+            "value": "01",
+            "values": [
+              {
+                "name": "Все",
+                "value": "01"
+              },
+              {
+                "name": "Не завершен",
+                "value": "02"
+              },
+              {
+                "name": "Оплата прошла",
+                "value": "03"
+              },
+              {
+                "name": "Возврат",
+                "value": "04"
+              },
+              {
+                "name": "Ошибка",
+                "value": "05"
+              }
+            ]
+          },
+          {
+            "block" : "label",
+            "labelText" : "Тип"
+          },
+          {
+            "block": "select",
+            "name": "type",
+            "value": "01",
+            "values": [
+              {
+                "name": "Платёж",
+                "value": "01"
+              },
+              {
+                "name": "Показания",
+                "value": "02"
+              }
+            ]
+          },
+          {
+            "block" : "label",
+            "labelText" : "Поставщик"
+          },
+          {
+            "block": "select",
+            "name": "provider",
+            "value": "01",
+            "values": [
+              {
+                "name": "Поставщик 1",
+                "value": "01"
+              },
+              {
+                "name": "Поставщик 2",
+                "value": "02"
+              },
+              {
+                "name": "Поставщик 3",
+                "value": "03"
+              },
+              {
+                "name": "Поставщик 4",
+                "value": "04"
+              },
+              {
+                "name": "Поставщик 5",
+                "value": "05"
+              },
+              {
+                "name": "Поставщик 6",
+                "value": "06"
+              },
+              {
+                "name": "Поставщик 7",
+                "value": "07"
+              }
+            ]
+          },
+          {
+            "block" : "label",
+            "labelText" : ""
+          }
+        ],
+        [
+          {
+            "block" : "label",
+            "labelText" : "С даты"
+          },
+          {
+            "block": "date",
+            "value": "10/08/2016"
+          },
+          {
+            "block" : "label",
+            "labelText" : "По дату"
+          },
+          {
+            "block": "date",
+            "value": "10.10.2016"
+          },
+          {
+            "block" : "label",
+            "labelText" : "Сумма: "
+          },
+          {
+            "block" : "flexTable",
+            "name" : "costFromTo",
+            "_prefix" : "search_payments_panel_costs",
+            "rows" : [
+              [
+                {
+                  "block": "input",
+                  "type": "text",
+                  "name": "sumFrom",
+                  "placeholder": "От"
+                },
+                {
+                  "block": "input",
+                  "type": "text",
+                  "name": "sumFrom",
+                  "placeholder": "До"
+                }
+              ]
+            ],
+            "relations" : [
+              1,
+              1
+            ]
+          },
+          {
+            "block" : "button",
+            "label" : "ПОКАЗАТЬ"
+          }
+        ]
+      ],
+      "relations" : [
+        1,
+        3,
+        1,
+        3,
+        2,
+        4,
+        2
+      ]
+    }
+  ]
+}
