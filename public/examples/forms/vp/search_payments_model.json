@@ -2,6 +2,9 @@
   "cls": "form",
   "form" : {
   },
+  "submitButton": {
+    "label": "ПОКАЗАТЬ"
+  },
   "schema": [
     {
       "name": "search_payments_panel",
@@ -133,14 +136,34 @@
                 {
                   "block": "input",
                   "type": "text",
-                  "name": "sumFrom",
-                  "placeholder": "От"
+                  "name": "sumMin",
+                  "placeholder": "От",
+                  "validationRules": [
+                    {
+                      "rule": "обязательное && число",
+                      "errorMessage": "Допустимы только цифры"
+                    },
+                    {
+                      "rule": "0 <= sumMin",
+                      "errorMessage": "Сумма не может быть отрицательной"
+                    }
+                  ]
                 },
                 {
                   "block": "input",
                   "type": "text",
-                  "name": "sumFrom",
-                  "placeholder": "До"
+                  "name": "sumMax",
+                  "placeholder": "До",
+                  "validationRules": [
+                    {
+                      "rule": "число",
+                      "errorMessage": "Допустимы только цифры"
+                    },
+                    {
+                      "rule": "sumMin <= sumMax",
+                      "errorMessage": "Значение должно быть больше минимального"
+                    }
+                  ]
                 }
               ]
             ],
@@ -151,6 +174,8 @@
           },
           {
             "block" : "button",
+            "type" : "submit",
+            "class": "btn-submit",
             "label" : "ПОКАЗАТЬ"
           }
         ]
