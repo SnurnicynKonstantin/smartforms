@@ -1,0 +1,201 @@
+{
+  "cls": "form",
+  "form": {
+    "lastname": {
+      "block": "input",
+      "type": "text",
+      "placeholder": "фамилия",
+      "name": "lastname",
+      "validationRules": [
+        {
+          "rule": "обязательное && русский",
+          "errorMessage": "Пожалуйста, заполните поле на русском языке без дополнительных символов."
+        }
+      ]
+    },
+    "firstname": {
+      "block": "input",
+      "type": "text",
+      "placeholder": "имя",
+      "validationRules": [
+        {
+          "rule": "обязательное && русский",
+          "errorMessage": "Пожалуйста, заполните поле на русском языке без дополнительных символов."
+        }
+      ]
+    },
+    "patronym": {
+      "block": "input",
+      "type": "text",
+      "placeholder": "отчество",
+      "validationRules": [
+        {
+          "rule": "обязательное && русский",
+          "errorMessage": "Пожалуйста, заполните поле на русском языке без дополнительных символов."
+        }
+      ]
+    },
+    "email": {
+      "block": "input",
+      "label": "Адрес электронной почты",
+      "placeholder": "email",
+      "disabled": true
+    },
+    "dateOfBirth": {
+      "label": "Дата рождения",
+      "block": "date",
+      "placeholder": "ДД/ММ/ГГГГ",
+      "disabled": true
+    },
+    "phone": {
+      "labelWidth": 3,
+      "inputWidth": "28%",
+      "block": "text",
+      "mask": "+7 999 999-99-99",
+      "label": "Моб. телефон",
+      "maskPlaceholder": "_",
+      "placeholder": "+7 ___ ___-__-__"
+    },
+    "region": {
+      "block": "select",
+      "values": [
+        {
+          "name": "Республика Адыгея",
+          "value": "adyg_resp"
+        },
+        {
+          "name": "Республика Алтай",
+          "value": "altay_resp"
+        },
+        {
+          "name": "Омская область",
+          "value": "omsk_oblast",
+          "selected": true
+        }
+      ]
+    },
+    "address": {
+      "block": "address",
+      "minLength": 3,
+      "highlight": true,
+      "label": "Адрес",
+      "labelWidth": 3,  
+      "layout": [
+        {"count": 1, "width": [9,3]},
+        {"count": 3, "width": [3,3,3]}
+      ],
+      "url": "https://dadata.ru/api/v2/suggest/address/",
+      "items": {
+        "address": {
+          "block": "input"
+        },
+        "house": {
+          "block": "input"
+        },
+        "additional": {
+          "block": "input"
+        },
+        "apartment": {
+          "block": "input"
+        }
+      }
+    },
+    "oldPassword": {
+      "block": "input",
+      "type": "password",
+      "placeholder": "старый пароль"
+    },
+    "newPassword": {
+      "block": "input",
+      "type": "password",
+      "placeholder": "новый пароль"
+    },
+    "confirmNewPassord": {
+      "block": "input",
+      "type": "password",
+      "placeholder": "новый пароль"
+    },
+    "div": {
+      "block": "divider"
+    },
+    "updates": {
+      "htmlLabel": "Согласен получать обновления",
+      "block": "checkbox",
+      "checked": true,
+      "labelWidth": 3,
+      "name": "updates"
+    },
+    "news": {
+      "htmlLabel": "Согласен получать новости и акции ",
+      "block": "checkbox",
+      "checked": true,
+      "labelWidth": 3,
+      "name": "news"
+    },
+    "okButton": {
+      "block": "button",
+      "label": "Сохранить изменения",
+      "labelWidth": 3,
+      "cls": "btn-primary",
+      "type": "submit"
+    }
+  },
+  "schema": [
+    {
+      "block": "fieldset",
+      "layout": [{"count": 4, "width": [3, 3, 3, 3]}],
+      "label": "Плательщик",
+      "labelWidth": 3,
+      "items": [
+        "lastname",
+        "firstname",
+        "patronym"
+      ]
+    },    
+    {
+      "block": "fieldset",
+      "layout": [{"count": 2, "width": [9, 3]}],
+      "label": "Адрес электронной почты",
+      "labelWidth": 3,
+      "items": [
+        "email"
+      ]
+    },
+    {
+      "block": "fieldset",
+      "layout": [{"count": 2, "width": [3, 9]}],
+      "label": "Дата рождения",
+      "labelWidth": 3,
+      "items": [
+        "dateOfBirth"
+      ]
+    },
+    "phone",
+    {
+      "block": "fieldset",
+      "layout": [{"count": 2, "width": [9, 3]}],
+      "label": "Регион",
+      "labelWidth": 3,
+      "items": [
+        "region"
+      ]
+    },
+    "address",
+    {
+      "block": "fieldset",
+      "layout": [{"count": 4, "width": [3, 3, 3, 3]}],
+      "label": "Сменить пароль",
+      "labelWidth": 3,
+      "items": [
+        "oldPassword",
+        "newPassword",
+        "confirmNewPassord"
+      ]
+    },
+    "div",
+    "updates",
+    "news",
+    "div",
+    "okButton"
+  ]
+}
