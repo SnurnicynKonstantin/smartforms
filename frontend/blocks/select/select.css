@@ -78,6 +78,7 @@ $jq-select-dropdown-clr: #fff;
   }
 
   .jq-selectbox {
+    z-index: 5 !important;
     &.focused .jq-selectbox__select {
       border-color: $jq-select-border-focus-clr;
     }

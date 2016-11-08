@@ -30,7 +30,7 @@ module.exports = {
     aggregateTimeout: 100
   },
 
-  devtool: (NODE_ENV !== 'development') ? 'cheap-inline-module-source-map' : null,
+  devtool: (NODE_ENV === 'development') ? 'cheap-inline-module-source-map' : null,
 
   plugins: [
     new ExtractTextPlugin('css/styles.css')
