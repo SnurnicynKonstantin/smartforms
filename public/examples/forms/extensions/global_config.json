@@ -1,0 +1,55 @@
+{
+  "Сумма": {
+    "block": "text",
+    "placeholder": "0",
+    "label": "Сумма2",
+    "labelWidth": 3,
+    "inputWidth": "200px",
+    "textAlign": "right",
+    "rightMark": "<span class=\"glyphicon glyphicon-ruble\" aria-hidden=\"true\" style=\"font-size: 11px\"><\/span>",
+    "validationRules": [
+      {
+        "rule": "число",
+        "errorMessage": "Неверно указана сумма."
+      },
+      {
+        "rule": "5 <= Сумма && Сумма <= 13000",
+        "errorMessage": "Сумма платежа не может быть меньше 5 руб. и больше 13 000 руб."
+      }
+    ]
+  },
+  "Containers": {
+    "block": "fieldset",
+    "layout": [{"count": 4, "width": [3, 3, 3, 3]}],
+    "label": "Плательщик",
+    "labelWidth": 3,
+    "items": [
+      "lastname",
+      "firstname",
+      "patronym"
+    ]
+  },
+  "lastname": {
+    "block": "input",
+    "type": "text",
+    "placeholder": "фамилия2",
+    "name": "lastname",
+    "validationRules": [
+      {
+        "rule": "обязательное && русский",
+        "errorMessage": "Пожалуйста, заполните поле на русском языке без дополнительных символов."
+      }
+    ]
+  },
+  "email_for_modal": {
+    "block": "input",
+    "placeholder": "электронная почта из global_config",
+    "validationRules": [
+      {
+        "rule": "email",
+        "errorMessage": "Такой почтовый адрес не зарегистрирован, либо пароль неверный. Если Вы уверены, что регистрировались на нашем сайте, но не помните пароль, то попробуйте его восстановить ниже по форме. Просто введите свой электронный адрес, и Вам на электронную почту придет ссылка. Пройдя по ссылке, Вы сможете ввести новый удобный для Вас пароль.",
+        "isGlobalError": true
+      }
+    ]
+  }
+}

@@ -1,11 +1,16 @@
 $(function () {
+  var $globalConfig;
+  $.get('forms/extensions/global_config.json', function (data) {
+    $globalConfig = data;
+  });
+
   $('.select-example').change(function () {
     $('.modal-container').hide();
     var el = $('.well form');
     var type = $(this).val();
 
     $.get('forms/' + type + '.json', function (data) {
-      window.form = smartforms.createForm(el, data);
+      window.form = smartforms.createForm(el, data, $globalConfig);
     });
   }).change();
 
@@ -25,6 +30,7 @@ $(function () {
     { path: 'forms/fines_modal.json', name: 'Оплата штрафов ГИБДД' },
     { path: 'forms/registration.json', name: 'Регистрация' },
     { path: 'forms/login.json', name: 'Вход' },
+    { path: 'forms/example_of_global_config_modal.json', name: 'Пример модального окна с глобальным конфигом' },
     { path: 'forms/cart_first_step.json', name: 'Корзина первый шаг' },
     { path: 'forms/cart.json', name: 'Корзина второй шаг' },
     { path: 'forms/vp/zhilremservice.json', name: 'ООО «Жилремсервис», ИНН 7017095356' },
@@ -107,7 +113,7 @@ $(function () {
     var $provider = $(this.closest('tr.provider'));
 
     $.get($provider.data('jsonPath'), function (data) {
-      window.modal = smartforms.createModal($provider.find('.modal-column .modal'), data);
+      window.modal = smartforms.createModal($provider.find('.modal-column .modal'), data, $globalConfig);
       $provider.find('.modal-column .modal').modal('show');
     });
   });

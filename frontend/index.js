@@ -30,8 +30,8 @@ import Form from './blocks/form/form';
 import configReader from './services/config_reader';
 import './services/mask_initializer';
 
-function createForm(el, config) {
-  const form = new Form(configReader.createFormConfig(config));
+function createForm(el, config, globalConfig) {
+  const form = new Form(configReader.createFormConfig(config, globalConfig));
 
   form.render();
 
@@ -42,8 +42,8 @@ function createForm(el, config) {
   return form;
 }
 
-function createModal(el, config) {
-  const modal = new Modal(configReader.createModalConfig(config));
+function createModal(el, config, globalConfig) {
+  const modal = new Modal(configReader.createModalConfig(config, globalConfig));
 
   modal.render();
 
