@@ -62,7 +62,7 @@ function configureFormItemsBySchema(items, config, globalConfigItemsArray) {
                 ? Object.assign({ name: containerItem }, formItemFromGlobalConfig)
                 : formItemFromGlobalConfig);
           }
-          
+
           return acc;
         }
 
