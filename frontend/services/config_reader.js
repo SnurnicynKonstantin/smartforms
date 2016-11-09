@@ -12,9 +12,9 @@ const fieldsetBlocks = [
  * @param  {object} form - form section of config with items as array
  * @return {array} configured items array
  */
-function getItems(config, form) {
+function getItems(config, form, globalConfigItemsArray) {
   if (Array.isArray(config.schema)) {
-    return configureFormItemsBySchema(config.schema, config);
+    return configureFormItemsBySchema(config.schema, config, globalConfigItemsArray);// Схема и весь конфиг
   }
 
   return configureFormItemsWithoutSchema(form);
@@ -44,12 +44,28 @@ function formatFormFieldsItemsToArray(form) {
  * @param  {object} config - schema section of json or container items array
  * @return {array} items for form creation
  */
-function configureFormItemsBySchema(items, config) {
+function configureFormItemsBySchema(items, config, globalConfigItemsArray) {
   return items.reduce((acc, containerItem) => {
     const formItem = config.form[containerItem];
 
     if (isString(containerItem)) {
       if (!formItem) {
+
+        const formItemFromGlobalConfig = globalConfigItemsArray[containerItem];
+        if (formItemFromGlobalConfig) { // If element there is in global config
+          if (formItemFromGlobalConfig.hasOwnProperty('items'))
+          {
+            formItemFromGlobalConfig.items = formItemFromGlobalConfig.items && configureFormItemsBySchema(formItemFromGlobalConfig.items, config, globalConfigItemsArray);
+            acc.push(formItemFromGlobalConfig);
+          } else {
+            acc.push(!fieldsetBlocks.includes(formItemFromGlobalConfig.block)
+                ? Object.assign({ name: containerItem }, formItemFromGlobalConfig)
+                : formItemFromGlobalConfig);
+          }
+
+          return acc;
+        }
+
         return acc;
       }
 
@@ -60,7 +76,7 @@ function configureFormItemsBySchema(items, config) {
       return acc;
     }
 
-    containerItem.items = containerItem.items && configureFormItemsBySchema(containerItem.items, config);
+    containerItem.items = containerItem.items && configureFormItemsBySchema(containerItem.items, config, globalConfigItemsArray);
 
     acc.push(containerItem);
 
@@ -81,11 +97,12 @@ function configureFormItemsWithoutSchema(form) {
 }
 
 export default {
-  createFormConfig(config) {
+  createFormConfig(config, globalConfig) {
     const finalConfig = cloneDeep(config);
 
+    const globalConfigItemsArray = formatFormFieldsItemsToArray(globalConfig);
     finalConfig.form = formatFormFieldsItemsToArray(finalConfig.form);
-    finalConfig.items = getItems(finalConfig, finalConfig.form);
+    finalConfig.items = getItems(finalConfig, finalConfig.form, globalConfigItemsArray);
 
     return finalConfig;
   },
