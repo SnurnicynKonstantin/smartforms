@@ -14,7 +14,7 @@ const fieldsetBlocks = [
  */
 function getItems(config, form, globalConfigItemsArray) {
   if (Array.isArray(config.schema)) {
-    return configureFormItemsBySchema(config.schema, config, globalConfigItemsArray);// Схема и весь конфиг
+    return configureFormItemsBySchema(config.schema, config, globalConfigItemsArray);
   }
 
   return configureFormItemsWithoutSchema(form);
@@ -26,7 +26,7 @@ function getItems(config, form, globalConfigItemsArray) {
  * @param  {object} form - form section of json
  * @return {object} finalForm - new form config which include items as array
  */
-function formatFormFieldsItemsToArray(form) {
+function formatFormFieldsItemsToArray(form = {}) {
   const finalForm = cloneDeep(form);
 
   Object.keys(finalForm)
@@ -47,41 +47,36 @@ function formatFormFieldsItemsToArray(form) {
 function configureFormItemsBySchema(items, config, globalConfigItemsArray) {
   return items.reduce((acc, containerItem) => {
     const formItem = config.form[containerItem];
-
-    if (isString(containerItem)) {
-      if (!formItem) {
-
-        const formItemFromGlobalConfig = globalConfigItemsArray[containerItem];
-        if (formItemFromGlobalConfig) { // If element there is in global config
-          if (formItemFromGlobalConfig.hasOwnProperty('items'))
-          {
-            formItemFromGlobalConfig.items = formItemFromGlobalConfig.items && configureFormItemsBySchema(formItemFromGlobalConfig.items, config, globalConfigItemsArray);
-            acc.push(formItemFromGlobalConfig);
-          } else {
-            acc.push(!fieldsetBlocks.includes(formItemFromGlobalConfig.block)
-                ? Object.assign({ name: containerItem }, formItemFromGlobalConfig)
-                : formItemFromGlobalConfig);
-          }
-
-          return acc;
-        }
-
-        return acc;
-      }
-
-      acc.push(!fieldsetBlocks.includes(formItem.block)
-        ? Object.assign({ name: containerItem }, formItem)
-        : formItem);
-
+    const globalFormItem = globalConfigItemsArray[containerItem];
+    if (!formItem && !globalFormItem && isString(containerItem)) {
       return acc;
     }
 
-    containerItem.items = containerItem.items && configureFormItemsBySchema(containerItem.items, config, globalConfigItemsArray);
+    if (!formItem && isString(containerItem)) {
+      return globalFormItem.items
+          ? pushContainer(acc, globalFormItem, config, globalConfigItemsArray)
+          : pushExtendedBlock(acc, globalFormItem, containerItem);
+    } else if (isString(containerItem)) {
+      return pushExtendedBlock(acc, formItem, containerItem);
+    }
 
-    acc.push(containerItem);
-
-    return acc;
+    return pushContainer(acc, containerItem, config, globalConfigItemsArray);
   }, []);
+}
+
+function pushExtendedBlock(acc, formItem, containerItem) {
+  acc.push(!fieldsetBlocks.includes(formItem.block)
+      ? Object.assign({ name: containerItem }, formItem)
+      : formItem);
+
+  return acc;
+}
+
+function pushContainer(acc, containerItem, config, globalConfigItemsArray) {
+  containerItem.items = containerItem.items && configureFormItemsBySchema(containerItem.items, config, globalConfigItemsArray);
+  acc.push(containerItem);
+
+  return acc;
 }
 
 /**
@@ -97,7 +92,7 @@ function configureFormItemsWithoutSchema(form) {
 }
 
 export default {
-  createFormConfig(config, globalConfig) {
+  createFormConfig(config, globalConfig = {}) {
     const finalConfig = cloneDeep(config);
 
     const globalConfigItemsArray = formatFormFieldsItemsToArray(globalConfig);
@@ -107,7 +102,7 @@ export default {
     return finalConfig;
   },
 
-  createModalConfig(config) {
+  createModalConfig(config, globalConfig = {}) {
     const finalConfig = cloneDeep(config);
 
     // allow users to create modal configuration without footer
@@ -115,12 +110,13 @@ export default {
 
     const bodyJsonWithFormatedForm = finalConfig.body;
     const footerJsonWithFormattedForm = finalConfig.footer;
+    const globalConfigItemsArray = formatFormFieldsItemsToArray(globalConfig);
 
     bodyJsonWithFormatedForm.form = formatFormFieldsItemsToArray(finalConfig.body.form);
-    finalConfig.body = getItems(finalConfig.body, bodyJsonWithFormatedForm.form);
+    finalConfig.body = getItems(finalConfig.body, bodyJsonWithFormatedForm.form, globalConfigItemsArray);
 
     footerJsonWithFormattedForm.form = formatFormFieldsItemsToArray(finalConfig.footer.form);
-    finalConfig.footer = getItems(finalConfig.footer, footerJsonWithFormattedForm.form);
+    finalConfig.footer = getItems(finalConfig.footer, footerJsonWithFormattedForm.form, globalConfigItemsArray);
 
     return finalConfig;
   }

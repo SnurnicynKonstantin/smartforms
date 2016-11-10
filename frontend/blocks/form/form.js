@@ -33,7 +33,7 @@ export default class Form extends Container {
     this.el.find('button[type=submit]').click(e => {
       e.preventDefault();
       const isValid = this.validate();
-      this.trigger('vpFormSubmit', [this.value, isValid]); 
+      this.trigger('vpFormSubmit', [this.value, isValid]);
     });
   }
 
